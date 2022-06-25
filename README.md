@@ -1,32 +1,37 @@
-# sc email templates
+# SealCred email template
 
 ## Installation
 
-`yarn add @big-whale-labs/sc-email` or `npm i @big-whale-labs/sc-email`
+`yarn add @big-whale-labs/seal-cred-email` or `npm i @big-whale-labs/seal-cred-email`
 
 ## How to Use
 
 ```ts
-import { MailgunTemplate } from 'ts-mailgun/dist/mailgun-template'
-import { NodeMailgun } from 'ts-mailgun'
-import { login } from '@big-whale-labs/sc-email'
+import { token } from '@big-whale-labs/seal-cred-email'
+import { createTransport } from 'nodemailer'
+import env from '@/helpers/env'
 
-const mailer = new NodeMailgun()
-mailer.apiKey = process.env.MAILGUN_KEY
-mailer.domain = process.env.MAILGUN_DOMAIN
-mailer.fromEmail = `sc@${mailer.domain}`
-mailer.fromTitle = 'sc'
-mailer.unsubscribeLink = false
-mailer.init()
+const user = env.SMTP_USER
+const pass = env.SMTP_PASS
 
-const template = new MailgunTemplate()
-template.subject = 'sc login link'
-template.body = login
+const emailer = createTransport({
+  host: 'box.mail.sealcred.xyz',
+  port: 465,
+  secure: true,
+  auth: {
+    user,
+    pass,
+  },
+})
 
-const email = 'awesome@sc.io'
-const variables = {}
-
-mailer.sendFromTemplate(email, template, variables)
+export default function (to: string, subject: string, html: string) {
+  return emailer.sendMail({
+    from: `"SealCred" <${user}>`,
+    to,
+    subject,
+    html: token,
+  })
+}
 ```
 
 ## Local launch
@@ -38,10 +43,10 @@ mailer.sendFromTemplate(email, template, variables)
 
 1. Run `yarn link` in the root folder, [more about yarn link](https://classic.yarnpkg.com/en/docs/cli/link)
 2. Run develop mode with `yarn start`
-3. **In another project**. Run `yarn link @big-whale-labs/sc-email`
-4. Nice! Your project will now use the local version of `@big-whale-labs/sc-email`
+3. **In another project**. Run `yarn link @big-whale-labs/seal-cred-email`
+4. Nice! Your project will now use the local version of `@big-whale-labs/seal-cred-email`
 
-## Available Scripts
+## Available scripts
 
 - `yarn start` — runs email templates in the development mode
 - `yarn build` — builds email templates for production to the `dist` folder
