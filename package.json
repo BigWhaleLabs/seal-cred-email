@@ -1,0 +1,80 @@
+{
+  "name": "@big-whale-labs/sc-email",
+  "version": "1.0.0",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "release": "np --no-publish",
+    "build-ts": "tsc --skipLibCheck",
+    "watch-ts": "tsc -w --skipLibCheck",
+    "build:dev": "maizzle build && yarn watch-ts",
+    "build": "maizzle build production && yarn build-ts",
+    "start": "concurrently -i -k -p \"[{name}]\" -n \"Node,TypeScript\" -c \"yellow.bold,cyan.bold\" \"maizzle serve\" \"yarn watch-ts\"",
+    "pretty": "prettier --check 'src/**/*.ts'",
+    "update": "yarn build && git add . && git commit -m 'update' && git push",
+    "lint": "yarn pretty && eslint --ext .ts,.tsx,.json --max-warnings 0 src"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "np": {
+    "2fa": false,
+    "tests": false,
+    "cleanup": false,
+    "yarn": false,
+    "contents": "dist"
+  },
+  "dependencies": {
+    "@maizzle/cli": "^1.4.0",
+    "@maizzle/framework": "^3.0.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.9.1",
+    "@typescript-eslint/parser": "^5.9.1",
+    "concurrently": "^6.3.0",
+    "eslint": "^8.6.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-no-relative-import-paths": "^1.1.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
+    "np": "^7.6.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4"
+  },
+  "_moduleAliases": {
+    "@": "dist"
+  },
+  "packageManager": "yarn@3.1.0",
+  "description": "SealCred email templates",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BigWhaleLabs/sc-email.git"
+  },
+  "keywords": [
+    "emails"
+  ],
+  "bugs": {
+    "url": "https://github.com/BigWhaleLabs/sc-email/issues"
+  },
+  "homepage": "https://github.com/BigWhaleLabs/sc-email#readme"
+}
