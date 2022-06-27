@@ -9,28 +9,13 @@ htmlClass: h-full
     <table class="w-full h-full font-sans">
       <tr>
         <td align="center" class="align-middle py-24">
-          <table class="w-600 sm:w-full">
+          <table class="max-w-700 sm:w-full">
             <tr>
               <td align="center" class="sm:px-24">
-                <table class="w-3/4 sm:w-full">
-                  <tr>
-                    <td class="p-32 sm:px-24 text-center">
-                      <p class="text-lg text-accent font-bold m-0">
-                        Your Dosu login link!
-                      </p>
-                      <p class="text-primary-text-dimmed text-base">
-                        Active for only 10 minutes
-                      </p>
-                      <div class="leading-24 sm:h-32">&zwnj;</div>
-                      <a
-                        href="@{{ loginUrl }}"
-                        class="inline-block py-20 px-24 text-sm leading-none no-underline text-white font-semibold uppercase rounded bg-blue-500 hover:bg-blue-600"
-                      >
-                        <span style="mso-text-raise: 13pt">Sign In</span>
-                      </a>
-                    </td>
-                  </tr>
-                  <component src="src/components/footer.html"></component>
+                <table class="sm:w-full">
+                  <component src="/src/components/header.html"></component>
+                  <component src="/src/components/secret.html"></component>
+                  <component src="/src/components/footer.html"></component>
                 </table>
               </td>
             </tr>

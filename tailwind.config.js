@@ -5,29 +5,25 @@ module.exports = {
       sm: { max: '600px' },
     },
     fontFamily: {
-      logo: 'Poppins',
-      primary: 'Manrope',
+      primary: ['"JetBrains Mono"', 'sans-serif'],
+      accent: ['"Space Grotesk"', 'sans-serif'],
     },
     extend: {
       corePlugins: {
         transform: true,
       },
       colors: {
-        primary: '#11142d',
-        'primary-dimmed': '#cc604a',
-        'primary-disabled': '#f4f6fa',
-        'primary-disabled-text': '#b2b7bb',
-        'primary-text-dimmed': '#777e90',
-        accent: '#f77052',
-        'accent-semi-transparent': 'rgba(247, 112, 82, 0.08)',
-        background: '#fefefd',
-        border: '#e6e8ec',
-        error: '#d20606',
-        success: '#45b26b',
+        accent: '#fed823',
+        secondary: '#ff7bed',
+        'formal-accent': '#efecd6',
+        'primary-dark': '#0d0030',
       },
       fontWeight: {
         medium: '500',
         bold: '700',
+      },
+      boxShadow: {
+        secondary: '0rem 0.25rem 2.75rem rgba(255 123 237 / 0.4)',
       },
       spacing: {
         screen: '100vw',
@@ -63,6 +59,7 @@ module.exports = {
         80: '80px',
         96: '96px',
         600: '600px',
+        700: '700px',
         '1/2': '50%',
         '1/3': '33.333333%',
         '2/3': '66.666667%',
