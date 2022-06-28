@@ -6,7 +6,7 @@
     "dist"
   ],
   "scripts": {
-    "release": "np --no-publish",
+    "release": "np",
     "build-ts": "tsc --skipLibCheck",
     "watch-ts": "tsc -w --skipLibCheck",
     "build:dev": "maizzle build && yarn watch-ts",
@@ -14,7 +14,8 @@
     "start": "concurrently -i -k -p \"[{name}]\" -n \"Node,TypeScript\" -c \"yellow.bold,cyan.bold\" \"maizzle serve\" \"yarn watch-ts\"",
     "pretty": "prettier --check 'src/**/*.ts'",
     "update": "yarn build && git add . && git commit -m 'update' && git push",
-    "lint": "yarn pretty && eslint --ext .ts,.tsx,.json --max-warnings 0 src"
+    "lint": "yarn pretty && eslint --ext .ts,.tsx,.json --max-warnings 0 src",
+    "prepublishOnly": "yarn build"
   },
   "eslintConfig": {
     "extends": [
