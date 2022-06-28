@@ -1,4 +1,4 @@
-name: Dosu frontend
+name: SealCred emails
 
 on:
   release:
