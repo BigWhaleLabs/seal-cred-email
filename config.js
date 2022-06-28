@@ -16,10 +16,6 @@ module.exports = {
       destination: {
         path: 'dist/templates',
       },
-      assets: {
-        source: 'src/assets/images',
-        destination: 'images',
-      },
     },
   },
   inlineCSS: {
