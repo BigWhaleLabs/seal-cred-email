@@ -6,7 +6,7 @@
     "dist"
   ],
   "scripts": {
-    "release": "np",
+    "release": "np --no-publish",
     "build-ts": "tsc --skipLibCheck",
     "watch-ts": "tsc -w --skipLibCheck",
     "build:dev": "maizzle build && yarn watch-ts",
