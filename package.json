@@ -1,6 +1,6 @@
 {
   "name": "@big-whale-labs/sc-email",
-  "version": "1.0.1",
+  "version": "0.0.1",
   "license": "MIT",
   "files": [
     "dist"
@@ -37,8 +37,7 @@
     "2fa": false,
     "tests": false,
     "cleanup": false,
-    "yarn": false,
-    "contents": "dist"
+    "yarn": false
   },
   "dependencies": {
     "@maizzle/cli": "^1.5.1",
