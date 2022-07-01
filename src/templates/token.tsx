@@ -28,8 +28,8 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
   return (
     <Mjml>
       <MjmlHead>
-        <MjmlTitle>Last Minute Offer</MjmlTitle>
-        <MjmlPreview>Last Minute Offer...</MjmlPreview>
+        <MjmlTitle>Here's your token!</MjmlTitle>
+        <MjmlPreview>Here's your token!</MjmlPreview>
         <MjmlFont
           name="Space Grotesk"
           href="https://fonts.googleapis.com/css2?family=Space+Grotesk"
@@ -61,7 +61,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
           <MjmlAll padding="0" />
         </MjmlAttributes>
         <MjmlStyle>{`
-            body {
+            .body {
               margin: 0;
               padding: 0 20px;
               -webkit-font-smoothing: antialiased;
@@ -76,7 +76,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             }
         `}</MjmlStyle>
       </MjmlHead>
-      <MjmlBody>
+      <MjmlBody cssClass="body" backgroundColor="#0d0030">
         <MjmlSection>
           <MjmlColumn paddingBottom="32px" paddingTop="32px">
             <MjmlText fontSize="18px" mjClass="font-primary" align="left">
