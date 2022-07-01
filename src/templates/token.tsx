@@ -21,7 +21,7 @@ const colors = {
   primaryDark: '#0d0030',
 }
 
-export const generate = ({ secret }: { secret: string }) => {
+export const generateTokenPage = ({ secret }: { secret: string }) => {
   return (
     <Mjml>
       <MjmlHead>

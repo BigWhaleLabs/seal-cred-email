@@ -7,7 +7,7 @@ const port = 3000
 const app = express()
 
 app.get('*', (req, res) => {
-  const { html } = render(token.generate({ secret: '906090' }), {
+  const { html } = render(token.generateTokenPage({ secret: '906090' }), {
     validationLevel: 'soft',
   })
   res.send(html)
