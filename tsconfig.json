@@ -16,6 +16,8 @@
     "paths": {
       "@/*": ["*"]
     },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strict": true
