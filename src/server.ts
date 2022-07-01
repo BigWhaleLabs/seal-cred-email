@@ -1,15 +1,11 @@
 import * as express from 'express'
-import { render } from 'mjml-react'
-
 import * as token from './templates/token'
 
 const port = 3000
 const app = express()
 
 app.get('*', (req, res) => {
-  const { html } = render(token.generateTokenPage({ secret: '906090' }), {
-    validationLevel: 'soft',
-  })
+  const { html } = token.generateTokenHtml({ secret: '906090' })
   res.send(html)
 })
 

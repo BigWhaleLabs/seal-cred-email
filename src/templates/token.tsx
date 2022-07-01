@@ -12,7 +12,10 @@ import {
   MjmlClass,
   MjmlAll,
   MjmlFont,
+  Mjml2HtmlOptions,
 } from 'mjml-react'
+
+import { render } from 'mjml-react'
 
 const colors = {
   accent: '#fed823',
@@ -21,7 +24,7 @@ const colors = {
   primaryDark: '#0d0030',
 }
 
-export const generateTokenPage = ({ secret }: { secret: string }) => {
+const generateTokenPage = ({ secret }: { secret: string }) => {
   return (
     <Mjml>
       <MjmlHead>
@@ -132,3 +135,10 @@ export const generateTokenPage = ({ secret }: { secret: string }) => {
     </Mjml>
   )
 }
+
+export const generateTokenHtml = (
+  { secret }: { secret: string },
+  options = {
+    validationLevel: 'soft',
+  } as Mjml2HtmlOptions
+) => render(generateTokenPage({ secret }), options)
