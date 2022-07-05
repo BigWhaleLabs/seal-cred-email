@@ -2,13 +2,13 @@
 
 ## Installation
 
-`yarn add @big-whale-labs/sc-email`
+`yarn add @big-whale-labs/seal-cred-email`
 
 ## How to Use
 
 ```ts
 import { createTransport } from 'nodemailer'
-import { token } from '@big-whale-labs/sc-email'
+import { token } from '@big-whale-labs/seal-cred-email'
 import env from '@/helpers/env'
 
 const user = env.SMTP_USER
@@ -43,8 +43,8 @@ export default function (to: string, subject: string, text: string) {
 
 1. Run `yarn link` in the root folder, [more about yarn link](https://classic.yarnpkg.com/en/docs/cli/link)
 2. Run develop mode with `yarn start`
-3. **In another project**. Run `yarn link @big-whale-labs/sc-email`
-4. Nice! Your project will now use the local version of `@big-whale-labs/sc-email`
+3. **In another project**. Run `yarn link @big-whale-labs/seal-cred-email`
+4. Nice! Your project will now use the local version of `@big-whale-labs/seal-cred-email`
 
 ## Available scripts
 
