@@ -1,18 +1,18 @@
 import {
   Mjml,
+  Mjml2HtmlOptions,
+  MjmlAll,
+  MjmlAttributes,
   MjmlBody,
+  MjmlClass,
   MjmlColumn,
+  MjmlFont,
   MjmlHead,
   MjmlPreview,
   MjmlSection,
   MjmlStyle,
   MjmlText,
   MjmlTitle,
-  MjmlAttributes,
-  MjmlClass,
-  MjmlAll,
-  MjmlFont,
-  Mjml2HtmlOptions,
 } from 'mjml-react'
 
 import { render } from 'mjml-react'

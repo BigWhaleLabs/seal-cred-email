@@ -2,13 +2,13 @@
 
 ## Installation
 
-`yarn add @big-whale-labs/seal-cred-email` or `npm i @big-whale-labs/seal-cred-email`
+`yarn add @big-whale-labs/seal-cred-email`
 
 ## How to Use
 
 ```ts
-import { token } from '@big-whale-labs/seal-cred-email'
 import { createTransport } from 'nodemailer'
+import { token } from '@big-whale-labs/seal-cred-email'
 import env from '@/helpers/env'
 
 const user = env.SMTP_USER
@@ -24,12 +24,12 @@ const emailer = createTransport({
   },
 })
 
-export default function (to: string, subject: string, html: string) {
+export default function (to: string, subject: string, text: string) {
   return emailer.sendMail({
     from: `"SealCred" <${user}>`,
     to,
     subject,
-    html: token,
+    html: token.replace('{{token}}', text),
   })
 }
 ```
