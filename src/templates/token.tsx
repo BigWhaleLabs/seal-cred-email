@@ -14,15 +14,24 @@ import {
   MjmlText,
   MjmlTitle,
 } from 'mjml-react'
-
 import { render } from 'mjml-react'
+import colors from '../styles/colors'
 
-const colors = {
-  accent: '#fed823',
-  secondary: '#ff7bed',
-  formal: '#efecd6',
-  primaryDark: '#0d0030',
+const css = `
+.body {
+  margin: 0;
+  padding: 0 20px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: ${colors.primaryDark};
+  background: conic-gradient(
+      from 90deg at 0.06rem 0.06rem,
+      ${colors.primaryDark} 90deg,
+      ${colors.primary} 0
+    )
+    0 0/3rem 3rem;
 }
+`
 
 const generateTokenPage = ({ secret }: { secret: string }) => {
   return (
@@ -39,16 +48,13 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
           href="https://fonts.googleapis.com/css2?family=JetBrains+Mono"
         />
         <MjmlAttributes>
-          <MjmlClass name="text-accent" color={colors['accent']} />
-          <MjmlClass name="text-secondary" color={colors['secondary']} />
-          <MjmlClass name="text-formal-accent" color={colors['formal']} />
-          <MjmlClass
-            name="bg-secondary"
-            backgroundColor={colors['secondary']}
-          />
+          <MjmlClass name="text-accent" color={colors.accent} />
+          <MjmlClass name="text-secondary" color={colors.secondary} />
+          <MjmlClass name="text-formal-accent" color={colors.formal} />
+          <MjmlClass name="bg-secondary" backgroundColor={colors.secondary} />
           <MjmlClass
             name="bg-primary-dark"
-            backgroundColor={colors['primaryDark']}
+            backgroundColor={colors.primaryDark}
           />
           <MjmlClass
             name="font-accent"
@@ -60,23 +66,9 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
           />
           <MjmlAll padding="0" />
         </MjmlAttributes>
-        <MjmlStyle>{`
-            .body {
-              margin: 0;
-              padding: 0 20px;
-              -webkit-font-smoothing: antialiased;
-              -moz-osx-font-smoothing: grayscale;
-              background-color: #0d0030;
-              background: conic-gradient(
-                  from 90deg at 0.06rem 0.06rem,
-                  #0d0030 90deg,
-                  #1a0259 0
-                )
-                0 0/3rem 3rem;
-            }
-        `}</MjmlStyle>
+        <MjmlStyle>{css}</MjmlStyle>
       </MjmlHead>
-      <MjmlBody cssClass="body" backgroundColor="#0d0030">
+      <MjmlBody cssClass="body" backgroundColor={colors.primaryDark}>
         <MjmlSection>
           <MjmlColumn paddingBottom="32px" paddingTop="32px">
             <MjmlText fontSize="18px" mjClass="font-primary" align="left">
@@ -88,19 +80,19 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
                   }}
                   src="https://sealcred.xyz/img/logo_dark.jpg"
                 />
-                <span style={{ color: colors['accent'], paddingLeft: '16px' }}>
+                <span style={{ color: colors.accent, paddingLeft: '16px' }}>
                   SealCred
                 </span>
                 <span
                   style={{
-                    color: colors['secondary'],
+                    color: colors.secondary,
                     paddingLeft: '4px',
                     paddingRight: '4px',
                   }}
                 >
                   |
                 </span>
-                <span style={{ color: colors['secondary'] }}>work</span>
+                <span style={{ color: colors.secondary }}>work</span>
               </a>
             </MjmlText>
           </MjmlColumn>
