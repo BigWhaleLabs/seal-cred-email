@@ -66,13 +66,13 @@
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BigWhaleLabs/sc-email.git"
+    "url": "git+https://github.com/BigWhaleLabs/seal-cred-email.git"
   },
   "keywords": [
     "emails"
   ],
   "bugs": {
-    "url": "https://github.com/BigWhaleLabs/sc-email/issues"
+    "url": "https://github.com/BigWhaleLabs/seal-cred-email/issues"
   },
-  "homepage": "https://github.com/BigWhaleLabs/sc-email#readme"
+  "homepage": "https://github.com/BigWhaleLabs/seal-cred-email#readme"
 }
