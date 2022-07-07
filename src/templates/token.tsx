@@ -19,6 +19,7 @@ import {
   MjmlTitle,
 } from 'mjml-react'
 import { breakpoints, values } from '../styles/values'
+import { env } from '.././env'
 import { render } from 'mjml-react'
 import colors from '../styles/colors'
 
@@ -74,8 +75,7 @@ const css = `
 }
 `
 
-const sealCredAddress = 'http://localhost:3000'
-const assetsEndpoint = `${sealCredAddress}/img/email`
+const assetsEndpoint = `${env.sealCredAddress}/img/email`
 
 const generateTokenPage = ({ secret }: { secret: string }) => {
   return (
@@ -121,7 +121,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
               mjClass="font-primary"
               align="left"
             >
-              <a style={{ textDecoration: 'none' }} href={sealCredAddress}>
+              <a style={{ textDecoration: 'none' }} href={env.sealCredAddress}>
                 <img
                   style={{
                     width: '56px',
