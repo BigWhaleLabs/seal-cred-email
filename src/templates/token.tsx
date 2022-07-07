@@ -230,10 +230,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
                 color={colors.formal}
                 textTransform="none"
               >
-                <img
-                  className="vertical-middle"
-                  src={`${assetsEndpoint}/discord_button.png`}
-                />
+                <img src={`${assetsEndpoint}/discord_button.png`} />
               </MjmlNavbarLink>
             </MjmlNavbar>
             <MjmlImage width="300px" src={`${assetsEndpoint}/bwl_logo.png`} />
