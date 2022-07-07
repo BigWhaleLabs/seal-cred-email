@@ -1,7 +1,7 @@
 import * as express from 'express'
 import * as token from './templates/token'
 
-const port = 3000
+const port = 3002
 const app = express()
 
 app.get('*', (req, res) => {

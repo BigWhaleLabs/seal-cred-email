@@ -4,12 +4,17 @@ import {
   MjmlAll,
   MjmlAttributes,
   MjmlBody,
+  MjmlButton,
   MjmlClass,
   MjmlColumn,
   MjmlFont,
   MjmlHead,
+  MjmlImage,
+  MjmlNavbar,
+  MjmlNavbarLink,
   MjmlPreview,
   MjmlSection,
+  MjmlSpacer,
   MjmlStyle,
   MjmlText,
   MjmlTitle,
@@ -32,6 +37,9 @@ const css = `
     0 0/3rem 3rem;
 }
 `
+
+const sealCredAddress = 'http://localhost:3000'
+const assetsEndpoint = `${sealCredAddress}/img/email`
 
 const generateTokenPage = ({ secret }: { secret: string }) => {
   return (
@@ -72,13 +80,13 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
         <MjmlSection>
           <MjmlColumn paddingBottom="32px" paddingTop="32px">
             <MjmlText fontSize="18px" mjClass="font-primary" align="left">
-              <a style={{ textDecoration: 'none' }} href="https://sealcred.xyz">
+              <a style={{ textDecoration: 'none' }} href={sealCredAddress}>
                 <img
                   style={{
                     width: '56px',
                     verticalAlign: 'middle',
                   }}
-                  src="https://sealcred.xyz/img/logo_dark.jpg"
+                  src={`${assetsEndpoint}/sc_logo.png`}
                 />
                 <span style={{ color: colors.accent, paddingLeft: '16px' }}>
                   SealCred
@@ -122,7 +130,67 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             </MjmlText>
           </MjmlColumn>
         </MjmlSection>
-        <MjmlSection paddingBottom="32px"></MjmlSection>
+        <MjmlSection
+          mjClass="bg-primary"
+          padding="1px"
+          borderRadius="16px"
+          textAlign="center"
+        >
+          <MjmlColumn>
+            <MjmlImage src={`${assetsEndpoint}/wow_seal.png`} />
+            <MjmlText
+              mjClass="font-accent font-bold text-secondary"
+              paddingBottom="32px"
+              paddingTop="16px"
+              fontSize="24px"
+              fontWeight={700}
+            >
+              What now?
+            </MjmlText>
+            <MjmlText
+              mjClass="font-accent font-bold text-secondary"
+              paddingBottom="32px"
+              paddingTop="16px"
+              fontSize="14px"
+              fontWeight={400}
+            >
+              Copy the token above and bring it back to SealCred. From there,
+              you can create your ZK proof and mint a ZK badge that you can add
+              to your anonymous wallet.
+            </MjmlText>
+            <MjmlImage
+              src={`${assetsEndpoint}/process_desktop.png`}
+            ></MjmlImage>
+          </MjmlColumn>
+        </MjmlSection>
+        <MjmlSection paddingBottom="32px">
+          <MjmlColumn>
+            <MjmlNavbar>
+              <MjmlNavbarLink href="https://sealcred.xyz/" color="#ffffff">
+                SealCred
+              </MjmlNavbarLink>
+              <MjmlNavbarLink
+                href="https://blog.bigwhalelabs.com/"
+                color="#ffffff"
+              >
+                Blog
+              </MjmlNavbarLink>
+              <MjmlNavbarLink
+                href="https://twitter.com/bigwhalelabs"
+                color="#ffffff"
+              >
+                Twitter
+              </MjmlNavbarLink>
+              <MjmlNavbarLink href="https://discord.com/invite/NHk96pPZUV">
+                <MjmlButton background-color="#01FEB6" color="#0D0030">
+                  Join our Discord
+                </MjmlButton>
+              </MjmlNavbarLink>
+            </MjmlNavbar>
+            <MjmlImage src={`${assetsEndpoint}/bwl_logo.png`} />
+          </MjmlColumn>
+        </MjmlSection>
+        <MjmlSpacer height="32px" />
       </MjmlBody>
     </Mjml>
   )
