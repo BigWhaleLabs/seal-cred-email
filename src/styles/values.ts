@@ -12,6 +12,7 @@ export const values = {
   px40: '40px',
   px42: '42px',
   px48: '48px',
+  px56: '56px',
   px64: '64px',
 }
 

@@ -38,26 +38,13 @@ const css = `
       0 0/48px 48px;
   }
 
-  a:hover {
-    color: ${colors.tertiary} !important;
-  }
-
-  .discord-button:hover {
-    opacity: 0.7;
+  .vertical-middle {
     vertical-align: middle;
-  }
-
-  .process-desktop {
-    display: block;
-  }
-  .process-mobile {
-    display: none;
   }
   .mj-link {
-    padding-top: 0 !important;
-    display: inline-block !important;
-    padding-left: ${values.px42} !important;
-    vertical-align: middle;
+      font-size: ${values.px16} !important;
+      padding-top: ${values.px40} !important;
+      display: block !important;
   }
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
@@ -68,17 +55,6 @@ const css = `
           #1a0259 0
         )
         0 0/32px 32px;
-    }
-    .process-desktop {
-      display: none;
-    }
-    .process-mobile {
-      display: block;
-    }
-    .mj-link {
-      padding-top: ${values.px40} !important;
-      display: block !important;
-      padding-left: 0 !important;
     }
   }
 }
@@ -119,7 +95,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
           />
           <MjmlAll padding="0" />
         </MjmlAttributes>
-        <MjmlStyle>{css}</MjmlStyle>
+        <MjmlStyle inline>{css}</MjmlStyle>
       </MjmlHead>
       <MjmlBody cssClass="body" backgroundColor={colors.primaryDark}>
         {/* Header */}
@@ -132,10 +108,8 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             >
               <a style={{ textDecoration: 'none' }} href={env.sealCredAddress}>
                 <img
-                  style={{
-                    width: '56px',
-                    verticalAlign: 'middle',
-                  }}
+                  width={values.px56}
+                  className="vertical-middle"
                   src={`${assetsEndpoint}/sc_logo.png`}
                 />
                 <span
@@ -224,16 +198,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
               to your anonymous wallet.
             </MjmlText>
             <MjmlSpacer height={values.px40} />
-            <MjmlImage
-              src={`${assetsEndpoint}/process_desktop.png`}
-              width="434px"
-              cssClass="process-desktop"
-            />
-            <MjmlImage
-              src={`${assetsEndpoint}/process_mobile.png`}
-              width="377px"
-              cssClass="process-mobile"
-            />
+            <MjmlImage src={`${assetsEndpoint}/badge_flow.png`} width="377px" />
           </MjmlColumn>
         </MjmlSection>
 
@@ -247,27 +212,35 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
               <MjmlNavbarLink
                 href="https://sealcred.xyz/"
                 color={colors.formal}
+                textTransform="none"
               >
                 SealCred
               </MjmlNavbarLink>
               <MjmlNavbarLink
                 href="https://blog.bigwhalelabs.com/"
                 color={colors.formal}
+                textTransform="none"
               >
                 Blog
               </MjmlNavbarLink>
               <MjmlNavbarLink
                 href="https://twitter.com/bigwhalelabs"
                 color={colors.formal}
+                textTransform="none"
               >
-                Twitter
+                <img
+                  width={values.px24}
+                  className="vertical-middle"
+                  src={`${assetsEndpoint}/twitter.png`}
+                />
               </MjmlNavbarLink>
               <MjmlNavbarLink
                 href="https://discord.com/invite/NHk96pPZUV"
                 color={colors.formal}
+                textTransform="none"
               >
                 <img
-                  className="discord-button"
+                  className="vertical-middle"
                   src={`${assetsEndpoint}/discord_button.png`}
                 />
               </MjmlNavbarLink>
