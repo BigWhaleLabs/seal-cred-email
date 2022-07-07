@@ -19,9 +19,9 @@ import {
   MjmlText,
   MjmlTitle,
 } from 'mjml-react'
+import { breakpoints, values } from '../styles/values'
 import { render } from 'mjml-react'
 import colors from '../styles/colors'
-import values from '../styles/values'
 
 const css = `
 .body {
@@ -36,7 +36,23 @@ const css = `
       ${colors.primary} 0
     )
     0 0/3rem 3rem;
-}
+  }
+
+  .process-desktop {
+    display: block;
+  }
+  .process-mobile {
+    display: none;
+  }
+
+  @media only screen and (max-width: ${breakpoints.mobile}) {
+    .process-desktop {
+      display: none;
+    }
+    .process-mobile {
+      display: block;
+    }
+  }
 `
 
 const sealCredAddress = 'http://localhost:3000'
@@ -177,9 +193,15 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             </MjmlText>
             <MjmlSpacer height={values.px40} />
             <MjmlImage
-              width="434px"
               src={`${assetsEndpoint}/process_desktop.png`}
-            ></MjmlImage>
+              width="434px"
+              cssClass="process-desktop"
+            />
+            <MjmlImage
+              src={`${assetsEndpoint}/process_mobile.png`}
+              width="377px"
+              cssClass="process-mobile"
+            />
           </MjmlColumn>
         </MjmlSection>
 
