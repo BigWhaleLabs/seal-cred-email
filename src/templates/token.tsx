@@ -86,7 +86,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
       <MjmlBody cssClass="body" backgroundColor={colors.primaryDark}>
         <MjmlSpacer height={values.px32} />
         {/* Header */}
-        <MjmlSection>
+        <MjmlSection paddingLeft={values.px8} paddingRight={values.px8}>
           <MjmlColumn>
             <MjmlText
               fontSize={values.px18}
@@ -96,8 +96,8 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
               <a style={{ textDecoration: 'none' }} href={env.sealCredAddress}>
                 <img
                   width={values.px56}
-                  className="vertical-middle"
                   src={`${assetsEndpoint}/sc_logo.png`}
+                  className="vertical-middle"
                 />
                 <span
                   style={{ color: colors.accent, paddingLeft: values.px16 }}
@@ -125,6 +125,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
           mjClass="bg-secondary"
           padding={values.px}
           borderRadius={values.px16}
+          cssClass="card-border"
         >
           <MjmlColumn
             mjClass="bg-primary-dark"
@@ -155,7 +156,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
 
         {/* Footer */}
 
-        <MjmlSection>
+        <MjmlSection paddingLeft={values.px8} paddingRight={values.px8}>
           <MjmlColumn>
             <MjmlText
               fontSize={values.px16}
