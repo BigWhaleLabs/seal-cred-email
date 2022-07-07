@@ -210,7 +210,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             <MjmlText
               fontSize={values.px16}
               color={colors.formal}
-              mjClass="font-primary hidden"
+              mjClass="hidden"
               align="center"
             >
               Email was sent at:{' '}
