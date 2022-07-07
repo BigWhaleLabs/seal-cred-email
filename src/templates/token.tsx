@@ -24,18 +24,18 @@ import colors from '../styles/colors'
 import env from '.././env'
 
 const css = `
-.body {
-  margin: 0;
-  padding: 0 ${values.px20};
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: ${colors.primaryDark};
-  background: conic-gradient(
-      from 90deg at 0.06rem 0.06rem,
-      ${colors.primaryDark} 90deg,
-      ${colors.primary} 0
-    )
-    0 0/3rem 3rem;
+  .body {
+    margin: 0;
+    padding: 0 ${values.px20};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: ${colors.primaryDark};
+    background: conic-gradient(
+        from 90deg at 0.96px 0.96px,
+        ${colors.primaryDark} 90deg,
+        ${colors.primary} 0
+      )
+      0 0/48px 48px;
   }
 
   a:hover {
@@ -60,6 +60,14 @@ const css = `
   }
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
+    .body {
+      background: conic-gradient(
+          from 90deg at 0.96px 0.96px,
+          #0d0030 90deg,
+          #1a0259 0
+        )
+        0 0/32px 32px;
+    }
     .process-desktop {
       display: none;
     }
