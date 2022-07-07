@@ -154,45 +154,6 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
 
         <MjmlSpacer height={values.px64} />
 
-        {/* Body */}
-        <MjmlSection
-          padding={values.px32}
-          borderRadius={values.px16}
-          backgroundColor={colors.primary}
-        >
-          <MjmlColumn>
-            <MjmlImage
-              width={values.px64}
-              src={`${assetsEndpoint}/wow_seal.png`}
-            />
-            <MjmlSpacer height={values.px16} />
-            <MjmlText
-              mjClass="font-bold text-secondary"
-              fontSize={values.px24}
-              color={colors.formal}
-              fontWeight={700}
-              align="center"
-            >
-              What now?
-            </MjmlText>
-            <MjmlSpacer height={values.px8} />
-            <MjmlText
-              mjClass="font-accent text-secondary"
-              fontSize={values.px14}
-              line-height={values.px22}
-              fontWeight={400}
-              align="center"
-              color={colors.formal}
-            >
-              Copy the token above and bring it back to SealCred. From there,
-              you can create your ZK proof and mint a ZK badge that you can add
-              to your anonymous wallet.
-            </MjmlText>
-            <MjmlSpacer height={values.px40} />
-            <MjmlImage src={`${assetsEndpoint}/badge_flow.png`} width="377px" />
-          </MjmlColumn>
-        </MjmlSection>
-
         {/* Footer */}
 
         <MjmlSpacer height={values.px56} />
@@ -243,11 +204,19 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             </MjmlText>
             <MjmlImage width="300px" src={`${assetsEndpoint}/bwl_logo.png`} />
 
+            <MjmlSpacer height={values.px32} />
+
             {/* Prevents gmail trimming same emails */}
-            <MjmlText mjClass="hidden">{Date.now()}</MjmlText>
+            <MjmlText
+              fontSize={values.px16}
+              color={colors.formal}
+              mjClass="font-primary hidden"
+              align="center"
+            >
+              Email was sent at: {Date.now().toString()}
+            </MjmlText>
           </MjmlColumn>
         </MjmlSection>
-        <MjmlSpacer height={values.px32} />
       </MjmlBody>
     </Mjml>
   )
