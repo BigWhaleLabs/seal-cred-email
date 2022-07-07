@@ -79,7 +79,6 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             name="font-primary"
             fontFamily="JetBrains Mono, sans-serif"
           />
-          <MjmlClass name="hidden" display="hidden" opacity="0" />
           <MjmlAll padding="0" />
         </MjmlAttributes>
         <MjmlStyle inline>{css}</MjmlStyle>
@@ -207,7 +206,11 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             <MjmlSpacer height={values.px16} />
 
             {/* Prevents gmail trimming same emails */}
-            <MjmlText fontSize={values.px16} mjClass="hidden" align="center">
+            <MjmlText
+              fontSize={values.px16}
+              color={colors.primaryDark}
+              align="center"
+            >
               Email was sent at:{' '}
               {new Date(Date.now()).toString().substring(0, 16)}
             </MjmlText>
