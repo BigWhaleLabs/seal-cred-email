@@ -9,8 +9,6 @@ import {
   MjmlFont,
   MjmlHead,
   MjmlImage,
-  MjmlNavbar,
-  MjmlNavbarLink,
   MjmlPreview,
   MjmlSection,
   MjmlSpacer,
@@ -37,13 +35,13 @@ const css = `
       0 0/48px 48px;
   }
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   .vertical-middle {
     vertical-align: middle;
-  }
-  .mj-link {
-      font-size: ${values.px16} !important;
-      padding-top: ${values.px40} !important;
-      display: block !important;
   }
 }
 `
@@ -197,42 +195,52 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
 
         {/* Footer */}
 
+        <MjmlSpacer height={values.px56} />
+
         <MjmlSection>
           <MjmlColumn>
-            <MjmlNavbar>
-              <MjmlNavbarLink
-                href="https://sealcred.xyz/"
-                color={colors.formal}
-                textTransform="none"
-              >
-                SealCred
-              </MjmlNavbarLink>
-              <MjmlNavbarLink
-                href="https://blog.bigwhalelabs.com/"
-                color={colors.formal}
-                textTransform="none"
-              >
-                Blog
-              </MjmlNavbarLink>
-              <MjmlNavbarLink
-                href="https://twitter.com/bigwhalelabs"
-                color={colors.formal}
-                textTransform="none"
-              >
+            <MjmlText
+              fontSize={values.px16}
+              color={colors.formal}
+              mjClass="font-primary"
+              align="center"
+            >
+              <a href="https://sealcred.xyz/">SealCred</a>
+            </MjmlText>
+            <MjmlSpacer height={values.px40} />
+            <MjmlText
+              fontSize={values.px16}
+              color={colors.formal}
+              mjClass="font-primary"
+              align="center"
+            >
+              <a href="https://blog.bigwhalelabs.com/">Blog</a>
+            </MjmlText>
+            <MjmlSpacer height={values.px40} />
+            <MjmlText
+              fontSize={values.px16}
+              color={colors.formal}
+              mjClass="font-primary"
+              align="center"
+            >
+              <a href="https://twitter.com/bigwhalelabs">
                 <img
                   width={values.px24}
                   className="vertical-middle"
                   src={`${assetsEndpoint}/twitter.png`}
                 />
-              </MjmlNavbarLink>
-              <MjmlNavbarLink
-                href="https://discord.com/invite/NHk96pPZUV"
-                color={colors.formal}
-                textTransform="none"
-              >
+              </a>
+            </MjmlText>
+            <MjmlText
+              fontSize={values.px16}
+              color={colors.formal}
+              mjClass="font-primary"
+              align="center"
+            >
+              <a href="https://discord.com/invite/NHk96pPZUV">
                 <img src={`${assetsEndpoint}/discord_button.png`} />
-              </MjmlNavbarLink>
-            </MjmlNavbar>
+              </a>
+            </MjmlText>
             <MjmlImage width="300px" src={`${assetsEndpoint}/bwl_logo.png`} />
 
             {/* Prevents gmail trimming same emails */}
