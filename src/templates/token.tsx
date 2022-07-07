@@ -158,7 +158,11 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
           padding={values.px}
           borderRadius={values.px16}
         >
-          <MjmlColumn mjClass="bg-primary-dark" borderRadius={values.px16}>
+          <MjmlColumn
+            mjClass="bg-primary-dark"
+            padding={values.px16}
+            borderRadius={values.px16}
+          >
             <MjmlText
               mjClass="font-accent text-formal-accent"
               paddingTop={values.px32}
