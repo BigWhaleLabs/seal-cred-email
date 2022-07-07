@@ -21,6 +21,7 @@ import {
 } from 'mjml-react'
 import { render } from 'mjml-react'
 import colors from '../styles/colors'
+import values from '../styles/values'
 
 const css = `
 .body {
@@ -77,9 +78,14 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
         <MjmlStyle>{css}</MjmlStyle>
       </MjmlHead>
       <MjmlBody cssClass="body" backgroundColor={colors.primaryDark}>
+        {/* Header */}
         <MjmlSection>
-          <MjmlColumn paddingBottom="32px" paddingTop="32px">
-            <MjmlText fontSize="18px" mjClass="font-primary" align="left">
+          <MjmlColumn paddingBottom={values.px32} paddingTop={values.px32}>
+            <MjmlText
+              fontSize={values.px18}
+              mjClass="font-primary"
+              align="left"
+            >
               <a style={{ textDecoration: 'none' }} href={sealCredAddress}>
                 <img
                   style={{
@@ -88,14 +94,16 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
                   }}
                   src={`${assetsEndpoint}/sc_logo.png`}
                 />
-                <span style={{ color: colors.accent, paddingLeft: '16px' }}>
+                <span
+                  style={{ color: colors.accent, paddingLeft: values.px16 }}
+                >
                   SealCred
                 </span>
                 <span
                   style={{
                     color: colors.secondary,
-                    paddingLeft: '4px',
-                    paddingRight: '4px',
+                    paddingLeft: values.px4,
+                    paddingRight: values.px4,
                   }}
                 >
                   |
@@ -105,65 +113,81 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             </MjmlText>
           </MjmlColumn>
         </MjmlSection>
-        <MjmlSection mjClass="bg-secondary" padding="1px" borderRadius="16px">
-          <MjmlColumn
-            paddingLeft="24px"
-            mjClass="bg-primary-dark"
-            borderRadius="16px"
-          >
+        <MjmlSection
+          mjClass="bg-secondary"
+          padding={values.px}
+          borderRadius={values.px16}
+        >
+          <MjmlColumn mjClass="bg-primary-dark" borderRadius={values.px16}>
             <MjmlText
               mjClass="font-accent text-formal-accent"
-              paddingTop="32px"
-              fontSize="20px"
+              paddingTop={values.px32}
+              fontSize={values.px20}
               fontWeight={700}
             >
               Your token is:
             </MjmlText>
             <MjmlText
               mjClass="font-accent text-secondary"
-              paddingBottom="32px"
-              paddingTop="16px"
-              fontSize="16px"
+              paddingBottom={values.px32}
+              paddingTop={values.px16}
+              fontSize={values.px16}
               fontWeight={700}
             >
               {secret}
             </MjmlText>
           </MjmlColumn>
         </MjmlSection>
+
+        <MjmlSpacer height={values.px64} />
+
+        {/* Body */}
         <MjmlSection
-          mjClass="bg-primary"
-          padding="1px"
-          borderRadius="16px"
-          textAlign="center"
+          padding={values.px32}
+          borderRadius={values.px16}
+          backgroundColor={colors.primary}
         >
           <MjmlColumn>
-            <MjmlImage src={`${assetsEndpoint}/wow_seal.png`} />
+            <MjmlImage
+              width={values.px64}
+              src={`${assetsEndpoint}/wow_seal.png`}
+            />
+            <MjmlSpacer height={values.px8} />
             <MjmlText
-              mjClass="font-accent font-bold text-secondary"
-              paddingBottom="32px"
-              paddingTop="16px"
-              fontSize="24px"
+              mjClass="font-bold text-secondary"
+              fontSize={values.px24}
+              color={colors.formal}
               fontWeight={700}
+              align="center"
             >
               What now?
             </MjmlText>
+            <MjmlSpacer height={values.px8} />
             <MjmlText
-              mjClass="font-accent font-bold text-secondary"
-              paddingBottom="32px"
-              paddingTop="16px"
-              fontSize="14px"
+              mjClass="font-accent text-secondary"
+              fontSize={values.px14}
+              line-height={values.px22}
               fontWeight={400}
+              align="center"
+              color={colors.formal}
             >
               Copy the token above and bring it back to SealCred. From there,
               you can create your ZK proof and mint a ZK badge that you can add
               to your anonymous wallet.
             </MjmlText>
+            <MjmlSpacer height={values.px40} />
             <MjmlImage
+              width="434px"
               src={`${assetsEndpoint}/process_desktop.png`}
             ></MjmlImage>
           </MjmlColumn>
         </MjmlSection>
-        <MjmlSection paddingBottom="32px">
+
+        <MjmlSpacer height={values.px64} />
+
+        {/* Footer */}
+
+        <MjmlSection>
           <MjmlColumn>
             <MjmlNavbar>
               <MjmlNavbarLink href="https://sealcred.xyz/" color="#ffffff">
@@ -182,15 +206,18 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
                 Twitter
               </MjmlNavbarLink>
               <MjmlNavbarLink href="https://discord.com/invite/NHk96pPZUV">
-                <MjmlButton background-color="#01FEB6" color="#0D0030">
+                <MjmlButton
+                  background-color="#01FEB6"
+                  color={colors.primaryDark}
+                >
                   Join our Discord
                 </MjmlButton>
               </MjmlNavbarLink>
             </MjmlNavbar>
-            <MjmlImage src={`${assetsEndpoint}/bwl_logo.png`} />
+            <MjmlImage width="202px" src={`${assetsEndpoint}/bwl_logo.png`} />
           </MjmlColumn>
         </MjmlSection>
-        <MjmlSpacer height="32px" />
+        <MjmlSpacer height={values.px32} />
       </MjmlBody>
     </Mjml>
   )
@@ -200,5 +227,6 @@ export const generateTokenHtml = (
   { secret }: { secret: string },
   options = {
     validationLevel: 'soft',
+    minify: false,
   } as Mjml2HtmlOptions
 ) => render(generateTokenPage({ secret }), options)
