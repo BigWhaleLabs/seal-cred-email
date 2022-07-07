@@ -81,6 +81,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             name="font-primary"
             fontFamily="JetBrains Mono, sans-serif"
           />
+          <MjmlClass name="hidden" display="hidden" opacity="0" />
           <MjmlAll padding="0" />
         </MjmlAttributes>
         <MjmlStyle inline>{css}</MjmlStyle>
@@ -236,6 +237,9 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
               </MjmlNavbarLink>
             </MjmlNavbar>
             <MjmlImage width="300px" src={`${assetsEndpoint}/bwl_logo.png`} />
+
+            {/* Prevents gmail trimming same emails */}
+            <MjmlText mjClass="hidden">{Date.now()}</MjmlText>
           </MjmlColumn>
         </MjmlSection>
         <MjmlSpacer height={values.px32} />
