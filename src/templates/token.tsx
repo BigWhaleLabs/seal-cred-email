@@ -44,6 +44,7 @@ const css = `
 
   .discord-button:hover {
     opacity: 0.7;
+    vertical-align: middle;
   }
 
   .process-desktop {
@@ -54,7 +55,7 @@ const css = `
   }
   .mj-link {
     padding-top: 0 !important;
-    display: table-cell !important;
+    display: inline-block !important;
     padding-left: ${values.px42} !important;
     vertical-align: middle;
   }
