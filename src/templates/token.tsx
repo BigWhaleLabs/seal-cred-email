@@ -29,7 +29,6 @@ const css = `
     padding: 0 ${values.px20};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: ${colors.primaryDark};
     background: conic-gradient(
         from 90deg at 0.96px 0.96px,
         ${colors.primaryDark} 90deg,
@@ -194,8 +193,6 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             <MjmlImage src={`${assetsEndpoint}/badge_flow.png`} width="377px" />
           </MjmlColumn>
         </MjmlSection>
-
-        <MjmlSpacer height={values.px48} />
 
         {/* Footer */}
 
