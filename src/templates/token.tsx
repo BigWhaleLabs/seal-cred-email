@@ -155,8 +155,6 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
 
         {/* Footer */}
 
-        <MjmlSpacer height={values.px56} />
-
         <MjmlSection>
           <MjmlColumn>
             <MjmlText
