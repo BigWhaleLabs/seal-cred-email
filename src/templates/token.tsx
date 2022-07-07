@@ -19,9 +19,9 @@ import {
   MjmlTitle,
 } from 'mjml-react'
 import { breakpoints, values } from '../styles/values'
-import { env } from '.././env'
 import { render } from 'mjml-react'
 import colors from '../styles/colors'
+import env from '.././env'
 
 const css = `
 .body {
