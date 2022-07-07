@@ -1,4 +1,4 @@
-export const values = {
+export default {
   px: '1px',
   px4: '4px',
   px8: '8px',
@@ -14,8 +14,4 @@ export const values = {
   px48: '48px',
   px56: '56px',
   px64: '64px',
-}
-
-export const breakpoints = {
-  mobile: '591px',
 }

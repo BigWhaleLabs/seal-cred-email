@@ -18,10 +18,10 @@ import {
   MjmlText,
   MjmlTitle,
 } from 'mjml-react'
-import { breakpoints, values } from '../styles/values'
 import { render } from 'mjml-react'
 import colors from '../styles/colors'
 import env from '.././env'
+import values from '../styles/values'
 
 const css = `
   .body {
@@ -45,17 +45,6 @@ const css = `
       font-size: ${values.px16} !important;
       padding-top: ${values.px40} !important;
       display: block !important;
-  }
-
-  @media only screen and (max-width: ${breakpoints.mobile}) {
-    .body {
-      background: conic-gradient(
-          from 90deg at 0.96px 0.96px,
-          #0d0030 90deg,
-          #1a0259 0
-        )
-        0 0/32px 32px;
-    }
   }
 }
 `
