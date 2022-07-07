@@ -200,7 +200,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
               width={values.px64}
               src={`${assetsEndpoint}/wow_seal.png`}
             />
-            <MjmlSpacer height={values.px8} />
+            <MjmlSpacer height={values.px16} />
             <MjmlText
               mjClass="font-bold text-secondary"
               fontSize={values.px24}
