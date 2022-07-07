@@ -207,12 +207,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             <MjmlSpacer height={values.px16} />
 
             {/* Prevents gmail trimming same emails */}
-            <MjmlText
-              fontSize={values.px16}
-              color={colors.formal}
-              mjClass="hidden"
-              align="center"
-            >
+            <MjmlText fontSize={values.px16} mjClass="hidden" align="center">
               Email was sent at:{' '}
               {new Date(Date.now()).toString().substring(0, 16)}
             </MjmlText>
