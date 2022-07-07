@@ -210,8 +210,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
               color={colors.primaryDark}
               align="center"
             >
-              Email was sent at:{' '}
-              {new Date(Date.now()).toString().substring(0, 16)}
+              Email was sent at: {new Date(Date.now()).toString()}
             </MjmlText>
 
             <MjmlSpacer height={values.px16} />
