@@ -10,9 +10,11 @@ export const values = {
   px24: '24px',
   px32: '32px',
   px40: '40px',
+  px42: '42px',
+  px48: '48px',
   px64: '64px',
 }
 
 export const breakpoints = {
-  mobile: '415px',
+  mobile: '591px',
 }

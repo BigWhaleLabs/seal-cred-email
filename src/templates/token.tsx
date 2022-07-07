@@ -4,7 +4,6 @@ import {
   MjmlAll,
   MjmlAttributes,
   MjmlBody,
-  MjmlButton,
   MjmlClass,
   MjmlColumn,
   MjmlFont,
@@ -38,11 +37,33 @@ const css = `
     0 0/3rem 3rem;
   }
 
+  a:hover {
+    color: ${colors.tertiary} !important;
+  }
+
+  .discord_button {
+    background-color: ${colors.tertiary};
+    border-radius: 40px;
+    padding: 16px 24px;
+    box-shadow: 0px 0px 16px ${colors.tertiary};
+    border: none !important;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+  }
+  .discord_button:hover {
+    background-color: ${colors.tertiaryHover};
+    box-shadow: 0px 0px 8px ${colors.tertiary};
+  }
+
   .process-desktop {
     display: block;
   }
   .process-mobile {
     display: none;
+  }
+  .sc-link {
+    padding-left: 42px;
   }
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
@@ -51,6 +72,9 @@ const css = `
     }
     .process-mobile {
       display: block;
+    }
+    .sc-link {
+      padding-left: 0px;
     }
   }
 `
@@ -205,38 +229,46 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
           </MjmlColumn>
         </MjmlSection>
 
-        <MjmlSpacer height={values.px64} />
+        <MjmlSpacer height={values.px48} />
 
         {/* Footer */}
 
         <MjmlSection>
           <MjmlColumn>
             <MjmlNavbar>
-              <MjmlNavbarLink href="https://sealcred.xyz/" color="#ffffff">
-                SealCred
+              <MjmlNavbarLink
+                href="https://sealcred.xyz/"
+                color={colors.formal}
+              >
+                <p className="sc-link">SealCred</p>
               </MjmlNavbarLink>
               <MjmlNavbarLink
                 href="https://blog.bigwhalelabs.com/"
-                color="#ffffff"
+                color={colors.formal}
+                paddingLeft={values.px42}
               >
                 Blog
               </MjmlNavbarLink>
               <MjmlNavbarLink
                 href="https://twitter.com/bigwhalelabs"
-                color="#ffffff"
+                color={colors.formal}
+                paddingLeft={values.px42}
               >
                 Twitter
               </MjmlNavbarLink>
-              <MjmlNavbarLink href="https://discord.com/invite/NHk96pPZUV">
-                <MjmlButton
-                  background-color="#01FEB6"
-                  color={colors.primaryDark}
-                >
+              <MjmlNavbarLink
+                href="https://discord.com/invite/NHk96pPZUV"
+                color={colors.formal}
+                paddingLeft={values.px42}
+                paddingRight={values.px42}
+                paddingTop={values.px16}
+              >
+                <button className="discord_button font-primary">
                   Join our Discord
-                </MjmlButton>
+                </button>
               </MjmlNavbarLink>
             </MjmlNavbar>
-            <MjmlImage width="202px" src={`${assetsEndpoint}/bwl_logo.png`} />
+            <MjmlImage width="300px" src={`${assetsEndpoint}/bwl_logo.png`} />
           </MjmlColumn>
         </MjmlSection>
         <MjmlSpacer height={values.px32} />
