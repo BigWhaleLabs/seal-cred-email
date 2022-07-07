@@ -25,7 +25,7 @@ import colors from '../styles/colors'
 const css = `
 .body {
   margin: 0;
-  padding: 0 20px;
+  padding: 0 ${values.px20};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: ${colors.primaryDark};
@@ -41,19 +41,8 @@ const css = `
     color: ${colors.tertiary} !important;
   }
 
-  .discord_button {
-    background-color: ${colors.tertiary};
-    border-radius: 40px;
-    padding: 16px 24px;
-    box-shadow: 0px 0px 16px ${colors.tertiary};
-    border: none !important;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 21px;
-  }
-  .discord_button:hover {
-    background-color: ${colors.tertiaryHover};
-    box-shadow: 0px 0px 8px ${colors.tertiary};
+  .discord-button:hover {
+    opacity: 0.7;
   }
 
   .process-desktop {
@@ -62,8 +51,11 @@ const css = `
   .process-mobile {
     display: none;
   }
-  .sc-link {
-    padding-left: 42px;
+  .mj-link {
+    padding-top: 0 !important;
+    display: table-cell !important;
+    padding-left: ${values.px42} !important;
+    vertical-align: middle;
   }
 
   @media only screen and (max-width: ${breakpoints.mobile}) {
@@ -73,10 +65,13 @@ const css = `
     .process-mobile {
       display: block;
     }
-    .sc-link {
-      padding-left: 0px;
+    .mj-link {
+      padding-top: ${values.px40} !important;
+      display: block !important;
+      padding-left: 0 !important;
     }
   }
+}
 `
 
 const sealCredAddress = 'http://localhost:3000'
@@ -244,32 +239,28 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
                 href="https://sealcred.xyz/"
                 color={colors.formal}
               >
-                <p className="sc-link">SealCred</p>
+                SealCred
               </MjmlNavbarLink>
               <MjmlNavbarLink
                 href="https://blog.bigwhalelabs.com/"
                 color={colors.formal}
-                paddingLeft={values.px42}
               >
                 Blog
               </MjmlNavbarLink>
               <MjmlNavbarLink
                 href="https://twitter.com/bigwhalelabs"
                 color={colors.formal}
-                paddingLeft={values.px42}
               >
                 Twitter
               </MjmlNavbarLink>
               <MjmlNavbarLink
                 href="https://discord.com/invite/NHk96pPZUV"
                 color={colors.formal}
-                paddingLeft={values.px42}
-                paddingRight={values.px42}
-                paddingTop={values.px16}
               >
-                <button className="discord_button font-primary">
-                  Join our Discord
-                </button>
+                <img
+                  className="discord-button"
+                  src={`${assetsEndpoint}/discord_button.png`}
+                />
               </MjmlNavbarLink>
             </MjmlNavbar>
             <MjmlImage width="300px" src={`${assetsEndpoint}/bwl_logo.png`} />
