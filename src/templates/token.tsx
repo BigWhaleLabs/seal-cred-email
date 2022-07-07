@@ -125,7 +125,6 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
           mjClass="bg-secondary"
           padding={values.px}
           borderRadius={values.px16}
-          cssClass="card-border"
         >
           <MjmlColumn
             mjClass="bg-primary-dark"
