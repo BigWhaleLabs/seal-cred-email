@@ -204,7 +204,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             </MjmlText>
             <MjmlImage width="300px" src={`${assetsEndpoint}/bwl_logo.png`} />
 
-            <MjmlSpacer height={values.px32} />
+            <MjmlSpacer height={values.px16} />
 
             {/* Prevents gmail trimming same emails */}
             <MjmlText
@@ -213,8 +213,10 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
               mjClass="font-primary hidden"
               align="center"
             >
-              Email was sent at: {Date.now().toString()}
+              Email was sent at: {new Date(Date.now()).toString()}
             </MjmlText>
+
+            <MjmlSpacer height={values.px16} />
           </MjmlColumn>
         </MjmlSection>
       </MjmlBody>
