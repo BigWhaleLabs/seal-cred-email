@@ -87,9 +87,10 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
         <MjmlStyle inline>{css}</MjmlStyle>
       </MjmlHead>
       <MjmlBody cssClass="body" backgroundColor={colors.primaryDark}>
+        <MjmlSpacer height={values.px32} />
         {/* Header */}
         <MjmlSection>
-          <MjmlColumn paddingBottom={values.px32} paddingTop={values.px32}>
+          <MjmlColumn>
             <MjmlText
               fontSize={values.px18}
               mjClass="font-primary"
@@ -120,6 +121,9 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             </MjmlText>
           </MjmlColumn>
         </MjmlSection>
+
+        <MjmlSpacer height={values.px32} />
+
         <MjmlSection
           mjClass="bg-secondary"
           padding={values.px}
@@ -130,23 +134,23 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
             padding={values.px16}
             borderRadius={values.px16}
           >
+            <MjmlSpacer height={values.px20} />
             <MjmlText
               mjClass="font-accent text-formal-accent"
-              paddingTop={values.px32}
               fontSize={values.px20}
               fontWeight={700}
             >
               Your token is:
             </MjmlText>
+            <MjmlSpacer height={values.px16} />
             <MjmlText
               mjClass="font-accent text-secondary"
-              paddingBottom={values.px32}
-              paddingTop={values.px16}
               fontSize={values.px16}
               fontWeight={700}
             >
               {secret}
             </MjmlText>
+            <MjmlSpacer height={values.px20} />
           </MjmlColumn>
         </MjmlSection>
 
