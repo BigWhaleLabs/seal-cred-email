@@ -24,7 +24,7 @@ import values from '../styles/values'
 const css = `
   .body {
     margin: 0;
-    padding: 0 ${values.px20};
+    padding: 0 ${values.px24};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: conic-gradient(
@@ -39,6 +39,7 @@ const css = `
     text-decoration: none;
     color: inherit;
   }
+
 
   .vertical-middle {
     vertical-align: middle;
@@ -86,7 +87,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
       <MjmlBody cssClass="body" backgroundColor={colors.primaryDark}>
         <MjmlSpacer height={values.px32} />
         {/* Header */}
-        <MjmlSection paddingLeft={values.px8} paddingRight={values.px8}>
+        <MjmlSection>
           <MjmlColumn>
             <MjmlText
               fontSize={values.px18}
@@ -155,7 +156,11 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
 
         {/* Footer */}
 
-        <MjmlSection paddingLeft={values.px8} paddingRight={values.px8}>
+        <MjmlSection
+          paddingLeft={values.px8}
+          paddingRight={values.px8}
+          fullWidth
+        >
           <MjmlColumn>
             <MjmlText
               fontSize={values.px16}
@@ -163,42 +168,36 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
               mjClass="font-primary"
               align="center"
             >
-              <a href="https://sealcred.xyz/">SealCred</a>
-            </MjmlText>
-            <MjmlSpacer height={values.px40} />
-            <MjmlText
-              fontSize={values.px16}
-              color={colors.formal}
-              mjClass="font-primary"
-              align="center"
-            >
-              <a href="https://blog.bigwhalelabs.com/">Blog</a>
-            </MjmlText>
-            <MjmlSpacer height={values.px40} />
-            <MjmlText
-              fontSize={values.px16}
-              color={colors.formal}
-              mjClass="font-primary"
-              align="center"
-            >
-              <a href="https://twitter.com/bigwhalelabs">
+              <a
+                href="https://sealcred.xyz/"
+                style={{ paddingLeft: values.px14 }}
+              >
+                SealCred
+              </a>
+              <a
+                href="https://blog.bigwhalelabs.com/"
+                style={{ paddingLeft: values.px40 }}
+              >
+                Blog
+              </a>
+              <a
+                href="https://twitter.com/bigwhalelabs"
+                style={{ paddingRight: values.px20, paddingLeft: values.px40 }}
+              >
                 <img
                   width={values.px24}
                   className="vertical-middle"
                   src={`${assetsEndpoint}/twitter.png`}
                 />
               </a>
-            </MjmlText>
-            <MjmlText
-              fontSize={values.px16}
-              color={colors.formal}
-              mjClass="font-primary"
-              align="center"
-            >
               <a href="https://discord.com/invite/NHk96pPZUV">
-                <img src={`${assetsEndpoint}/discord_button.png`} />
+                <img
+                  src={`${assetsEndpoint}/discord_button.png`}
+                  className="vertical-middle"
+                />
               </a>
             </MjmlText>
+
             <MjmlImage width="300px" src={`${assetsEndpoint}/bwl_logo.png`} />
 
             <MjmlSpacer height={values.px16} />
