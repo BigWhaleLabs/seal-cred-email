@@ -41,6 +41,10 @@ const css = `
       0 0/48px 48px;
   }
 
+  .break-all {
+    word-break: break-all;
+  }
+
   .vertical-middle {
     vertical-align: middle;
   }
@@ -151,7 +155,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
                 fontSize={values.px16}
                 fontWeight={700}
               >
-                {secret}
+                <span className="break-all">{secret}</span>
               </MjmlText>
               <MjmlSpacer height={values.px20} />
             </MjmlColumn>
