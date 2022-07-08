@@ -50,7 +50,7 @@ const css = `
   }
 `
 
-const assetsEndpoint = `${env.sealCredAddress}/img/email`
+const assetsEndpoint = `${env.SEALCRED_ADDRESS}/img/email`
 
 const generateTokenPage = ({ secret }: { secret: string }) => {
   return (
@@ -100,7 +100,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
               >
                 <a
                   style={{ textDecoration: 'none' }}
-                  href={env.sealCredAddress}
+                  href={env.SEALCRED_ADDRESS}
                 >
                   <img
                     width={values.px56}
