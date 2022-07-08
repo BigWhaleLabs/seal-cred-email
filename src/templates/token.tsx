@@ -22,6 +22,11 @@ import env from '.././env'
 import values from '../styles/values'
 
 const css = `
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   .body {
     margin: 0;
     padding: 0 ${values.px24};
@@ -35,16 +40,9 @@ const css = `
       0 0/48px 48px;
   }
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-
   .vertical-middle {
     vertical-align: middle;
   }
-}
 `
 
 const assetsEndpoint = `${env.sealCredAddress}/img/email`
