@@ -108,15 +108,15 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
                     className="vertical-middle"
                   />
                   <span
-                    style={{ color: colors.accent, paddingLeft: values.px16 }}
+                    style={{ color: colors.accent, paddingLeft: values.px10 }}
                   >
                     SealCred
                   </span>
                   <span
                     style={{
                       color: colors.secondary,
-                      paddingLeft: values.px4,
-                      paddingRight: values.px4,
+                      paddingLeft: values.px10,
+                      paddingRight: values.px10,
                     }}
                   >
                     |

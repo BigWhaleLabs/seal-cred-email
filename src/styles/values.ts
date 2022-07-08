@@ -2,6 +2,7 @@ export default {
   px: '1px',
   px4: '4px',
   px8: '8px',
+  px10: '10px',
   px14: '14px',
   px16: '16px',
   px18: '18px',
