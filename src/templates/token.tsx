@@ -8,30 +8,49 @@ import {
   MjmlColumn,
   MjmlFont,
   MjmlHead,
+  MjmlImage,
   MjmlPreview,
   MjmlSection,
+  MjmlSpacer,
   MjmlStyle,
   MjmlText,
   MjmlTitle,
+  MjmlWrapper,
 } from 'mjml-react'
 import { render } from 'mjml-react'
 import colors from '../styles/colors'
+import env from '.././env'
+import values from '../styles/values'
 
 const css = `
-.body {
-  margin: 0;
-  padding: 0 20px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: ${colors.primaryDark};
-  background: conic-gradient(
-      from 90deg at 0.06rem 0.06rem,
-      ${colors.primaryDark} 90deg,
-      ${colors.primary} 0
-    )
-    0 0/3rem 3rem;
-}
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .body {
+    margin: 0;
+    padding: 0 ${values.px16};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: conic-gradient(
+        from 90deg at 0.96px 0.96px,
+        ${colors.primaryDark} 90deg,
+        ${colors.primary} 0
+      )
+      0 0/48px 48px;
+  }
+
+  .break-all {
+    word-break: break-all;
+  }
+
+  .vertical-middle {
+    vertical-align: middle;
+  }
 `
+
+const assetsEndpoint = `${env.SEALCRED_ADDRESS}/img/email`
 
 const generateTokenPage = ({ secret }: { secret: string }) => {
   return (
@@ -66,63 +85,137 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
           />
           <MjmlAll padding="0" />
         </MjmlAttributes>
-        <MjmlStyle>{css}</MjmlStyle>
+        <MjmlStyle inline>{css}</MjmlStyle>
       </MjmlHead>
       <MjmlBody cssClass="body" backgroundColor={colors.primaryDark}>
-        <MjmlSection>
-          <MjmlColumn paddingBottom="32px" paddingTop="32px">
-            <MjmlText fontSize="18px" mjClass="font-primary" align="left">
-              <a style={{ textDecoration: 'none' }} href="https://sealcred.xyz">
-                <img
-                  style={{
-                    width: '56px',
-                    verticalAlign: 'middle',
-                  }}
-                  src="https://sealcred.xyz/img/logo_dark.jpg"
-                />
-                <span style={{ color: colors.accent, paddingLeft: '16px' }}>
+        <MjmlWrapper paddingLeft={values.px16} paddingRight={values.px16}>
+          <MjmlSpacer height={values.px32} />
+          {/* Header */}
+          <MjmlSection>
+            <MjmlColumn>
+              <MjmlText
+                fontSize={values.px18}
+                mjClass="font-primary"
+                align="left"
+              >
+                <a
+                  style={{ textDecoration: 'none' }}
+                  href={env.SEALCRED_ADDRESS}
+                >
+                  <img
+                    width={values.px56}
+                    src={`${assetsEndpoint}/sc_logo.png`}
+                    className="vertical-middle"
+                  />
+                  <span
+                    style={{ color: colors.accent, paddingLeft: values.px10 }}
+                  >
+                    SealCred
+                  </span>
+                  <span
+                    style={{
+                      color: colors.secondary,
+                      paddingLeft: values.px10,
+                      paddingRight: values.px10,
+                    }}
+                  >
+                    |
+                  </span>
+                  <span style={{ color: colors.secondary }}>work</span>
+                </a>
+              </MjmlText>
+            </MjmlColumn>
+          </MjmlSection>
+
+          <MjmlSpacer height={values.px32} />
+
+          {/* Token card */}
+
+          <MjmlSection
+            mjClass="bg-secondary"
+            padding={values.px}
+            borderRadius={values.px16}
+          >
+            <MjmlColumn
+              mjClass="bg-primary-dark"
+              padding={values.px16}
+              borderRadius={values.px16}
+            >
+              <MjmlSpacer height={values.px20} />
+              <MjmlText
+                mjClass="font-accent text-formal-accent"
+                fontSize={values.px20}
+                fontWeight={700}
+              >
+                Your token is:
+              </MjmlText>
+              <MjmlSpacer height={values.px16} />
+              <MjmlText
+                mjClass="font-accent text-secondary"
+                fontSize={values.px16}
+                fontWeight={700}
+              >
+                <span className="break-all">{secret}</span>
+              </MjmlText>
+              <MjmlSpacer height={values.px20} />
+            </MjmlColumn>
+          </MjmlSection>
+
+          <MjmlSpacer height={values.px32} />
+
+          {/* Footer */}
+
+          <MjmlSection
+            paddingLeft={values.px8}
+            paddingRight={values.px8}
+            fullWidth
+          >
+            <MjmlColumn>
+              <MjmlText
+                fontSize={values.px16}
+                color={colors.formal}
+                mjClass="font-primary"
+                align="center"
+              >
+                <a
+                  href="https://sealcred.xyz/"
+                  style={{ paddingLeft: values.px14 }}
+                >
                   SealCred
-                </span>
-                <span
+                </a>
+                <a
+                  href="https://blog.bigwhalelabs.com/"
+                  style={{ paddingLeft: values.px40 }}
+                >
+                  Blog
+                </a>
+                <a
+                  href="https://twitter.com/bigwhalelabs"
                   style={{
-                    color: colors.secondary,
-                    paddingLeft: '4px',
-                    paddingRight: '4px',
+                    paddingRight: values.px20,
+                    paddingLeft: values.px40,
                   }}
                 >
-                  |
-                </span>
-                <span style={{ color: colors.secondary }}>work</span>
-              </a>
-            </MjmlText>
-          </MjmlColumn>
-        </MjmlSection>
-        <MjmlSection mjClass="bg-secondary" padding="1px" borderRadius="16px">
-          <MjmlColumn
-            paddingLeft="24px"
-            mjClass="bg-primary-dark"
-            borderRadius="16px"
-          >
-            <MjmlText
-              mjClass="font-accent text-formal-accent"
-              paddingTop="32px"
-              fontSize="20px"
-              fontWeight={700}
-            >
-              Your token is:
-            </MjmlText>
-            <MjmlText
-              mjClass="font-accent text-secondary"
-              paddingBottom="32px"
-              paddingTop="16px"
-              fontSize="16px"
-              fontWeight={700}
-            >
-              {secret}
-            </MjmlText>
-          </MjmlColumn>
-        </MjmlSection>
-        <MjmlSection paddingBottom="32px"></MjmlSection>
+                  <img
+                    width={values.px24}
+                    className="vertical-middle"
+                    src={`${assetsEndpoint}/twitter.png`}
+                  />
+                </a>
+                <a href="https://discord.com/invite/NHk96pPZUV">
+                  <img
+                    src={`${assetsEndpoint}/discord_button.png`}
+                    className="vertical-middle"
+                  />
+                </a>
+              </MjmlText>
+
+              <MjmlImage width="300px" src={`${assetsEndpoint}/bwl_logo.png`} />
+
+              <MjmlSpacer height={values.px32} />
+            </MjmlColumn>
+          </MjmlSection>
+        </MjmlWrapper>
       </MjmlBody>
     </Mjml>
   )
@@ -132,5 +225,6 @@ export const generateTokenHtml = (
   { secret }: { secret: string },
   options = {
     validationLevel: 'soft',
+    minify: false,
   } as Mjml2HtmlOptions
 ) => render(generateTokenPage({ secret }), options)

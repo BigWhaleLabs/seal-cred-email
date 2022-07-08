@@ -61,6 +61,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "envalid": "^7.3.1",
     "mjml": "^4.3.1",
     "mjml-react": "^1.0.45",
     "react": "^16.7.0",
