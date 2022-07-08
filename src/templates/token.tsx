@@ -152,7 +152,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
           </MjmlColumn>
         </MjmlSection>
 
-        <MjmlSpacer height={values.px64} />
+        <MjmlSpacer height={values.px32} />
 
         {/* Footer */}
 
@@ -200,18 +200,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
 
             <MjmlImage width="300px" src={`${assetsEndpoint}/bwl_logo.png`} />
 
-            <MjmlSpacer height={values.px16} />
-
-            {/* Prevents gmail trimming same emails */}
-            <MjmlText
-              fontSize={values.px16}
-              color={colors.primaryDark}
-              align="center"
-            >
-              Email was sent at: {new Date(Date.now()).toString()}
-            </MjmlText>
-
-            <MjmlSpacer height={values.px16} />
+            <MjmlSpacer height={values.px32} />
           </MjmlColumn>
         </MjmlSection>
       </MjmlBody>
