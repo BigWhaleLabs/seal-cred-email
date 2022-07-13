@@ -31,7 +31,7 @@ const css = `
     color: inherit !important;
   }
   a:hover {
-    color: ${colors.tertiary} !important;; 
+    color: ${colors.tertiary} !important;
   }
 
   body {
