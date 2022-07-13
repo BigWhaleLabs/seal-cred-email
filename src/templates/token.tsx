@@ -10,6 +10,7 @@ import {
   MjmlHead,
   MjmlImage,
   MjmlPreview,
+  MjmlRaw,
   MjmlSection,
   MjmlSpacer,
   MjmlStyle,
@@ -22,10 +23,32 @@ import colors from '../styles/colors'
 import env from '.././env'
 import values from '../styles/values'
 
+const gmailLinkStyles = { textDecoration: 'none', color: colors.formal }
+
 const css = `
   a {
-    text-decoration: none;
-    color: inherit;
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  a:hover {
+    color: ${colors.tertiary} !important;; 
+  }
+
+  body {
+    filter: none !important;
+    margin: 0;
+    padding: 0 ${values.px16};
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: conic-gradient(
+        from 90deg at 0.96px 0.96px,
+        ${colors.primaryDark} 90deg,
+        ${colors.primary} 0
+      )
+      0 0/${values.px48} ${values.px48};
+  }
+  img {
+    filter: none !important;
   }
 
   .body {
@@ -38,15 +61,34 @@ const css = `
         ${colors.primaryDark} 90deg,
         ${colors.primary} 0
       )
-      0 0/48px 48px;
+      0 0/${values.px48} ${values.px48};
+  } 
+  /* Grid for mobiles */
+  @media screen and (max-width: 600px) {
+    .body {
+      background: conic-gradient(
+          from 90deg at 0.96px 0.96px,
+          ${colors.primaryDark} 90deg,
+          ${colors.primary} 0
+        )
+        0 0/${values.px32} ${values.px32};
+    }
+  }
+
+
+  ::selection {
+    background: #ff7bed35;
+  }
+  ::-moz-selection {
+    background: #ff7bed35;
   }
 
   .break-all {
     word-break: break-all;
   }
 
-  .vertical-middle {
-    vertical-align: middle;
+  .hover-img-button:hover {
+    opacity: 0.7;
   }
 `
 
@@ -56,6 +98,10 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
   return (
     <Mjml>
       <MjmlHead>
+        <MjmlRaw>
+          <meta name="color-scheme" content="light" />
+          <meta name="supported-color-schemes" content="light" />
+        </MjmlRaw>
         <MjmlTitle>Here's your token!</MjmlTitle>
         <MjmlPreview>Here's your token!</MjmlPreview>
         <MjmlFont
@@ -85,7 +131,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
           />
           <MjmlAll padding="0" />
         </MjmlAttributes>
-        <MjmlStyle inline>{css}</MjmlStyle>
+        <MjmlStyle>{css}</MjmlStyle>
       </MjmlHead>
       <MjmlBody cssClass="body" backgroundColor={colors.primaryDark}>
         <MjmlWrapper paddingLeft={values.px16} paddingRight={values.px16}>
@@ -98,14 +144,11 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
                 mjClass="font-primary"
                 align="left"
               >
-                <a
-                  style={{ textDecoration: 'none' }}
-                  href={env.SEALCRED_ADDRESS}
-                >
+                <a style={gmailLinkStyles} href={env.SEALCRED_ADDRESS}>
                   <img
                     width={values.px56}
                     src={`${assetsEndpoint}/sc_logo.png`}
-                    className="vertical-middle"
+                    style={{ verticalAlign: 'middle' }}
                   />
                   <span
                     style={{ color: colors.accent, paddingLeft: values.px10 }}
@@ -179,13 +222,13 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
               >
                 <a
                   href="https://sealcred.xyz/"
-                  style={{ paddingLeft: values.px14 }}
+                  style={{ paddingLeft: values.px14, ...gmailLinkStyles }}
                 >
                   SealCred
                 </a>
                 <a
                   href="https://blog.bigwhalelabs.com/"
-                  style={{ paddingLeft: values.px40 }}
+                  style={{ paddingLeft: values.px40, ...gmailLinkStyles }}
                 >
                   Blog
                 </a>
@@ -194,18 +237,24 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
                   style={{
                     paddingRight: values.px20,
                     paddingLeft: values.px40,
+                    ...gmailLinkStyles,
                   }}
                 >
                   <img
                     width={values.px24}
-                    className="vertical-middle"
+                    style={{ verticalAlign: 'middle' }}
                     src={`${assetsEndpoint}/twitter.png`}
+                    className="hover-img-button"
                   />
                 </a>
-                <a href="https://discord.com/invite/NHk96pPZUV">
+                <a
+                  style={gmailLinkStyles}
+                  href="https://discord.com/invite/NHk96pPZUV"
+                >
                   <img
                     src={`${assetsEndpoint}/discord_button.png`}
-                    className="vertical-middle"
+                    className="hover-img-button"
+                    style={{ verticalAlign: 'middle', ...gmailLinkStyles }}
                   />
                 </a>
               </MjmlText>
