@@ -5,7 +5,6 @@ export const colors = {
   formal: '#efecd6',
   primary: '#1a0259',
   primaryDark: '#0d0030',
-  invertedPrimaryDark: '#fff3ff',
 }
 
 export default colors
