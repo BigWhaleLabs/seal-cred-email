@@ -3,9 +3,9 @@ export const colors = {
   secondary: '#ff7bed',
   tertiary: '#01feb6',
   formal: '#efecd6',
-  primary: '#1a0259',
+  primaryBackground: '#1a0259',
   primaryDark: '#0d0030',
-  blue: '#15a1fc',
+  primary: '#15a1fc',
 }
 
 export default colors

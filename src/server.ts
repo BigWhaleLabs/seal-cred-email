@@ -7,7 +7,7 @@ const app = express()
 app.get('*', (req, res) => {
   const { html } = token.generateTokenHtml({
     secret: '906090',
-    domain: 'apple.com',
+    domain: 'bwl.gg',
   })
   res.send(html)
 })

@@ -44,7 +44,7 @@ const css = `
     background: conic-gradient(
         from 90deg at 0.96px 0.96px,
         ${colors.primaryDark} 90deg,
-        ${colors.primary} 0
+        ${colors.primaryBackground} 0
       )
       0 0/${values.px48} ${values.px48};
   }
@@ -60,7 +60,7 @@ const css = `
     background: conic-gradient(
         from 90deg at 0.96px 0.96px,
         ${colors.primaryDark} 90deg,
-        ${colors.primary} 0
+        ${colors.primaryBackground} 0
       )
       0 0/${values.px48} ${values.px48};
   } 
@@ -70,7 +70,7 @@ const css = `
       background: conic-gradient(
           from 90deg at 0.96px 0.96px,
           ${colors.primaryDark} 90deg,
-          ${colors.primary} 0
+          ${colors.primaryBackground} 0
         )
         0 0/${values.px32} ${values.px32};
     }
@@ -90,7 +90,7 @@ const css = `
 
   .link-text {
     text-decoration: underline !important;
-    color: ${colors.blue} !important;
+    color: ${colors.primary} !important;
   }
   .link-text:hover {
     color: ${colors.tertiary} !important;
@@ -100,15 +100,20 @@ const css = `
   }
 `
 
-const assetsEndpoint = `${env.SEALCRED_ADDRESS}/img/email`
-
-const generateTokenPage = ({
-  secret,
-  domain,
-}: {
+interface TokenProps {
   secret: string
   domain: string
-}) => {
+}
+
+const assetsEndpoint = `${env.SEALCRED_ADDRESS}/img/email`
+
+const generateTokenPage = ({ secret, domain }: TokenProps) => {
+  const sealcredLink = (link: string, text: string) => (
+    <a className="link-text" href={link}>
+      {text}
+    </a>
+  )
+
   return (
     <Mjml>
       <MjmlHead>
@@ -131,7 +136,10 @@ const generateTokenPage = ({
           <MjmlClass name="text-secondary" color={colors.secondary} />
           <MjmlClass name="text-formal-accent" color={colors.formal} />
           <MjmlClass name="bg-secondary" backgroundColor={colors.secondary} />
-          <MjmlClass name="bg-primary" backgroundColor={colors.primary} />
+          <MjmlClass
+            name="bg-primary-background"
+            backgroundColor={colors.primaryBackground}
+          />
           <MjmlClass
             name="bg-primary-dark"
             backgroundColor={colors.primaryDark}
@@ -179,7 +187,7 @@ const generateTokenPage = ({
                   >
                     |
                   </span>
-                  <span style={{ color: colors.secondary }}>work</span>
+                  <span style={{ color: colors.secondary }}>Echo</span>
                 </a>
               </MjmlText>
             </MjmlColumn>
@@ -189,9 +197,12 @@ const generateTokenPage = ({
 
           {/* Description card */}
 
-          <MjmlSection mjClass="bg-primary" borderRadius={values.px16}>
+          <MjmlSection
+            mjClass="bg-primary-background"
+            borderRadius={values.px16}
+          >
             <MjmlColumn
-              mjClass="bg-primary"
+              mjClass="bg-primary-background"
               padding={values.px30}
               borderRadius={values.px16}
             >
@@ -217,7 +228,7 @@ const generateTokenPage = ({
                 fontSize={values.px14}
                 lineHeight={values.px22}
               >
-                <span className="break-all" style={{ color: '#ff7bed' }}>
+                <span className="break-all" style={{ color: colors.secondary }}>
                   SealCred Echo
                 </span>
                 <span>
@@ -237,19 +248,15 @@ const generateTokenPage = ({
                   Someone you may or may not know added your email to a list of
                   emails that share the same domain to create anonymous pool. By
                   using the token below at{' '}
-                  <a className="link-text" href="https://sealcred.xyz">
-                    sealcred.xyz
-                  </a>{' '}
-                  with an anonymous wallet, you’ll prove you own this email but
-                  keep your identity secret—even from us! Don’t believe us?
-                  Check out our blog below or check us out at{' '}
-                  <a className="link-text" href="https://sealcred.xyz">
-                    sealcred.xyz
-                  </a>{' '}
-                  and{' '}
-                  <a className="link-text" href="https://echo.sealcred.xyz">
-                    echo.sealcred.xyz
-                  </a>
+                  {sealcredLink('https://sealcred.xyz', 'sealcred.xyz')} with an
+                  anonymous wallet, you’ll prove you own this email but keep
+                  your identity secret—even from us! Don’t believe us? Check out
+                  our blog below or check us out at{' '}
+                  {sealcredLink('https://sealcred.xyz', 'sealcred.xyz')} and{' '}
+                  {sealcredLink(
+                    'https://echo.sealcred.xyz',
+                    'echo.sealcred.xyz'
+                  )}
                 </p>
               </MjmlText>
             </MjmlColumn>
@@ -292,14 +299,10 @@ const generateTokenPage = ({
                 fontSize={values.px14}
                 lineHeight={values.px22}
               >
-                <span className="break-all">
-                  Use this token here:{' '}
-                  <a
-                    className="link-text"
-                    href="https://sealc.red/app?email={domain}"
-                  >
-                    sealc.red/app?email={domain}
-                  </a>
+                <span>
+                  If button doesn’t work, copy and paste this token url into
+                  your browser:{' '}
+                  {`https://sealc.red/app?domain=${domain}&token=${secret}`}
                 </span>
               </MjmlText>
               <MjmlSpacer height={values.px20} />
@@ -373,7 +376,7 @@ const generateTokenPage = ({
 }
 
 export const generateTokenHtml = (
-  { secret, domain }: { secret: string; domain: string },
+  { secret, domain }: TokenProps,
   options = {
     validationLevel: 'soft',
     minify: false,
