@@ -9,10 +9,13 @@ export default {
   px20: '20px',
   px22: '22px',
   px24: '24px',
+  px27: '27px',
+  px30: '30px',
   px32: '32px',
   px40: '40px',
   px42: '42px',
   px48: '48px',
   px56: '56px',
+  px62: '62px',
   px64: '64px',
 }

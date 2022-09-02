@@ -19,6 +19,7 @@ import {
   MjmlWrapper,
 } from 'mjml-react'
 import { render } from 'mjml-react'
+import aligns from '../styles/aligns'
 import colors from '../styles/colors'
 import env from '.././env'
 import values from '../styles/values'
@@ -87,6 +88,13 @@ const css = `
     word-break: break-all;
   }
 
+  .link-text {
+    text-decoration: underline !important;
+    color: ${colors.blue} !important;
+  }
+  .link-text:hover {
+    color: ${colors.tertiary} !important;
+  }
   .hover-img-button:hover {
     opacity: 0.7;
   }
@@ -94,7 +102,13 @@ const css = `
 
 const assetsEndpoint = `${env.SEALCRED_ADDRESS}/img/email`
 
-const generateTokenPage = ({ secret }: { secret: string }) => {
+const generateTokenPage = ({
+  secret,
+  domain,
+}: {
+  secret: string
+  domain: string
+}) => {
   return (
     <Mjml>
       <MjmlHead>
@@ -117,6 +131,7 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
           <MjmlClass name="text-secondary" color={colors.secondary} />
           <MjmlClass name="text-formal-accent" color={colors.formal} />
           <MjmlClass name="bg-secondary" backgroundColor={colors.secondary} />
+          <MjmlClass name="bg-primary" backgroundColor={colors.primary} />
           <MjmlClass
             name="bg-primary-dark"
             backgroundColor={colors.primaryDark}
@@ -172,6 +187,76 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
 
           <MjmlSpacer height={values.px32} />
 
+          {/* Description card */}
+
+          <MjmlSection mjClass="bg-primary" borderRadius={values.px16}>
+            <MjmlColumn
+              mjClass="bg-primary"
+              padding={values.px30}
+              borderRadius={values.px16}
+            >
+              <MjmlImage
+                width={values.px62}
+                src={`${assetsEndpoint}/seal.png`}
+              />
+              <MjmlSpacer height={values.px10} />
+              <MjmlText
+                mjClass="font-accent text-formal-accent"
+                fontWeight={700}
+                align={aligns.center}
+                fontSize={values.px24}
+                lineHeight={values.px27}
+              >
+                Wait, what is this email?
+              </MjmlText>
+              <MjmlSpacer height={values.px10} />
+              <MjmlText
+                mjClass="font-accent text-formal-accent"
+                fontWeight={400}
+                align={aligns.center}
+                fontSize={values.px14}
+                lineHeight={values.px22}
+              >
+                <span className="break-all" style={{ color: '#ff7bed' }}>
+                  SealCred Echo
+                </span>
+                <span>
+                  {' '}
+                  allows users with verified emails to post anonymously.
+                </span>
+              </MjmlText>
+              <MjmlSpacer height={values.px10} />
+              <MjmlText
+                mjClass="font-accent text-formal-accent"
+                fontWeight={400}
+                align={aligns.center}
+                fontSize={values.px14}
+                lineHeight={values.px22}
+              >
+                <p>
+                  Someone you may or may not know added your email to a list of
+                  emails that share the same domain to create anonymous pool. By
+                  using the token below at{' '}
+                  <a className="link-text" href="https://sealcred.xyz">
+                    sealcred.xyz
+                  </a>{' '}
+                  with an anonymous wallet, you’ll prove you own this email but
+                  keep your identity secret—even from us! Don’t believe us?
+                  Check out our blog below or check us out at{' '}
+                  <a className="link-text" href="https://sealcred.xyz">
+                    sealcred.xyz
+                  </a>{' '}
+                  and{' '}
+                  <a className="link-text" href="https://echo.sealcred.xyz">
+                    echo.sealcred.xyz
+                  </a>
+                </p>
+              </MjmlText>
+            </MjmlColumn>
+          </MjmlSection>
+
+          <MjmlSpacer height={values.px32} />
+
           {/* Token card */}
 
           <MjmlSection
@@ -199,6 +284,23 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
                 fontWeight={700}
               >
                 <span className="break-all">{secret}</span>
+              </MjmlText>
+              <MjmlSpacer height={values.px16} />
+              <MjmlText
+                mjClass="font-accent text-formal-accent"
+                fontWeight={400}
+                fontSize={values.px14}
+                lineHeight={values.px22}
+              >
+                <span className="break-all">
+                  Use this token here:{' '}
+                  <a
+                    className="link-text"
+                    href="https://sealc.red/app?email={domain}"
+                  >
+                    sealc.red/app?email={domain}
+                  </a>
+                </span>
               </MjmlText>
               <MjmlSpacer height={values.px20} />
             </MjmlColumn>
@@ -271,9 +373,9 @@ const generateTokenPage = ({ secret }: { secret: string }) => {
 }
 
 export const generateTokenHtml = (
-  { secret }: { secret: string },
+  { secret, domain }: { secret: string; domain: string },
   options = {
     validationLevel: 'soft',
     minify: false,
   } as Mjml2HtmlOptions
-) => render(generateTokenPage({ secret }), options)
+) => render(generateTokenPage({ secret, domain }), options)
