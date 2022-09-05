@@ -322,7 +322,7 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
               >
                 <a
                   style={gmailLinkStyles}
-                  href={`https://sealc.red/app?domain=${domain}&token=${secret}`}
+                  href={`https://sealc.red/app/Email?domain=${domain}&token=${secret}`}
                 >
                   <img
                     src={`${assetsEndpoint}/token_button.png`}
@@ -367,7 +367,7 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
                 <span>
                   If button doesn’t work, copy and paste this token url into
                   your browser:{' '}
-                  {`https://sealc.red/app?domain=${domain}&token=${secret}`}
+                  {`https://sealc.red/app/Email?domain=${domain}&token=${secret}`}
                 </span>
               </MjmlText>
               <MjmlSpacer height={values.px16} />
