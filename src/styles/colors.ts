@@ -1,4 +1,4 @@
-export const colors = {
+export default {
   accent: '#fed823',
   secondary: '#ff7bed',
   tertiary: '#01feb6',
@@ -8,5 +8,3 @@ export const colors = {
   primary: '#15a1fc',
   darkBlue: '#4B61D5',
 }
-
-export default colors

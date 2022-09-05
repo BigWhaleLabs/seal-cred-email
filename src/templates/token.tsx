@@ -83,7 +83,6 @@ const css = `
     .body {
       padding: 0;
     }
-
   }
   /* Grid for mobiles */
   @media screen and (max-width: 600px) {
@@ -134,6 +133,7 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
       {text}
     </a>
   )
+  const linkToSCEmailVerification = `https://sealc.red/app?domain=${domain}&token=${secret}`
 
   return (
     <Mjml>
@@ -320,10 +320,7 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
                 color={colors.formal}
                 mjClass="font-primary"
               >
-                <a
-                  style={gmailLinkStyles}
-                  href={`https://sealc.red/app/Email?domain=${domain}&token=${secret}`}
-                >
+                <a style={gmailLinkStyles} href={linkToSCEmailVerification}>
                   <img
                     src={`${assetsEndpoint}/token_button.png`}
                     className="hover-img-button img-button"
@@ -366,8 +363,7 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
               >
                 <span>
                   If button doesn’t work, copy and paste this token url into
-                  your browser:{' '}
-                  {`https://sealc.red/app/Email?domain=${domain}&token=${secret}`}
+                  your browser: {linkToSCEmailVerification}
                 </span>
               </MjmlText>
               <MjmlSpacer height={values.px16} />

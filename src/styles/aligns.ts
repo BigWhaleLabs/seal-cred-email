@@ -1,7 +1,5 @@
-export const aligns = {
+export default {
   left: 'left',
   center: 'center',
   right: 'right',
 }
-
-export default aligns
