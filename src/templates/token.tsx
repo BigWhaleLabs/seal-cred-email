@@ -133,7 +133,7 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
       {text}
     </a>
   )
-  const linkToSCEmailVerification = `https://sealc.red/app?domain=${domain}&token=${secret}`
+  const linkToSCEmailVerification = `https://sealcred.xyz/app?domain=${domain}&token=${secret}`
 
   return (
     <Mjml>
