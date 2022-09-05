@@ -1,8 +1,10 @@
 export default {
   px: '1px',
   px4: '4px',
+  px6: '6px',
   px8: '8px',
   px10: '10px',
+  px12: '12px',
   px14: '14px',
   px16: '16px',
   px18: '18px',

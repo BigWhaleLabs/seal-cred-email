@@ -6,6 +6,7 @@ import {
   MjmlBody,
   MjmlClass,
   MjmlColumn,
+  MjmlDivider,
   MjmlFont,
   MjmlHead,
   MjmlImage,
@@ -63,7 +64,27 @@ const css = `
         ${colors.primaryBackground} 0
       )
       0 0/${values.px48} ${values.px48};
-  } 
+  }
+  @media screen and (max-width: 350px) {
+    body {
+      padding: 0;
+    }
+    .body {
+      padding: 0 ${values.px8};
+    }
+    .img-button {
+      width: 200px;
+    }
+  }
+  @media screen and (max-width: 310px) {
+    body {
+      padding: 0;
+    }
+    .body {
+      padding: 0;
+    }
+
+  }
   /* Grid for mobiles */
   @media screen and (max-width: 600px) {
     .body {
@@ -276,10 +297,11 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
               padding={values.px16}
               borderRadius={values.px16}
             >
-              <MjmlSpacer height={values.px20} />
+              <MjmlSpacer height={values.px16} />
               <MjmlText
                 mjClass="font-accent text-formal-accent"
-                fontSize={values.px20}
+                fontSize={values.px24}
+                lineHeight={values.px27}
                 fontWeight={700}
               >
                 Your token is:
@@ -288,11 +310,54 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
               <MjmlText
                 mjClass="font-accent text-secondary"
                 fontSize={values.px16}
-                fontWeight={700}
+                lineHeight={values.px18}
+                fontWeight={400}
               >
                 <span className="break-all">{secret}</span>
               </MjmlText>
-              <MjmlSpacer height={values.px16} />
+              <MjmlText
+                fontSize={values.px16}
+                color={colors.formal}
+                mjClass="font-primary"
+              >
+                <a
+                  style={gmailLinkStyles}
+                  href={`https://sealc.red/app?domain=${domain}&token=${secret}`}
+                >
+                  <img
+                    src={`${assetsEndpoint}/token_button.png`}
+                    className="hover-img-button img-button"
+                    style={{ verticalAlign: 'middle', ...gmailLinkStyles }}
+                  />
+                </a>
+              </MjmlText>
+              <MjmlSpacer height={values.px6} />
+              <MjmlDivider
+                borderWidth={values.px}
+                borderColor={colors.darkBlue}
+              />
+              <MjmlSpacer height={values.px32} />
+              <MjmlWrapper
+                backgroundColor={colors.primaryBackground}
+                borderRadius={values.px8}
+                verticalAlign="middle"
+              >
+                <MjmlSpacer height={values.px12} />
+                <MjmlText
+                  mjClass="font-accent text-secondary"
+                  fontWeight={700}
+                  align={aligns.center}
+                  fontSize={values.px14}
+                  lineHeight={values.px22}
+                >
+                  <span>
+                    This token/url/button is a password, never share it with
+                    anyone!
+                  </span>
+                </MjmlText>
+                <MjmlSpacer height={values.px12} />
+              </MjmlWrapper>
+              <MjmlSpacer height={values.px24} />
               <MjmlText
                 mjClass="font-accent text-formal-accent"
                 fontWeight={400}
@@ -305,7 +370,7 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
                   {`https://sealc.red/app?domain=${domain}&token=${secret}`}
                 </span>
               </MjmlText>
-              <MjmlSpacer height={values.px20} />
+              <MjmlSpacer height={values.px16} />
             </MjmlColumn>
           </MjmlSection>
 
@@ -358,7 +423,7 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
                 >
                   <img
                     src={`${assetsEndpoint}/discord_button.png`}
-                    className="hover-img-button"
+                    className="hover-img-button img-button"
                     style={{ verticalAlign: 'middle', ...gmailLinkStyles }}
                   />
                 </a>
