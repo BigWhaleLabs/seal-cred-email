@@ -5,7 +5,10 @@ const port = 3002
 const app = express()
 
 app.get('*', (req, res) => {
-  const { html } = token.generateTokenHtml({ secret: '906090' })
+  const { html } = token.generateTokenHtml({
+    secret: '906090',
+    domain: 'bwl.gg',
+  })
   res.send(html)
 })
 
