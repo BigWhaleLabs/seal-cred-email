@@ -20,4 +20,5 @@ export default {
   px56: '56px',
   px62: '62px',
   px64: '64px',
+  px200: '200px',
 }

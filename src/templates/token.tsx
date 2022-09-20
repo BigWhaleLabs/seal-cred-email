@@ -65,6 +65,11 @@ const css = `
       )
       0 0/${values.px48} ${values.px48};
   }
+
+  .img-button {
+    width: ${values.px200};
+  }
+
   @media screen and (max-width: 350px) {
     body {
       padding: 0;
@@ -72,9 +77,7 @@ const css = `
     .body {
       padding: 0 ${values.px8};
     }
-    .img-button {
-      width: 200px;
-    }
+
   }
   @media screen and (max-width: 310px) {
     body {
@@ -324,7 +327,10 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
                   <img
                     src={`${assetsEndpoint}/token_button.png`}
                     className="hover-img-button img-button"
-                    style={{ verticalAlign: 'middle', ...gmailLinkStyles }}
+                    style={{
+                      verticalAlign: 'middle',
+                      ...gmailLinkStyles,
+                    }}
                   />
                 </a>
               </MjmlText>
