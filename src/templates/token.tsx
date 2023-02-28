@@ -329,6 +329,7 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
                     className="hover-img-button img-button"
                     style={{
                       verticalAlign: 'middle',
+                      width: values.px200,
                       ...gmailLinkStyles,
                     }}
                   />
@@ -426,7 +427,11 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
                   <img
                     src={`${assetsEndpoint}/discord_button.png`}
                     className="hover-img-button img-button"
-                    style={{ verticalAlign: 'middle', ...gmailLinkStyles }}
+                    style={{
+                      verticalAlign: 'middle',
+                      width: values.px200,
+                      ...gmailLinkStyles,
+                    }}
                   />
                 </a>
               </MjmlText>
