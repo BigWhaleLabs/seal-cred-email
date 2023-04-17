@@ -20,10 +20,10 @@ import {
   MjmlWrapper,
 } from 'mjml-react'
 import { render } from 'mjml-react'
-import aligns from 'src/styles/aligns'
-import colors from 'src/styles/colors'
-import env from 'src/env'
-import values from 'src/styles/values'
+import aligns from '@/styles/aligns'
+import colors from '@/styles/colors'
+import env from '@/env'
+import values from '@/styles/values'
 
 const gmailLinkStyles = { color: colors.formal, textDecoration: 'none' }
 
