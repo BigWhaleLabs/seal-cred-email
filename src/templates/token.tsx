@@ -20,12 +20,12 @@ import {
   MjmlWrapper,
 } from 'mjml-react'
 import { render } from 'mjml-react'
-import aligns from '../styles/aligns'
-import colors from '../styles/colors'
-import env from '.././env'
-import values from '../styles/values'
+import aligns from '@/styles/aligns'
+import colors from '@/styles/colors'
+import env from '@/env'
+import values from '@/styles/values'
 
-const gmailLinkStyles = { textDecoration: 'none', color: colors.formal }
+const gmailLinkStyles = { color: colors.formal, textDecoration: 'none' }
 
 const css = `
   a {
@@ -130,7 +130,7 @@ interface TokenProps {
 
 const assetsEndpoint = `${env.SEALCRED_ADDRESS}/img/email`
 
-const generateTokenPage = ({ secret, domain }: TokenProps) => {
+const generateTokenPage = ({ domain, secret }: TokenProps) => {
   const sealcredLink = (link: string, text: string) => (
     <a className="link-text" href={link}>
       {text}
@@ -142,60 +142,60 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
     <Mjml>
       <MjmlHead>
         <MjmlRaw>
-          <meta name="color-scheme" content="light" />
-          <meta name="supported-color-schemes" content="light" />
+          <meta content="light" name="color-scheme" />
+          <meta content="light" name="supported-color-schemes" />
         </MjmlRaw>
         <MjmlTitle>Here's your token!</MjmlTitle>
         <MjmlPreview>Here's your token!</MjmlPreview>
         <MjmlFont
-          name="Space Grotesk"
           href="https://fonts.googleapis.com/css2?family=Space+Grotesk"
+          name="Space Grotesk"
         />
         <MjmlFont
-          name="JetBrains Mono"
           href="https://fonts.googleapis.com/css2?family=JetBrains+Mono"
+          name="JetBrains Mono"
         />
         <MjmlAttributes>
-          <MjmlClass name="text-accent" color={colors.accent} />
-          <MjmlClass name="text-secondary" color={colors.secondary} />
-          <MjmlClass name="text-formal-accent" color={colors.formal} />
-          <MjmlClass name="bg-secondary" backgroundColor={colors.secondary} />
+          <MjmlClass color={colors.accent} name="text-accent" />
+          <MjmlClass color={colors.secondary} name="text-secondary" />
+          <MjmlClass color={colors.formal} name="text-formal-accent" />
+          <MjmlClass backgroundColor={colors.secondary} name="bg-secondary" />
           <MjmlClass
-            name="bg-primary-background"
             backgroundColor={colors.primaryBackground}
+            name="bg-primary-background"
           />
           <MjmlClass
-            name="bg-primary-dark"
             backgroundColor={colors.primaryDark}
+            name="bg-primary-dark"
           />
           <MjmlClass
-            name="font-accent"
             fontFamily="Space Grotesk, sans-serif"
+            name="font-accent"
           />
           <MjmlClass
-            name="font-primary"
             fontFamily="JetBrains Mono, sans-serif"
+            name="font-primary"
           />
           <MjmlAll padding="0" />
         </MjmlAttributes>
         <MjmlStyle>{css}</MjmlStyle>
       </MjmlHead>
-      <MjmlBody cssClass="body" backgroundColor={colors.primaryDark}>
+      <MjmlBody backgroundColor={colors.primaryDark} cssClass="body">
         <MjmlWrapper paddingLeft={values.px16} paddingRight={values.px16}>
           <MjmlSpacer height={values.px32} />
           {/* Header */}
           <MjmlSection>
             <MjmlColumn>
               <MjmlText
+                align="left"
                 fontSize={values.px18}
                 mjClass="font-primary"
-                align="left"
               >
-                <a style={gmailLinkStyles} href={env.SEALCRED_ADDRESS}>
+                <a href={env.SEALCRED_ADDRESS} style={gmailLinkStyles}>
                   <img
-                    width={values.px56}
                     src={`${assetsEndpoint}/sc_logo.png`}
                     style={{ verticalAlign: 'middle' }}
+                    width={values.px56}
                   />
                   <span
                     style={{ color: colors.accent, paddingLeft: values.px10 }}
@@ -222,35 +222,35 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
           {/* Description card */}
 
           <MjmlSection
-            mjClass="bg-primary-background"
             borderRadius={values.px16}
+            mjClass="bg-primary-background"
           >
             <MjmlColumn
+              borderRadius={values.px16}
               mjClass="bg-primary-background"
               padding={values.px30}
-              borderRadius={values.px16}
             >
               <MjmlImage
-                width={values.px62}
                 src={`${assetsEndpoint}/seal.png`}
+                width={values.px62}
               />
               <MjmlSpacer height={values.px10} />
               <MjmlText
-                mjClass="font-accent text-formal-accent"
-                fontWeight={700}
                 align={aligns.center}
                 fontSize={values.px24}
+                fontWeight={700}
                 lineHeight={values.px27}
+                mjClass="font-accent text-formal-accent"
               >
                 Wait, what is this email?
               </MjmlText>
               <MjmlSpacer height={values.px10} />
               <MjmlText
-                mjClass="font-accent text-formal-accent"
-                fontWeight={400}
                 align={aligns.center}
                 fontSize={values.px14}
+                fontWeight={400}
                 lineHeight={values.px22}
+                mjClass="font-accent text-formal-accent"
               >
                 <span className="break-all" style={{ color: colors.secondary }}>
                   SealCred Echo
@@ -262,11 +262,11 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
               </MjmlText>
               <MjmlSpacer height={values.px10} />
               <MjmlText
-                mjClass="font-accent text-formal-accent"
-                fontWeight={400}
                 align={aligns.center}
                 fontSize={values.px14}
+                fontWeight={400}
                 lineHeight={values.px22}
+                mjClass="font-accent text-formal-accent"
               >
                 <p>
                   Someone you may or may not know added your email to a list of
@@ -291,42 +291,42 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
           {/* Token card */}
 
           <MjmlSection
+            borderRadius={values.px16}
             mjClass="bg-secondary"
             padding={values.px}
-            borderRadius={values.px16}
           >
             <MjmlColumn
+              borderRadius={values.px16}
               mjClass="bg-primary-dark"
               padding={values.px16}
-              borderRadius={values.px16}
             >
               <MjmlSpacer height={values.px16} />
               <MjmlText
-                mjClass="font-accent text-formal-accent"
                 fontSize={values.px24}
-                lineHeight={values.px27}
                 fontWeight={700}
+                lineHeight={values.px27}
+                mjClass="font-accent text-formal-accent"
               >
                 Your token is:
               </MjmlText>
               <MjmlSpacer height={values.px16} />
               <MjmlText
-                mjClass="font-accent text-secondary"
                 fontSize={values.px16}
-                lineHeight={values.px18}
                 fontWeight={400}
+                lineHeight={values.px18}
+                mjClass="font-accent text-secondary"
               >
                 <span className="break-all">{secret}</span>
               </MjmlText>
               <MjmlText
-                fontSize={values.px16}
                 color={colors.formal}
+                fontSize={values.px16}
                 mjClass="font-primary"
               >
-                <a style={gmailLinkStyles} href={linkToSCEmailVerification}>
+                <a href={linkToSCEmailVerification} style={gmailLinkStyles}>
                   <img
-                    src={`${assetsEndpoint}/token_button.png`}
                     className="hover-img-button img-button"
+                    src={`${assetsEndpoint}/token_button.png`}
                     style={{
                       verticalAlign: 'middle',
                       width: values.px200,
@@ -337,8 +337,8 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
               </MjmlText>
               <MjmlSpacer height={values.px6} />
               <MjmlDivider
-                borderWidth={values.px}
                 borderColor={colors.darkBlue}
+                borderWidth={values.px}
               />
               <MjmlSpacer height={values.px32} />
               <MjmlWrapper
@@ -348,11 +348,11 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
               >
                 <MjmlSpacer height={values.px12} />
                 <MjmlText
-                  mjClass="font-accent text-secondary"
-                  fontWeight={700}
                   align={aligns.center}
                   fontSize={values.px14}
+                  fontWeight={700}
                   lineHeight={values.px22}
+                  mjClass="font-accent text-secondary"
                 >
                   <span>
                     This token/url/button is a password, never share it with
@@ -363,10 +363,10 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
               </MjmlWrapper>
               <MjmlSpacer height={values.px24} />
               <MjmlText
-                mjClass="font-accent text-formal-accent"
-                fontWeight={400}
                 fontSize={values.px14}
+                fontWeight={400}
                 lineHeight={values.px22}
+                mjClass="font-accent text-formal-accent"
               >
                 <span>
                   If button doesn’t work, copy and paste this token url into
@@ -382,16 +382,16 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
           {/* Footer */}
 
           <MjmlSection
+            fullWidth
             paddingLeft={values.px8}
             paddingRight={values.px8}
-            fullWidth
           >
             <MjmlColumn>
               <MjmlText
-                fontSize={values.px16}
-                color={colors.formal}
-                mjClass="font-primary"
                 align="center"
+                color={colors.formal}
+                fontSize={values.px16}
+                mjClass="font-primary"
               >
                 <a
                   href="https://sealcred.xyz/"
@@ -408,25 +408,25 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
                 <a
                   href="https://twitter.com/bigwhalelabs"
                   style={{
-                    paddingRight: values.px20,
                     paddingLeft: values.px40,
+                    paddingRight: values.px20,
                     ...gmailLinkStyles,
                   }}
                 >
                   <img
-                    width={values.px24}
-                    style={{ verticalAlign: 'middle' }}
-                    src={`${assetsEndpoint}/twitter.png`}
                     className="hover-img-button"
+                    src={`${assetsEndpoint}/twitter.png`}
+                    style={{ verticalAlign: 'middle' }}
+                    width={values.px24}
                   />
                 </a>
                 <a
-                  style={gmailLinkStyles}
                   href="https://discord.com/invite/NHk96pPZUV"
+                  style={gmailLinkStyles}
                 >
                   <img
-                    src={`${assetsEndpoint}/discord_button.png`}
                     className="hover-img-button img-button"
+                    src={`${assetsEndpoint}/discord_button.png`}
                     style={{
                       verticalAlign: 'middle',
                       width: values.px200,
@@ -436,7 +436,7 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
                 </a>
               </MjmlText>
 
-              <MjmlImage width="300px" src={`${assetsEndpoint}/bwl_logo.png`} />
+              <MjmlImage src={`${assetsEndpoint}/bwl_logo.png`} width="300px" />
 
               <MjmlSpacer height={values.px32} />
             </MjmlColumn>
@@ -447,10 +447,12 @@ const generateTokenPage = ({ secret, domain }: TokenProps) => {
   )
 }
 
-export const generateTokenHtml = (
-  { secret, domain }: TokenProps,
+export default function (
+  { domain, secret }: TokenProps,
   options = {
-    validationLevel: 'soft',
     minify: false,
+    validationLevel: 'soft',
   } as Mjml2HtmlOptions
-) => render(generateTokenPage({ secret, domain }), options)
+) {
+  return render(generateTokenPage({ domain, secret }), options)
+}

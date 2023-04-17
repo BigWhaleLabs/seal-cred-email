@@ -1,5 +1,5 @@
 export default {
-  left: 'left',
   center: 'center',
+  left: 'left',
   right: 'right',
 }
