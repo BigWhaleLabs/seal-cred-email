@@ -65,11 +65,6 @@ const css = `
     box-shadow: 0px 4px 4px rgba(26, 2, 89, 0.25);
   }
 
-  .top-left {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
 
   @media screen and (max-width: 350px) {
     body {
@@ -100,13 +95,6 @@ const css = `
     word-break: break-all;
   }
 
-  .link-text {
-    text-decoration: underline !important;
-    color: ${colors.primary} !important;
-  }
-  .link-text:hover {
-    color: ${colors.tertiary} !important;
-  }
   .hover-img-button:hover {
     opacity: 0.7;
   }
@@ -120,14 +108,7 @@ interface TokenProps {
 const assetsEndpoint = `${env.KETL_ADDRESS}/media/email`
 
 const generateTokenPage = ({ domain, secret }: TokenProps) => {
-  const ketlLink = (link: string, text: string) => (
-    <a className="link-text" href={link}>
-      {text}
-    </a>
-  )
   const linkToSCEmailVerification = `https://sealcred.xyz/app?domain=${domain}&token=${secret}`
-
-  console.log(`${assetsEndpoint}/ketl_logo.png`)
 
   return (
     <Mjml>
@@ -139,11 +120,8 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
         <MjmlTitle>Here's your token!</MjmlTitle>
         <MjmlPreview>Here's your token!</MjmlPreview>
         <MjmlAttributes>
-          <MjmlClass color={colors.accent} name="text-accent" />
-          <MjmlClass color={colors.secondary} name="text-secondary" />
-          <MjmlClass color={colors.formal} name="text-formal-accent" />
           <MjmlClass color={colors.tertiaryDark} name="text-tertiary-dark" />
-          <MjmlClass backgroundColor={colors.secondary} name="bg-secondary" />
+          <MjmlClass backgroundColor={colors.tertiary} name="bg-tertiary" />
           <MjmlClass
             backgroundColor={colors.primaryBackground}
             name="bg-primary-background"
@@ -164,12 +142,6 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
 
       <MjmlBody>
         <MjmlWrapper cssClass="main shadow-sm">
-          {/* <MjmlImage
-            cssClass="top-left"
-            height="121px"
-            src={`${assetsEndpoint}/logo_transparent.png`}
-            width="335px"
-          /> */}
           <MjmlSpacer height={values.px32} />
           {/* Header */}
           <MjmlSection>
@@ -192,9 +164,10 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
 
           {/* Token card */}
           <MjmlSection
-            borderRadius={values.px16}
+            borderRadius={values.px18}
             cssClass="shadow-sm"
-            mjClass="bg-secondary"
+            mjClass="bg-tertiary"
+            padding={values.px2}
           >
             <MjmlColumn
               borderRadius={values.px16}
@@ -345,11 +318,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
           <MjmlSpacer height={values.px64} />
 
           {/* Footer */}
-          <MjmlSection
-            fullWidth
-            paddingLeft={values.px8}
-            paddingRight={values.px8}
-          >
+          <MjmlSection>
             <MjmlText
               align="center"
               color={colors.formal}
