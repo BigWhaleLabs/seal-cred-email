@@ -7,7 +7,6 @@ import {
   MjmlClass,
   MjmlColumn,
   MjmlDivider,
-  MjmlFont,
   MjmlHead,
   MjmlImage,
   MjmlPreview,
@@ -21,7 +20,6 @@ import {
 } from 'mjml-react'
 import { assetsEndpoint, discordLink, twitterLink } from '@/data'
 import { render } from 'mjml-react'
-import aligns from '@/styles/aligns'
 import colors from '@/styles/colors'
 import env from '@/env'
 import values from '@/styles/values'
@@ -29,12 +27,11 @@ import values from '@/styles/values'
 const gmailLinkStyles = { color: colors.formal, textDecoration: 'none' }
 
 const css = `
-  a {
-    text-decoration: none !important;
-    color: inherit !important;
+  ::selection {
+    background: #ff7bed35;
   }
-  a:hover {
-    opacity: 0.7;
+  ::-moz-selection {
+    background: #ff7bed35;
   }
 
   body {
@@ -44,9 +41,18 @@ const css = `
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: linear-gradient(90deg, ${colors.tertiary}, ${colors.accentDark});
+    border-radius: ${values.px16};
   }
   img {
     filter: none !important;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  a:hover, .hover-img-button:hover {
+    opacity: 0.7;
   }
 
   .main {
@@ -59,45 +65,30 @@ const css = `
   }
 
   .img-button {
-    width: ${values.px200};
+    width: ${values.px180},
   }
 
   .shadow-sm {
     box-shadow: 0px 4px 4px rgba(26, 2, 89, 0.25);
   }
 
-
-  @media screen and (max-width: 350px) {
-    body {
-      padding: 0;
-    }
-    .main {
-      padding: 0;
-    }
-  }
-
-  @media screen and (max-width: 310px) {
-    body {
-      padding: 0;
-    }
-    .main {
-      padding: 0;
-    }
-  }
-
-  ::selection {
-    background: #ff7bed35;
-  }
-  ::-moz-selection {
-    background: #ff7bed35;
-  }
-
   .break-all {
     word-break: break-all;
   }
 
-  .hover-img-button:hover {
-    opacity: 0.7;
+  .my-6 {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .main {
+      border-radius: 0;
+    }
+    .my-6 {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
   }
 `
 
@@ -139,7 +130,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
         <MjmlStyle>{css}</MjmlStyle>
       </MjmlHead>
 
-      <MjmlBody>
+      <MjmlBody cssClass="my-6">
         <MjmlWrapper cssClass="main shadow-sm">
           <MjmlSpacer height={values.px32} />
           {/* Header */}
@@ -186,18 +177,14 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
 
               {/* Token */}
               <MjmlText
+                cssClass="break-all"
                 fontSize={values.px16}
                 fontWeight={400}
                 lineHeight={values.px18}
                 mjClass="font-accent text-tertiary-dark"
                 paddingLeft={values.px10}
               >
-                <img
-                  alt="check"
-                  src={`${assetsEndpoint}/checkmark.png`}
-                  width={values.px24}
-                />
-                <span className="break-all">{secret}</span>
+                {secret}
               </MjmlText>
 
               <MjmlSpacer height={values.px24} />
@@ -209,7 +196,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                     src={`${assetsEndpoint}/token_button.png`}
                     style={{
                       verticalAlign: 'middle',
-                      width: values.px200,
+                      width: values.px180,
                       ...gmailLinkStyles,
                     }}
                   />
@@ -250,12 +237,12 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
           <MjmlSpacer height={values.px32} />
 
           {/* Info text */}
-          {/* TODO: add media queries for big screens */}
           <MjmlSection>
             <MjmlText
               align="left"
               color={colors.alternative}
               fontSize={values.px14}
+              lineHeight={values.px16}
               mjClass="font-primary"
             >
               How are emails verified?
@@ -265,6 +252,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               align="left"
               color={colors.primaryLight}
               fontSize={values.px14}
+              lineHeight={values.px16}
               mjClass="font-primary"
             >
               In ketl season 1, we curated an allowlist of emails associated
@@ -287,6 +275,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               align="left"
               color={colors.alternative}
               fontSize={values.px14}
+              lineHeight={values.px16}
               mjClass="font-primary"
             >
               Can I trust ketl tokens?
@@ -296,6 +285,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               align="left"
               color={colors.primaryLight}
               fontSize={values.px14}
+              lineHeight={values.px16}
               mjClass="font-primary"
             >
               When you enter your token, we don't receive it directly. Instead,
@@ -317,7 +307,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
           <MjmlSpacer height={values.px64} />
 
           {/* Footer */}
-          <MjmlSection>
+          <MjmlColumn width="100%">
             <MjmlText
               align="center"
               color={colors.formal}
@@ -334,6 +324,9 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               >
                 Blog
               </a>
+            </MjmlText>
+            <MjmlSpacer height={values.px16} />
+            <MjmlText align="center">
               <a href={discordLink} style={gmailLinkStyles}>
                 <img
                   className="hover-img-button img-button"
@@ -345,6 +338,9 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                   }}
                 />
               </a>
+            </MjmlText>
+            <MjmlSpacer height={values.px16} />
+            <MjmlText align="center">
               <a
                 href={twitterLink}
                 style={{
@@ -361,7 +357,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 />
               </a>
             </MjmlText>
-          </MjmlSection>
+          </MjmlColumn>
         </MjmlWrapper>
       </MjmlBody>
     </Mjml>

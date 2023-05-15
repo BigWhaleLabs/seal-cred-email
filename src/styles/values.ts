@@ -5,6 +5,7 @@ export default {
   px14: '14px',
   px16: '16px',
   px18: '18px',
+  px180: '180px',
   px2: '2px',
   px20: '20px',
   px200: '200px',
