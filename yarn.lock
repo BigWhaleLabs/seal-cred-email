@@ -1655,7 +1655,7 @@ __metadata:
     mjml-react: ^2.0.8
     module-alias: ^2.2.2
     nodemon: ^2.0.20
-    np: ^7.6.2
+    np: ^7.7.0
     prettier: ^2.8.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -7056,9 +7056,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"np@npm:^7.6.2":
-  version: 7.6.2
-  resolution: "np@npm:7.6.2"
+"np@npm:^7.7.0":
+  version: 7.7.0
+  resolution: "np@npm:7.7.0"
   dependencies:
     "@samverschueren/stream-to-observable": ^0.3.1
     any-observable: ^0.5.1
@@ -7101,7 +7101,7 @@ __metadata:
     update-notifier: ^5.0.1
   bin:
     np: source/cli.js
-  checksum: 736e7434e2fceeffa8fa805d6882dcda020ee882bfe8a0f4d39abaec7016fa9bf12e4daa42649dd21533caa3bfad6acdefe5cf8d7bf177699fa0aedff8083c04
+  checksum: 342b47d3b866a81686728758b1bd7507fde679af8df16f101bad6c01c59e555434d8badc59e6cdce5930e306a06a1db10380fe9ba836d1ae594bcfcfb79447a3
   languageName: node
   linkType: hard
 
