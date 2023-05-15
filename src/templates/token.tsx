@@ -98,7 +98,7 @@ interface TokenProps {
 }
 
 const generateTokenPage = ({ domain, secret }: TokenProps) => {
-  const linkToSCEmailVerification = `https://sealcred.xyz/app?domain=${domain}&token=${secret}`
+  const linkToKetlEmailVerification = `https://ketl.xyz/email?domain=${domain}&token=${secret}`
 
   return (
     <Mjml>
@@ -190,7 +190,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               <MjmlSpacer height={values.px24} />
 
               <MjmlText align="center">
-                <a href={linkToSCEmailVerification} style={gmailLinkStyles}>
+                <a href={linkToKetlEmailVerification} style={gmailLinkStyles}>
                   <img
                     className="hover-img-button img-button"
                     src={`${assetsEndpoint}/token_button.png`}
