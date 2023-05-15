@@ -8,9 +8,9 @@ Add `.env` into project root if you need one:
 
 ### Environment variables
 
-| Name               | Description                                            |
-| ------------------ | ------------------------------------------------------ |
-| `SEALCRED_ADDRESS` | Address, where the assets (images) will be loaded from |
+| Name           | Description                                            |
+| -------------- | ------------------------------------------------------ |
+| `KETL_ADDRESS` | Address, where the assets (images) will be loaded from |
 
 ## How to Use
 

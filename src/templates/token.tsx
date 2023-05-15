@@ -19,6 +19,7 @@ import {
   MjmlTitle,
   MjmlWrapper,
 } from 'mjml-react'
+import { assetsEndpoint, discordLink, twitterLink } from '@/data'
 import { render } from 'mjml-react'
 import aligns from '@/styles/aligns'
 import colors from '@/styles/colors'
@@ -104,8 +105,6 @@ interface TokenProps {
   secret: string
   domain: string
 }
-
-const assetsEndpoint = `${env.KETL_ADDRESS}/media/email`
 
 const generateTokenPage = ({ domain, secret }: TokenProps) => {
   const linkToSCEmailVerification = `https://sealcred.xyz/app?domain=${domain}&token=${secret}`
@@ -335,10 +334,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               >
                 Blog
               </a>
-              <a
-                href="https://discord.com/invite/NHk96pPZUV"
-                style={gmailLinkStyles}
-              >
+              <a href={discordLink} style={gmailLinkStyles}>
                 <img
                   className="hover-img-button img-button"
                   src={`${assetsEndpoint}/discord_button.png`}
@@ -350,7 +346,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 />
               </a>
               <a
-                href="https://twitter.com/bigwhalelabs"
+                href={twitterLink}
                 style={{
                   paddingLeft: values.px40,
                   paddingRight: values.px40,
