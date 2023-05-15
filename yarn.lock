@@ -1635,18 +1635,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@big-whale-labs/prettier-config@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "@big-whale-labs/prettier-config@npm:1.1.3"
-  peerDependencies:
-    prettier: ^2.8.0
-  checksum: f37da74f9113adbc34385c35ffe12606cd83422290781159de35e82a107d603dad4214df7940515896dbd274fc3e5d3b5c72c8b45f0a15bdfec5484c59796315
-  languageName: node
-  linkType: hard
-
-"@big-whale-labs/seal-cred-email@workspace:.":
+"@big-whale-labs/ketl-email@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@big-whale-labs/seal-cred-email@workspace:."
+  resolution: "@big-whale-labs/ketl-email@workspace:."
   dependencies:
     "@babel/cli": ^7.19.3
     "@babel/core": ^7.20.5
@@ -1673,6 +1664,15 @@ __metadata:
     typescript: ^4.9.3
   languageName: unknown
   linkType: soft
+
+"@big-whale-labs/prettier-config@npm:^1.1.3":
+  version: 1.1.3
+  resolution: "@big-whale-labs/prettier-config@npm:1.1.3"
+  peerDependencies:
+    prettier: ^2.8.0
+  checksum: f37da74f9113adbc34385c35ffe12606cd83422290781159de35e82a107d603dad4214df7940515896dbd274fc3e5d3b5c72c8b45f0a15bdfec5484c59796315
+  languageName: node
+  linkType: hard
 
 "@eslint-community/eslint-utils@npm:^4.2.0":
   version: 4.4.0

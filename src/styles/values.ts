@@ -20,5 +20,7 @@ export default {
   px6: '6px',
   px62: '62px',
   px64: '64px',
+  px700: '700px',
   px8: '8px',
+  px90: '90px',
 }

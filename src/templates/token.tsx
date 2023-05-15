@@ -33,72 +33,61 @@ const css = `
     color: inherit !important;
   }
   a:hover {
-    color: ${colors.tertiary} !important;
+    opacity: 0.7;
   }
 
   body {
     filter: none !important;
     margin: 0;
-    padding: 0 ${values.px16};
+    padding: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: conic-gradient(
-        from 90deg at 0.96px 0.96px,
-        ${colors.primaryDark} 90deg,
-        ${colors.primaryBackground} 0
-      )
-      0 0/${values.px48} ${values.px48};
+    background: linear-gradient(90deg, ${colors.tertiary}, ${colors.accentDark});
   }
   img {
     filter: none !important;
   }
 
-  .body {
-    margin: 0;
-    padding: 0 ${values.px16};
+  .main {
+    padding: ${values.px32};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: conic-gradient(
-        from 90deg at 0.96px 0.96px,
-        ${colors.primaryDark} 90deg,
-        ${colors.primaryBackground} 0
-      )
-      0 0/${values.px48} ${values.px48};
+    background: linear-gradient(${colors.tertiaryDark}, ${colors.primaryBackground});
+    border-radius: ${values.px16};
+    max-width: ${values.px700};
   }
 
   .img-button {
     width: ${values.px200};
   }
 
+  .shadow-sm {
+    box-shadow: 0px 4px 4px rgba(26, 2, 89, 0.25);
+  }
+
+  .top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
   @media screen and (max-width: 350px) {
     body {
       padding: 0;
     }
-    .body {
-      padding: 0 ${values.px8};
+    .main {
+      padding: 0;
     }
-
   }
+
   @media screen and (max-width: 310px) {
     body {
       padding: 0;
     }
-    .body {
+    .main {
       padding: 0;
     }
   }
-  /* Grid for mobiles */
-  @media screen and (max-width: 600px) {
-    .body {
-      background: conic-gradient(
-          from 90deg at 0.96px 0.96px,
-          ${colors.primaryDark} 90deg,
-          ${colors.primaryBackground} 0
-        )
-        0 0/${values.px32} ${values.px32};
-    }
-  }
-
 
   ::selection {
     background: #ff7bed35;
@@ -128,15 +117,17 @@ interface TokenProps {
   domain: string
 }
 
-const assetsEndpoint = `${env.KETL_ADDRESS}/img/email`
+const assetsEndpoint = `${env.KETL_ADDRESS}/media/email`
 
 const generateTokenPage = ({ domain, secret }: TokenProps) => {
-  const sealcredLink = (link: string, text: string) => (
+  const ketlLink = (link: string, text: string) => (
     <a className="link-text" href={link}>
       {text}
     </a>
   )
   const linkToSCEmailVerification = `https://sealcred.xyz/app?domain=${domain}&token=${secret}`
+
+  console.log(`${assetsEndpoint}/ketl_logo.png`)
 
   return (
     <Mjml>
@@ -147,157 +138,67 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
         </MjmlRaw>
         <MjmlTitle>Here's your token!</MjmlTitle>
         <MjmlPreview>Here's your token!</MjmlPreview>
-        <MjmlFont
-          href="https://fonts.googleapis.com/css2?family=Space+Grotesk"
-          name="Space Grotesk"
-        />
-        <MjmlFont
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono"
-          name="JetBrains Mono"
-        />
         <MjmlAttributes>
           <MjmlClass color={colors.accent} name="text-accent" />
           <MjmlClass color={colors.secondary} name="text-secondary" />
           <MjmlClass color={colors.formal} name="text-formal-accent" />
+          <MjmlClass color={colors.tertiaryDark} name="text-tertiary-dark" />
           <MjmlClass backgroundColor={colors.secondary} name="bg-secondary" />
           <MjmlClass
             backgroundColor={colors.primaryBackground}
             name="bg-primary-background"
           />
           <MjmlClass
-            backgroundColor={colors.primaryDark}
-            name="bg-primary-dark"
+            backgroundColor={colors.primaryLight}
+            name="bg-primary-light"
           />
           <MjmlClass
-            fontFamily="Space Grotesk, sans-serif"
+            fontFamily="Helvetica, Arial, sans-serif"
             name="font-accent"
           />
-          <MjmlClass
-            fontFamily="JetBrains Mono, sans-serif"
-            name="font-primary"
-          />
+          <MjmlClass fontFamily="Courier, normal" name="font-primary" />
           <MjmlAll padding="0" />
         </MjmlAttributes>
         <MjmlStyle>{css}</MjmlStyle>
       </MjmlHead>
-      <MjmlBody backgroundColor={colors.primaryDark} cssClass="body">
-        <MjmlWrapper paddingLeft={values.px16} paddingRight={values.px16}>
+
+      <MjmlBody>
+        <MjmlWrapper cssClass="main shadow-sm">
+          {/* <MjmlImage
+            cssClass="top-left"
+            height="121px"
+            src={`${assetsEndpoint}/logo_transparent.png`}
+            width="335px"
+          /> */}
           <MjmlSpacer height={values.px32} />
           {/* Header */}
           <MjmlSection>
-            <MjmlColumn>
-              <MjmlText
-                align="left"
-                fontSize={values.px18}
-                mjClass="font-primary"
-              >
-                <a href={env.KETL_ADDRESS} style={gmailLinkStyles}>
-                  <img
-                    src={`${assetsEndpoint}/sc_logo.png`}
-                    style={{ verticalAlign: 'middle' }}
-                    width={values.px56}
-                  />
-                  <span
-                    style={{ color: colors.accent, paddingLeft: values.px10 }}
-                  >
-                    SealCred
-                  </span>
-                  <span
-                    style={{
-                      color: colors.secondary,
-                      paddingLeft: values.px10,
-                      paddingRight: values.px10,
-                    }}
-                  >
-                    |
-                  </span>
-                  <span style={{ color: colors.secondary }}>Echo</span>
-                </a>
-              </MjmlText>
-            </MjmlColumn>
+            <MjmlText align="center">
+              <a href={env.KETL_ADDRESS}>
+                <img
+                  src={`${assetsEndpoint}/ketl_logo.png`}
+                  style={{ verticalAlign: 'middle' }}
+                  width={values.px90}
+                />
+              </a>
+            </MjmlText>
           </MjmlSection>
 
           <MjmlSpacer height={values.px32} />
 
-          {/* Description card */}
-
-          <MjmlSection
-            borderRadius={values.px16}
-            mjClass="bg-primary-background"
-          >
-            <MjmlColumn
-              borderRadius={values.px16}
-              mjClass="bg-primary-background"
-              padding={values.px30}
-            >
-              <MjmlImage
-                src={`${assetsEndpoint}/seal.png`}
-                width={values.px62}
-              />
-              <MjmlSpacer height={values.px10} />
-              <MjmlText
-                align={aligns.center}
-                fontSize={values.px24}
-                fontWeight={700}
-                lineHeight={values.px27}
-                mjClass="font-accent text-formal-accent"
-              >
-                Wait, what is this email?
-              </MjmlText>
-              <MjmlSpacer height={values.px10} />
-              <MjmlText
-                align={aligns.center}
-                fontSize={values.px14}
-                fontWeight={400}
-                lineHeight={values.px22}
-                mjClass="font-accent text-formal-accent"
-              >
-                <span className="break-all" style={{ color: colors.secondary }}>
-                  SealCred Echo
-                </span>
-                <span>
-                  {' '}
-                  allows users with verified emails to post anonymously.
-                </span>
-              </MjmlText>
-              <MjmlSpacer height={values.px10} />
-              <MjmlText
-                align={aligns.center}
-                fontSize={values.px14}
-                fontWeight={400}
-                lineHeight={values.px22}
-                mjClass="font-accent text-formal-accent"
-              >
-                <p>
-                  Someone you may or may not know added your email to a list of
-                  emails that share the same domain to create anonymous pool. By
-                  using the token below at{' '}
-                  {sealcredLink('https://sealcred.xyz', 'sealcred.xyz')} with an
-                  anonymous wallet, you’ll prove you own this email but keep
-                  your identity secret—even from us! Don’t believe us? Check out
-                  our blog below or check us out at{' '}
-                  {sealcredLink('https://sealcred.xyz', 'sealcred.xyz')} and{' '}
-                  {sealcredLink(
-                    'https://echo.sealcred.xyz',
-                    'echo.sealcred.xyz'
-                  )}
-                </p>
-              </MjmlText>
-            </MjmlColumn>
-          </MjmlSection>
+          <MjmlDivider borderColor={colors.primary} borderWidth={values.px} />
 
           <MjmlSpacer height={values.px32} />
 
           {/* Token card */}
-
           <MjmlSection
             borderRadius={values.px16}
+            cssClass="shadow-sm"
             mjClass="bg-secondary"
-            padding={values.px}
           >
             <MjmlColumn
               borderRadius={values.px16}
-              mjClass="bg-primary-dark"
+              mjClass="bg-primary-light"
               padding={values.px16}
             >
               <MjmlSpacer height={values.px16} />
@@ -305,24 +206,31 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 fontSize={values.px24}
                 fontWeight={700}
                 lineHeight={values.px27}
-                mjClass="font-accent text-formal-accent"
+                mjClass="font-accent text-tertiary-dark"
               >
-                Your token is:
+                Your secure ketl token:
               </MjmlText>
               <MjmlSpacer height={values.px16} />
+
+              {/* Token */}
               <MjmlText
                 fontSize={values.px16}
                 fontWeight={400}
                 lineHeight={values.px18}
-                mjClass="font-accent text-secondary"
+                mjClass="font-accent text-tertiary-dark"
+                paddingLeft={values.px10}
               >
+                <img
+                  alt="check"
+                  src={`${assetsEndpoint}/checkmark.png`}
+                  width={values.px24}
+                />
                 <span className="break-all">{secret}</span>
               </MjmlText>
-              <MjmlText
-                color={colors.formal}
-                fontSize={values.px16}
-                mjClass="font-primary"
-              >
+
+              <MjmlSpacer height={values.px24} />
+
+              <MjmlText align="center">
                 <a href={linkToSCEmailVerification} style={gmailLinkStyles}>
                   <img
                     className="hover-img-button img-button"
@@ -335,111 +243,159 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                   />
                 </a>
               </MjmlText>
-              <MjmlSpacer height={values.px6} />
+
+              <MjmlSpacer height={values.px24} />
+
+              <MjmlText
+                align="center"
+                color={colors.tertiary}
+                fontSize={values.px16}
+                lineHeight={values.px24}
+                mjClass="font-primary"
+              >
+                Or copy and paste it into kelt
+              </MjmlText>
+
+              <MjmlSpacer height={values.px24} />
+
               <MjmlDivider
-                borderColor={colors.darkBlue}
+                borderColor={colors.tertiaryDark}
                 borderWidth={values.px}
               />
+
               <MjmlSpacer height={values.px32} />
-              <MjmlWrapper
-                backgroundColor={colors.primaryBackground}
-                borderRadius={values.px8}
-                verticalAlign="middle"
-              >
-                <MjmlSpacer height={values.px12} />
-                <MjmlText
-                  align={aligns.center}
-                  fontSize={values.px14}
-                  fontWeight={700}
-                  lineHeight={values.px22}
-                  mjClass="font-accent text-secondary"
-                >
-                  <span>
-                    This token/url/button is a password, never share it with
-                    anyone!
-                  </span>
-                </MjmlText>
-                <MjmlSpacer height={values.px12} />
-              </MjmlWrapper>
+
+              <MjmlImage
+                height={values.px32}
+                src={`${assetsEndpoint}/verifiable_credentials.png`}
+                width={values.px200}
+              />
+
               <MjmlSpacer height={values.px24} />
-              <MjmlText
-                fontSize={values.px14}
-                fontWeight={400}
-                lineHeight={values.px22}
-                mjClass="font-accent text-formal-accent"
-              >
-                <span>
-                  If button doesn’t work, copy and paste this token url into
-                  your browser: {linkToSCEmailVerification}
-                </span>
-              </MjmlText>
-              <MjmlSpacer height={values.px16} />
             </MjmlColumn>
           </MjmlSection>
 
           <MjmlSpacer height={values.px32} />
 
-          {/* Footer */}
+          {/* Info text */}
+          {/* TODO: add media queries for big screens */}
+          <MjmlSection>
+            <MjmlText
+              align="left"
+              color={colors.alternative}
+              fontSize={values.px14}
+              mjClass="font-primary"
+            >
+              How are emails verified?
+            </MjmlText>
+            <MjmlSpacer height={values.px16} />
+            <MjmlText
+              align="left"
+              color={colors.primaryLight}
+              fontSize={values.px14}
+              mjClass="font-primary"
+            >
+              In ketl season 1, we curated an allowlist of emails associated
+              with founders and VCs. Ultimately, anyone can ask us to send an
+              email to any address in the allowlist. However, only those who own
+              one of the email addresses in the allowlist possess a valid token.
+              Since we never find out which exact token you own, there is no way
+              for us to find out the email address/real-world identity
+              associated with any ketl user.
+            </MjmlText>
 
+            <MjmlSpacer height={values.px16} />
+            <MjmlDivider
+              borderColor={colors.tertiaryDark}
+              borderWidth={values.px}
+            />
+            <MjmlSpacer height={values.px16} />
+
+            <MjmlText
+              align="left"
+              color={colors.alternative}
+              fontSize={values.px14}
+              mjClass="font-primary"
+            >
+              Can I trust ketl tokens?
+            </MjmlText>
+            <MjmlSpacer height={values.px16} />
+            <MjmlText
+              align="left"
+              color={colors.primaryLight}
+              fontSize={values.px14}
+              mjClass="font-primary"
+            >
+              When you enter your token, we don't receive it directly. Instead,
+              we get a secure proof called a zero-knowledge proof, which
+              confirms that you have a valid token from an approved set, but
+              without revealing the specific token you hold. This process
+              ensures your privacy, as we can't link your email address to your
+              ketl account. This ensures a safe and anonymous experience on the
+              app.
+            </MjmlText>
+
+            <MjmlSpacer height={values.px16} />
+            <MjmlDivider
+              borderColor={colors.tertiaryDark}
+              borderWidth={values.px}
+            />
+          </MjmlSection>
+
+          <MjmlSpacer height={values.px64} />
+
+          {/* Footer */}
           <MjmlSection
             fullWidth
             paddingLeft={values.px8}
             paddingRight={values.px8}
           >
-            <MjmlColumn>
-              <MjmlText
-                align="center"
-                color={colors.formal}
-                fontSize={values.px16}
-                mjClass="font-primary"
+            <MjmlText
+              align="center"
+              color={colors.formal}
+              fontSize={values.px16}
+              mjClass="font-primary"
+            >
+              <a
+                href="https://blog.bigwhalelabs.com/"
+                style={{
+                  paddingLeft: values.px40,
+                  paddingRight: values.px40,
+                  ...gmailLinkStyles,
+                }}
               >
-                <a
-                  href="https://sealcred.xyz/"
-                  style={{ paddingLeft: values.px14, ...gmailLinkStyles }}
-                >
-                  SealCred
-                </a>
-                <a
-                  href="https://blog.bigwhalelabs.com/"
-                  style={{ paddingLeft: values.px40, ...gmailLinkStyles }}
-                >
-                  Blog
-                </a>
-                <a
-                  href="https://twitter.com/bigwhalelabs"
+                Blog
+              </a>
+              <a
+                href="https://discord.com/invite/NHk96pPZUV"
+                style={gmailLinkStyles}
+              >
+                <img
+                  className="hover-img-button img-button"
+                  src={`${assetsEndpoint}/discord_button.png`}
                   style={{
-                    paddingLeft: values.px40,
-                    paddingRight: values.px20,
+                    verticalAlign: 'middle',
+                    width: values.px200,
                     ...gmailLinkStyles,
                   }}
-                >
-                  <img
-                    className="hover-img-button"
-                    src={`${assetsEndpoint}/twitter.png`}
-                    style={{ verticalAlign: 'middle' }}
-                    width={values.px24}
-                  />
-                </a>
-                <a
-                  href="https://discord.com/invite/NHk96pPZUV"
-                  style={gmailLinkStyles}
-                >
-                  <img
-                    className="hover-img-button img-button"
-                    src={`${assetsEndpoint}/discord_button.png`}
-                    style={{
-                      verticalAlign: 'middle',
-                      width: values.px200,
-                      ...gmailLinkStyles,
-                    }}
-                  />
-                </a>
-              </MjmlText>
-
-              <MjmlImage src={`${assetsEndpoint}/bwl_logo.png`} width="300px" />
-
-              <MjmlSpacer height={values.px32} />
-            </MjmlColumn>
+                />
+              </a>
+              <a
+                href="https://twitter.com/bigwhalelabs"
+                style={{
+                  paddingLeft: values.px40,
+                  paddingRight: values.px40,
+                  ...gmailLinkStyles,
+                }}
+              >
+                <img
+                  className="hover-img-button"
+                  src={`${assetsEndpoint}/twitter.png`}
+                  style={{ verticalAlign: 'middle' }}
+                  width={values.px24}
+                />
+              </a>
+            </MjmlText>
           </MjmlSection>
         </MjmlWrapper>
       </MjmlBody>
