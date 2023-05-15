@@ -1,6 +1,6 @@
 {
-  "name": "@big-whale-labs/seal-cred-email",
-  "version": "1.1.2",
+  "name": "@big-whale-labs/ketl-email",
+  "version": "0.0.1",
   "license": "MIT",
   "files": [
     "dist"
@@ -70,18 +70,18 @@
     "@": "dist"
   },
   "packageManager": "yarn@3.3.0",
-  "description": "SealCred email templates",
+  "description": "Ketl email templates",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BigWhaleLabs/seal-cred-email.git"
+    "url": "git+https://github.com/BigWhaleLabs/ketl-email.git"
   },
   "keywords": [
     "emails"
   ],
   "bugs": {
-    "url": "https://github.com/BigWhaleLabs/seal-cred-email/issues"
+    "url": "https://github.com/BigWhaleLabs/ketl-email/issues"
   },
-  "homepage": "https://github.com/BigWhaleLabs/seal-cred-email#readme"
+  "homepage": "https://github.com/BigWhaleLabs/ketl-email#readme"
 }

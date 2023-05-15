@@ -2,7 +2,7 @@
 
 ## Installation
 
-`yarn add @big-whale-labs/seal-cred-email`
+`yarn add @big-whale-labs/ketl-email`
 
 Add `.env` into project root if you need one:
 
@@ -16,7 +16,7 @@ Add `.env` into project root if you need one:
 
 ```ts
 import { createTransport } from 'nodemailer'
-import { token } from '@big-whale-labs/seal-cred-email'
+import { token } from '@big-whale-labs/ketl-email'
 import env from '@/helpers/env'
 
 const user = env.SMTP_USER
@@ -34,7 +34,7 @@ const emailer = createTransport({
 
 export default function (to: string, subject: string, text: string) {
   return emailer.sendMail({
-    from: `"SealCred" <${user}>`,
+    from: `"Ketl" <${user}>`,
     to,
     subject,
     html: token.replace('{{token}}', text),
@@ -51,8 +51,8 @@ export default function (to: string, subject: string, text: string) {
 
 1. Run `yarn link` in the root folder, [more about yarn link](https://classic.yarnpkg.com/en/docs/cli/link)
 2. Run develop mode with `yarn start`
-3. **In another project**. Run `yarn link @big-whale-labs/seal-cred-email`
-4. Nice! Your project will now use the local version of `@big-whale-labs/seal-cred-email`
+3. **In another project**. Run `yarn link @big-whale-labs/ketl-email`
+4. Nice! Your project will now use the local version of `@big-whale-labs/ketl-email`
 
 ## Available scripts
 

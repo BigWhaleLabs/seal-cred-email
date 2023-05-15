@@ -128,7 +128,7 @@ interface TokenProps {
   domain: string
 }
 
-const assetsEndpoint = `${env.SEALCRED_ADDRESS}/img/email`
+const assetsEndpoint = `${env.KETL_ADDRESS}/img/email`
 
 const generateTokenPage = ({ domain, secret }: TokenProps) => {
   const sealcredLink = (link: string, text: string) => (
@@ -191,7 +191,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 fontSize={values.px18}
                 mjClass="font-primary"
               >
-                <a href={env.SEALCRED_ADDRESS} style={gmailLinkStyles}>
+                <a href={env.KETL_ADDRESS} style={gmailLinkStyles}>
                   <img
                     src={`${assetsEndpoint}/sc_logo.png`}
                     style={{ verticalAlign: 'middle' }}
