@@ -54,7 +54,7 @@ const css = `
     a:hover, .hover-img-button:hover {
       opacity: 0.7;
     }
-  
+
     .main {
       padding: ${values.px32};
       -webkit-font-smoothing: antialiased;
@@ -133,8 +133,11 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
         <MjmlStyle>{css}</MjmlStyle>
       </MjmlHead>
 
-      <MjmlBody cssClass="my-6">
-        <MjmlWrapper cssClass="main shadow-sm">
+      <MjmlBody backgroundColor={colors.tertiary} cssClass="my-6">
+        <MjmlWrapper
+          backgroundColor={colors.primaryBackground}
+          cssClass="main shadow-sm"
+        >
           <MjmlSpacer height={values.px32} />
           {/* Header */}
           <MjmlSection>
