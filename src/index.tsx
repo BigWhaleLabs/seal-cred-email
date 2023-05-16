@@ -27,70 +27,70 @@ import values from '@/styles/values'
 const gmailLinkStyles = { color: colors.formal, textDecoration: 'none' }
 
 const css = `
-  ::selection {
-    background: #ff7bed35;
-  }
-  ::-moz-selection {
-    background: #ff7bed35;
-  }
-
-  body {
-    filter: none !important;
-    margin: 0;
-    padding: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(90deg, ${colors.tertiary}, ${colors.accentDark});
-    border-radius: ${values.px16};
-  }
-  img {
-    filter: none !important;
-  }
-
-  a {
-    text-decoration: none !important;
-    color: inherit !important;
-  }
-  a:hover, .hover-img-button:hover {
-    opacity: 0.7;
-  }
-
-  .main {
-    padding: ${values.px32};
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(${colors.tertiaryDark}, ${colors.primaryBackground});
-    border-radius: ${values.px16};
-    max-width: ${values.px700};
-  }
-
-  .img-button {
-    width: ${values.px180},
-  }
-
-  .shadow-sm {
-    box-shadow: 0px 4px 4px rgba(26, 2, 89, 0.25);
-  }
-
-  .break-all {
-    word-break: break-all;
-  }
-
-  .my-6 {
-    margin-top: 24px;
-    margin-bottom: 24px;
-  }
-
-  @media (max-width: 600px) {
+    ::selection {
+      background: #ff7bed35;
+    }
+    ::-moz-selection {
+      background: #ff7bed35;
+    }
+  
+    body {
+      filter: none !important;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background: linear-gradient(90deg, ${colors.tertiary}, ${colors.accentDark});
+      border-radius: ${values.px16};
+    }
+    img {
+      filter: none !important;
+    }
+  
+    a {
+      text-decoration: none !important;
+      color: inherit !important;
+    }
+    a:hover, .hover-img-button:hover {
+      opacity: 0.7;
+    }
+  
     .main {
-      border-radius: 0;
+      padding: ${values.px32};
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background: linear-gradient(${colors.tertiaryDark}, ${colors.primaryBackground});
+      border-radius: ${values.px16};
+      max-width: ${values.px700};
     }
+  
+    .img-button {
+      width: ${values.px180},
+    }
+  
+    .shadow-sm {
+      box-shadow: 0px 4px 4px rgba(26, 2, 89, 0.25);
+    }
+  
+    .break-all {
+      word-break: break-all;
+    }
+  
     .my-6 {
-      margin-top: 0px;
-      margin-bottom: 0px;
+      margin-top: 24px;
+      margin-bottom: 24px;
     }
-  }
-`
+  
+    @media (max-width: 600px) {
+      .main {
+        border-radius: 0;
+      }
+      .my-6 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+      }
+    }
+  `
 
 interface TokenProps {
   secret: string
@@ -364,7 +364,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
   )
 }
 
-export default function generateKetlTokenHtml(
+export default function (
   { domain, secret }: TokenProps,
   options = {
     minify: false,
