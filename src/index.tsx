@@ -41,7 +41,6 @@ const css = `
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       background-color: ${colors.tertiary};
-      border-radius: ${values.px16};
     }
     img {
       filter: none !important;
@@ -56,11 +55,7 @@ const css = `
     }
 
     .main {
-      padding: ${values.px32};
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       background-color: ${colors.primaryBackground};
-      border-radius: ${values.px16};
       max-width: ${values.px700};
     }
   
@@ -74,18 +69,6 @@ const css = `
   
     .break-all {
       word-break: break-all;
-    }
-  
-    .my-6 {
-      margin-top: 24px;
-      margin-bottom: 24px;
-    }
-  
-    @media (max-width: 600px) {
-      .my-6 {
-        margin-top: 0px;
-        margin-bottom: 0px;
-      }
     }
   `
 
@@ -133,10 +116,13 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
         <MjmlStyle>{css}</MjmlStyle>
       </MjmlHead>
 
-      <MjmlBody backgroundColor={colors.tertiary} cssClass="my-6">
-        <MjmlWrapper
+      <MjmlBody backgroundColor={colors.tertiary}>
+        <MjmlSpacer height={values.px32} />
+        <MjmlSection
           backgroundColor={colors.primaryBackground}
+          borderRadius={values.px18}
           cssClass="main shadow-sm"
+          padding={values.px32}
         >
           <MjmlSpacer height={values.px32} />
           {/* Header */}
@@ -353,7 +339,9 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               </a>
             </MjmlText>
           </MjmlColumn>
-        </MjmlWrapper>
+        </MjmlSection>
+
+        <MjmlSpacer height={values.px32} />
       </MjmlBody>
     </Mjml>
   )
