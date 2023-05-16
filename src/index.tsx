@@ -16,7 +16,6 @@ import {
   MjmlStyle,
   MjmlText,
   MjmlTitle,
-  MjmlWrapper,
 } from 'mjml-react'
 import { assetsEndpoint, discordLink, twitterLink } from './data'
 import { render } from 'mjml-react'
@@ -172,13 +171,12 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
 
               {/* Token */}
               <MjmlText
-                cssClass="break-all"
                 fontSize={values.px16}
                 fontWeight={400}
                 lineHeight={values.px18}
                 mjClass="font-accent text-tertiary-dark"
               >
-                {secret}
+                <span style={{ wordBreak: 'break-all' }}>{secret}</span>
               </MjmlText>
 
               <MjmlSpacer height={values.px24} />
