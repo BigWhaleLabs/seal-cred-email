@@ -364,7 +364,8 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
   )
 }
 
-export default function (
+// eslint-disable-next-line import/prefer-default-export
+export function generateKetlTokenHtml(
   { domain, secret }: TokenProps,
   options = {
     minify: false,
