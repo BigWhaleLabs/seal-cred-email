@@ -151,7 +151,10 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
 
           <MjmlSpacer height={values.px32} />
 
-          <MjmlDivider borderColor={colors.primary} borderWidth={values.px} />
+          <MjmlDivider
+            borderColor={colors.tertiaryDark}
+            borderWidth={values.px}
+          />
 
           <MjmlSpacer height={values.px32} />
 
