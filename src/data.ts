@@ -1,4 +1,4 @@
-import env from '@/env'
+import env from './env'
 
 export const discordLink = 'https://discord.gg/3SeNsSv3W8'
 export const twitterLink = 'https://twitter.com/bigwhalelabs'

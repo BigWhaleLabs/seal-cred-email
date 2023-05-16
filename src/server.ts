@@ -2,7 +2,7 @@ import 'module-alias/register'
 import 'source-map-support/register'
 
 import * as express from 'express'
-import generateKetlTokenHtml from '@/index'
+import generateKetlTokenHtml from './index'
 
 const port = 3002
 const app = express()
