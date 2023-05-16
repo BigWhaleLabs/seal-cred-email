@@ -40,7 +40,7 @@ const css = `
       padding: 0;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      background: linear-gradient(90deg, ${colors.tertiary}, ${colors.accentDark});
+      background-color: ${colors.tertiary};
       border-radius: ${values.px16};
     }
     img {
@@ -59,7 +59,7 @@ const css = `
       padding: ${values.px32};
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      background: linear-gradient(${colors.tertiaryDark}, ${colors.primaryBackground});
+      background-color: ${colors.primaryBackground};
       border-radius: ${values.px16};
       max-width: ${values.px700};
     }
@@ -82,15 +82,18 @@ const css = `
     }
   
     @media (max-width: 600px) {
-      .main {
-        border-radius: 0;
-      }
       .my-6 {
         margin-top: 0px;
         margin-bottom: 0px;
       }
     }
   `
+
+const footerLinkStyles = {
+  paddingLeft: values.px40,
+  paddingRight: values.px40,
+  ...gmailLinkStyles,
+}
 
 interface TokenProps {
   secret: string
@@ -195,6 +198,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                     className="hover-img-button img-button"
                     src={`${assetsEndpoint}/token_button.png`}
                     style={{
+                      borderRadius: values.px22,
                       verticalAlign: 'middle',
                       width: values.px180,
                       ...gmailLinkStyles,
@@ -209,7 +213,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 align="center"
                 color={colors.tertiary}
                 fontSize={values.px16}
-                lineHeight={values.px24}
+                lineHeight={values.px18}
                 mjClass="font-primary"
               >
                 Or copy and paste it into kelt
@@ -314,14 +318,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               fontSize={values.px16}
               mjClass="font-primary"
             >
-              <a
-                href="https://blog.bigwhalelabs.com/"
-                style={{
-                  paddingLeft: values.px40,
-                  paddingRight: values.px40,
-                  ...gmailLinkStyles,
-                }}
-              >
+              <a href="https://blog.bigwhalelabs.com/" style={footerLinkStyles}>
                 Blog
               </a>
             </MjmlText>
@@ -341,14 +338,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
             </MjmlText>
             <MjmlSpacer height={values.px16} />
             <MjmlText align="center">
-              <a
-                href={twitterLink}
-                style={{
-                  paddingLeft: values.px40,
-                  paddingRight: values.px40,
-                  ...gmailLinkStyles,
-                }}
-              >
+              <a href={twitterLink} style={footerLinkStyles}>
                 <img
                   className="hover-img-button"
                   src={`${assetsEndpoint}/twitter.png`}
