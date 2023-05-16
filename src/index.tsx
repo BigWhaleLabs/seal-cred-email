@@ -188,7 +188,6 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 fontWeight={400}
                 lineHeight={values.px18}
                 mjClass="font-accent text-tertiary-dark"
-                paddingLeft={values.px10}
               >
                 {secret}
               </MjmlText>
