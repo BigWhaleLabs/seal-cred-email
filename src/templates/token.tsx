@@ -18,11 +18,11 @@ import {
   MjmlTitle,
   MjmlWrapper,
 } from 'mjml-react'
-import { assetsEndpoint, discordLink, twitterLink } from '@/data'
+import { assetsEndpoint, discordLink, twitterLink } from '../data'
 import { render } from 'mjml-react'
-import colors from '@/styles/colors'
-import env from '@/env'
-import values from '@/styles/values'
+import colors from '../styles/colors'
+import env from '../env'
+import values from '../styles/values'
 
 const gmailLinkStyles = { color: colors.formal, textDecoration: 'none' }
 

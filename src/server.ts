@@ -1,6 +1,3 @@
-import 'module-alias/register'
-import 'source-map-support/register'
-
 import * as express from 'express'
 import { generateKetlTokenHtml } from '@/templates/token'
 

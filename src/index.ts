@@ -1,1 +1,1 @@
-export * as ketlEmail from '@/templates/token'
+export * as ketlEmail from './templates/token'
