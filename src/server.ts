@@ -1,5 +1,8 @@
+import 'module-alias/register'
+import 'source-map-support/register'
+
 import * as express from 'express'
-import { generateKetlTokenHtml } from '@/templates/token'
+import generateKetlTokenHtml from '@/templates/token'
 
 const port = 3002
 const app = express()

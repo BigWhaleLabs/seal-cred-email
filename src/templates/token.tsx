@@ -18,11 +18,11 @@ import {
   MjmlTitle,
   MjmlWrapper,
 } from 'mjml-react'
-import { assetsEndpoint, discordLink, twitterLink } from '../data'
+import { assetsEndpoint, discordLink, twitterLink } from '@/data'
 import { render } from 'mjml-react'
-import colors from '../styles/colors'
-import env from '../env'
-import values from '../styles/values'
+import colors from '@/styles/colors'
+import env from '@/env'
+import values from '@/styles/values'
 
 const gmailLinkStyles = { color: colors.formal, textDecoration: 'none' }
 
@@ -364,8 +364,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
   )
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export function generateKetlTokenHtml(
+export default function generateKetlTokenHtml(
   { domain, secret }: TokenProps,
   options = {
     minify: false,
