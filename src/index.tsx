@@ -23,7 +23,10 @@ import colors from './styles/colors'
 import env from './env'
 import values from './styles/values'
 
-const gmailLinkStyles = { color: colors.formal, textDecoration: 'none' }
+const gmailLinkStyles = {
+  color: colors.formal,
+  textDecoration: 'none',
+}
 
 const css = `
     ::selection {
@@ -31,6 +34,10 @@ const css = `
     }
     ::-moz-selection {
       background: #ff7bed35;
+    }
+
+    * {
+      -webkit-tap-highlight-color: var(--transparent);
     }
   
     body {
@@ -41,6 +48,7 @@ const css = `
       -moz-osx-font-smoothing: grayscale;
       background-color: ${colors.tertiary};
     }
+
     img {
       filter: none !important;
     }
@@ -49,7 +57,7 @@ const css = `
       text-decoration: none !important;
       color: inherit !important;
     }
-    a:hover, .hover-img-button:hover {
+    a:hover, .hover-img-button:hover, .img-button:hover {
       opacity: 0.7;
     }
 
@@ -83,7 +91,7 @@ interface TokenProps {
 }
 
 const generateTokenPage = ({ domain, secret }: TokenProps) => {
-  const linkToKetlEmailVerification = `ketl://email?domain=${domain}&token=${secret}`
+  const linkToKetlEmailVerification = `https://ketl.xyz/email?domain=${domain}&token=${secret}`
 
   return (
     <Mjml>
@@ -187,7 +195,6 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                     className="hover-img-button img-button"
                     src={`${assetsEndpoint}/token_button.png`}
                     style={{
-                      borderRadius: values.px22,
                       verticalAlign: 'middle',
                       width: values.px180,
                       ...gmailLinkStyles,
