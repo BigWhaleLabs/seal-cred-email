@@ -91,7 +91,7 @@ interface TokenProps {
 }
 
 const generateTokenPage = ({ domain, secret }: TokenProps) => {
-  const linkToKetlEmailVerification = `${env.KETL_ADDRESS}/email?domain=${domain}&token=${secret}`
+  const linkToKetlEmailVerification = `${env.KETL_ADDRESS}/email/${domain}/${secret}`
 
   return (
     <Mjml>
