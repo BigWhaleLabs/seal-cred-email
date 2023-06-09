@@ -8,9 +8,10 @@ Add `.env` into project root if you need one:
 
 ### Environment variables
 
-| Name           | Description                                            |
-| -------------- | ------------------------------------------------------ |
-| `KETL_ADDRESS` | Address, where the assets (images) will be loaded from |
+| Name             | Description                                            |
+| ---------------- | ------------------------------------------------------ |
+| `ASSETS_ADDRESS` | Address, where the assets (images) will be loaded from |
+| `KETL_ADDRESS`   | Web-site address to create proper email-link in button |
 
 ## How to Use
 
