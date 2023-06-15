@@ -212,7 +212,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 lineHeight={values.px18}
                 mjClass="font-primary"
               >
-                Or copy and paste it into kelt
+                Or copy and paste it into ketl
               </MjmlText>
 
               <MjmlSpacer height={values.px24} />
