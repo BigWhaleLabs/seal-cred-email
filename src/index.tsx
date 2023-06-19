@@ -78,11 +78,11 @@ const css = `
       word-break: break-all;
     }
     
-    .link-text {
+    .linkText {
       text-decoration: underline !important;
       color: ${colors.alternative} !important;
     }
-    .link-text:hover {
+    .linkText:hover {
       color: ${colors.formal} !important;
     }
   `
@@ -263,19 +263,21 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               lineHeight={values.px16}
               mjClass="font-primary"
             >
-              For YC founders, we reference the public founder database
-              published by YC on:{' '}
-              <a className="link-text" href={ycLink}>
-                ycombinator.com/companies/founders
-              </a>{' '}
-              to generate an anonymity set of founders for the YC credential.
-              For other founders/VCs we curate an allowlist of founder/vc
-              emails. Ultimately, anyone can ask us to send an email to any
-              address in the allowlist. However, only those who own one of the
-              email addresses in the allowlist possess a valid token. Since we
-              never find out which exact token you own, there is no way for us
-              to find out the email address/real-world identity associated with
-              any ketl user.
+              <p>
+                For YC founders, we reference the public founder database
+                published by YC on:{' '}
+                <a className="linkText" href={ycLink}>
+                  ycombinator.com/companies/founders
+                </a>{' '}
+                to generate an anonymity set of founders for the YC credential.
+                For other founders/VCs we curate an allowlist of founder/vc
+                emails. Ultimately, anyone can ask us to send an email to any
+                address in the allowlist. However, only those who own one of the
+                email addresses in the allowlist possess a valid token. Since we
+                never find out which exact token you own, there is no way for us
+                to find out the email address/real-world identity associated
+                with any ketl user.
+              </p>
             </MjmlText>
 
             <MjmlSpacer height={values.px16} />
