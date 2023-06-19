@@ -78,12 +78,13 @@ const css = `
       word-break: break-all;
     }
     
-    .linkText {
+    .link-text {
       text-decoration: underline !important;
       color: ${colors.alternative} !important;
     }
-    .linkText:hover {
+    .link-text:hover {
       color: ${colors.formal} !important;
+      opacity: 0.7 !important;
     }
   `
 
@@ -100,6 +101,11 @@ interface TokenProps {
 
 const generateTokenPage = ({ domain, secret }: TokenProps) => {
   const linkToKetlEmailVerification = `${env.KETL_ADDRESS}/email/${domain}/${secret}`
+  const makeLink = (link: string, text: string) => (
+    <a className="link-text" href={link} style={{ color: colors.alternative }}>
+      {text}
+    </a>
+  )
 
   return (
     <Mjml>
@@ -266,17 +272,15 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               <p>
                 For YC founders, we reference the public founder database
                 published by YC on:{' '}
-                <a className="linkText" href={ycLink}>
-                  ycombinator.com/companies/founders
-                </a>{' '}
-                to generate an anonymity set of founders for the YC credential.
-                For other founders/VCs we curate an allowlist of founder/vc
-                emails. Ultimately, anyone can ask us to send an email to any
-                address in the allowlist. However, only those who own one of the
-                email addresses in the allowlist possess a valid token. Since we
-                never find out which exact token you own, there is no way for us
-                to find out the email address/real-world identity associated
-                with any ketl user.
+                {makeLink(ycLink, 'ycombinator.com/companies/founders')} to
+                generate an anonymity set of founders for the YC credential. For
+                other founders/VCs we curate an allowlist of founder/vc emails.
+                Ultimately, anyone can ask us to send an email to any address in
+                the allowlist. However, only those who own one of the email
+                addresses in the allowlist possess a valid token. Since we never
+                find out which exact token you own, there is no way for us to
+                find out the email address/real-world identity associated with
+                any ketl user.
               </p>
             </MjmlText>
 
