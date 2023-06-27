@@ -42,11 +42,11 @@ const css = `
   
     body {
       filter: none !important;
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      background-color: ${colors.tertiary};
+      margin: 0 !important;
+      padding: 0 !important;
+      -webkit-font-smoothing: antialiased !important;
+      -moz-osx-font-smoothing: grayscale !important;
+      background-color: ${colors.tertiary} !important;
     }
 
     img {
@@ -58,24 +58,24 @@ const css = `
       color: inherit !important;
     }
     a:hover, .hover-img-button:hover, .img-button:hover {
-      opacity: 0.7;
+      opacity: 0.7 !important;
     }
 
     .main {
-      background-color: ${colors.primaryBackground};
-      max-width: ${values.px700};
+      background-color: ${colors.primaryBackground} !important;
+      max-width: ${values.px700} !important;
     }
   
     .img-button {
-      width: ${values.px180},
+      width: ${values.px180} !important;
     }
   
     .shadow-sm {
-      box-shadow: 0px 4px 4px rgba(26, 2, 89, 0.25);
+      box-shadow: 0px 4px 4px hsla(256.552, 96%, 18%, 0.25) !important;
     }
   
     .break-all {
-      word-break: break-all;
+      word-break: break-all !important;
     }
     
     .link-text {
@@ -86,7 +86,19 @@ const css = `
       color: ${colors.formal} !important;
       opacity: 0.7 !important;
     }
+    
+    @media (prefers-color-scheme: dark) {
+
+    }
   `
+
+const darkCss = `
+  @media (prefers-color-scheme: dark) {
+  ${css}
+  }
+`
+
+const finalStyles = css + darkCss
 
 const footerLinkStyles = {
   paddingLeft: values.px40,
@@ -136,7 +148,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
           <MjmlClass fontFamily="Courier, normal" name="font-primary" />
           <MjmlAll padding="0" />
         </MjmlAttributes>
-        <MjmlStyle>{css}</MjmlStyle>
+        <MjmlStyle inline>{finalStyles}</MjmlStyle>
       </MjmlHead>
 
       <MjmlBody backgroundColor={colors.tertiary}>
