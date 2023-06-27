@@ -17,7 +17,7 @@ import {
   MjmlText,
   MjmlTitle,
 } from 'mjml-react'
-import { assetsEndpoint, discordLink, twitterLink } from './data'
+import { assetsEndpoint, discordLink, twitterLink, ycLink } from './data'
 import { render } from 'mjml-react'
 import colors from './styles/colors'
 import env from './env'
@@ -77,6 +77,15 @@ const css = `
     .break-all {
       word-break: break-all;
     }
+    
+    .link-text {
+      text-decoration: underline !important;
+      color: ${colors.alternative} !important;
+    }
+    .link-text:hover {
+      color: ${colors.formal} !important;
+      opacity: 0.7 !important;
+    }
   `
 
 const footerLinkStyles = {
@@ -92,6 +101,11 @@ interface TokenProps {
 
 const generateTokenPage = ({ domain, secret }: TokenProps) => {
   const linkToKetlEmailVerification = `${env.KETL_ADDRESS}/email/${domain}/${secret}`
+  const makeLink = (link: string, text: string) => (
+    <a className="link-text" href={link} style={{ color: colors.alternative }}>
+      {text}
+    </a>
+  )
 
   return (
     <Mjml>
@@ -214,7 +228,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 lineHeight={values.px18}
                 mjClass="font-primary"
               >
-                Or copy and paste it into kelt
+                Or copy and paste it into ketl
               </MjmlText>
 
               <MjmlSpacer height={values.px24} />
@@ -257,13 +271,19 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               lineHeight={values.px16}
               mjClass="font-primary"
             >
-              In ketl season 1, we curated an allowlist of emails associated
-              with founders and VCs. Ultimately, anyone can ask us to send an
-              email to any address in the allowlist. However, only those who own
-              one of the email addresses in the allowlist possess a valid token.
-              Since we never find out which exact token you own, there is no way
-              for us to find out the email address/real-world identity
-              associated with any ketl user.
+              <p>
+                For YC founders, we reference the public founder database
+                published by YC on:{' '}
+                {makeLink(ycLink, 'ycombinator.com/companies/founders')} to
+                generate an anonymity set of founders for the YC credential. For
+                other founders/VCs we curate an allowlist of founder/vc emails.
+                Ultimately, anyone can ask us to send an email to any address in
+                the allowlist. However, only those who own one of the email
+                addresses in the allowlist possess a valid token. Since we never
+                find out which exact token you own, there is no way for us to
+                find out the email address/real-world identity associated with
+                any ketl user.
+              </p>
             </MjmlText>
 
             <MjmlSpacer height={values.px16} />
