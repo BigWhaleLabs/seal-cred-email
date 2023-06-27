@@ -97,8 +97,10 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
     <Mjml>
       <MjmlHead>
         <MjmlRaw>
-          <meta content="light" name="color-scheme" />
-          <meta content="light" name="supported-color-schemes" />
+          {/* Double meta hack for Outlook, don't remove */}
+          <meta></meta>
+          <meta content="dark" name="color-scheme" />
+          <meta content="dark" name="supported-color-schemes" />
         </MjmlRaw>
         <MjmlTitle>Here's your token!</MjmlTitle>
         <MjmlPreview>Here's your token!</MjmlPreview>
