@@ -1,5 +1,6 @@
 export default {
   accent: 'hsl(298.27, 84.39%, 40.20%)', // '#b810bd',
+  accentAlternative: 'hsl(325, 81%, 55%)', // '#E92F9A',
   accentDark: 'hsl(278.23, 100%, 44.31%)', // '#9000e2',
   alternative: 'hsl(162.92, 99.22%, 50%)', // '#01feb6',
   formal: 'hsl(228.00, 18.52%, 94.71%)', // '#eff0f4',

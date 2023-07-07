@@ -8,7 +8,6 @@ import {
   MjmlColumn,
   MjmlDivider,
   MjmlHead,
-  MjmlImage,
   MjmlPreview,
   MjmlRaw,
   MjmlSection,
@@ -242,21 +241,17 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               >
                 Or copy and paste it into ketl
               </MjmlText>
-
-              <MjmlSpacer height={values.px24} />
-
-              <MjmlDivider
-                borderColor={colors.tertiaryDark}
-                borderWidth={values.px}
-              />
-
-              <MjmlSpacer height={values.px32} />
-
-              <MjmlImage
-                height={values.px32}
-                src={`${assetsEndpoint}/verifiable_credentials.png`}
-                width={values.px200}
-              />
+              <MjmlSpacer height={values.px2} />
+              <MjmlText
+                align="center"
+                color={colors.accentAlternative}
+                fontSize={values.px12}
+                lineHeight={values.px18}
+                mjClass="font-primary"
+              >
+                (<strong>DO NOT</strong> Screenshot or share your token with
+                anyone else)
+              </MjmlText>
 
               <MjmlSpacer height={values.px24} />
             </MjmlColumn>
