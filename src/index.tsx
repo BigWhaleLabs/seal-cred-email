@@ -357,8 +357,8 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               which confirms that you have a valid signup code from an approved
               set, but without revealing the specific signup code you hold. This
               process ensures your privacy, as we can't link your email address
-              to your ketl account. Which ensures a safe and anonymous
-              experience on the app.
+              to your ketl account. This ensures a safe and anonymous experience
+              on the app.
             </MjmlText>
 
             <MjmlSpacer height={values.px16} />
