@@ -84,11 +84,12 @@ const css = `
     }
     
     .link-text {
-      text-decoration: underline !important;
-      color: ${colors.alternative} !important;
+      text-decoration: none !important;
+      color: ${colors.primaryLight} !important;
     }
     .link-text:hover {
-      color: ${colors.formal} !important;
+      text-decoration: underline !important;
+      color: ${colors.alternative} !important;
       opacity: 0.7 !important;
     }
     
@@ -204,10 +205,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
 
           <MjmlSpacer height={values.px32} />
 
-          <MjmlDivider
-            borderColor={colors.tertiaryDark}
-            borderWidth={values.px}
-          />
+          <MjmlDivider borderColor={colors.tertiary} borderWidth={values.px} />
 
           <MjmlSpacer height={values.px32} />
 
@@ -308,24 +306,31 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               lineHeight={values.px16}
               mjClass="font-primary"
             >
-              <p>
+              <span>
                 For YC founders, we reference the public founder database
                 published by YC on:{' '}
                 {makeLink(ycLink, 'ycombinator.com/companies/founders')} to
-                generate an anonymity set of founders for the YC credential. For
-                other founders/VCs we curate an allowlist of founder/vc emails.
+                generate an anonymity set of founders for the YC credential.
+              </span>
+              <p>
+                For other founders/VCs we curate an allowlist of founder/vc
+                emails.
+              </p>
+              <p>
                 Ultimately, anyone can ask us to send an email to any address in
-                the allowlist. However, only those who own one of the email
-                addresses in the allowlist possess a valid signup code. Since we
-                never find out which exact signup code you know, there is no way
-                for us to find out the email address/real-world identity
-                associated with any ketl user.
+                the allowlist.
+              </p>
+              <p>
+                However, only those who own one of the email addresses in the
+                allowlist possess a valid token. Since we never find out which
+                exact token you own, there is no way for us to find out the
+                email address/real-world identity associated with any ketl user.
               </p>
             </MjmlText>
 
             <MjmlSpacer height={values.px16} />
             <MjmlDivider
-              borderColor={colors.tertiaryDark}
+              borderColor={colors.tertiary}
               borderWidth={values.px}
             />
             <MjmlSpacer height={values.px16} />
@@ -350,7 +355,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               When you enter your signup code, we don't receive it directly.
               Instead, we get a secure proof called a zero-knowledge proof,
               which confirms that you have a valid signup code from an approved
-              set, but without revealing the specific signup code you know. This
+              set, but without revealing the specific signup code you hold. This
               process ensures your privacy, as we can't link your email address
               to your ketl account. This ensures a safe and anonymous experience
               on the app.
@@ -358,7 +363,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
 
             <MjmlSpacer height={values.px16} />
             <MjmlDivider
-              borderColor={colors.tertiaryDark}
+              borderColor={colors.tertiary}
               borderWidth={values.px}
             />
           </MjmlSection>
