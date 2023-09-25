@@ -1,6 +1,6 @@
 {
   "name": "@big-whale-labs/ketl-email",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "license": "MIT",
   "files": [
     "dist"
