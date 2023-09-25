@@ -127,8 +127,8 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
           <meta content="dark" name="color-scheme" />
           <meta content="dark" name="supported-color-schemes" />
         </MjmlRaw>
-        <MjmlTitle>Here's your token!</MjmlTitle>
-        <MjmlPreview>Here's your token!</MjmlPreview>
+        <MjmlTitle>Here's your password!</MjmlTitle>
+        <MjmlPreview>Here's your password!</MjmlPreview>
         <MjmlAttributes>
           <MjmlClass color={colors.tertiaryDark} name="text-tertiary-dark" />
           <MjmlClass backgroundColor={colors.tertiary} name="bg-tertiary" />
@@ -181,7 +181,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
 
           <MjmlSpacer height={values.px32} />
 
-          {/* Token card */}
+          {/* Password card */}
           <MjmlSection
             borderRadius={values.px18}
             cssClass="shadow-sm"
@@ -200,11 +200,11 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 lineHeight={values.px27}
                 mjClass="font-accent text-tertiary-dark"
               >
-                Your secure ketl token:
+                Your secure ketl password:
               </MjmlText>
               <MjmlSpacer height={values.px16} />
 
-              {/* Token */}
+              {/* Password */}
               <MjmlText
                 fontSize={values.px16}
                 fontWeight={400}
@@ -249,7 +249,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 lineHeight={values.px18}
                 mjClass="font-primary"
               >
-                (<strong>DO NOT</strong> Screenshot or share your token with
+                (<strong>DO NOT</strong> Screenshot or share your password with
                 anyone else)
               </MjmlText>
 
@@ -286,10 +286,10 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 other founders/VCs we curate an allowlist of founder/vc emails.
                 Ultimately, anyone can ask us to send an email to any address in
                 the allowlist. However, only those who own one of the email
-                addresses in the allowlist possess a valid token. Since we never
-                find out which exact token you own, there is no way for us to
-                find out the email address/real-world identity associated with
-                any ketl user.
+                addresses in the allowlist possess a valid password. Since we
+                never find out which exact password you own, there is no way for
+                us to find out the email address/real-world identity associated
+                with any ketl user.
               </p>
             </MjmlText>
 
@@ -307,7 +307,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               lineHeight={values.px16}
               mjClass="font-primary"
             >
-              Can I trust ketl tokens?
+              Can I trust ketl passwords?
             </MjmlText>
             <MjmlSpacer height={values.px16} />
             <MjmlText
@@ -317,13 +317,13 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               lineHeight={values.px16}
               mjClass="font-primary"
             >
-              When you enter your token, we don't receive it directly. Instead,
-              we get a secure proof called a zero-knowledge proof, which
-              confirms that you have a valid token from an approved set, but
-              without revealing the specific token you hold. This process
-              ensures your privacy, as we can't link your email address to your
-              ketl account. This ensures a safe and anonymous experience on the
-              app.
+              When you enter your password, we don't receive it directly.
+              Instead, we get a secure proof called a zero-knowledge proof,
+              which confirms that you have a valid password from an approved
+              set, but without revealing the specific password you hold. This
+              process ensures your privacy, as we can't link your email address
+              to your ketl account. This ensures a safe and anonymous experience
+              on the app.
             </MjmlText>
 
             <MjmlSpacer height={values.px16} />
