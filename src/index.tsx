@@ -352,10 +352,10 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               lineHeight={values.px16}
               mjClass="font-primary"
             >
-              When you enter your signup codes, we don't receive it directly.
+              When you enter your signup code, we don't receive it directly.
               Instead, we get a secure proof called a zero-knowledge proof,
-              which confirms that you have a valid token from an approved set,
-              but without revealing the specific signup code you hold. This
+              which confirms that you have a valid signup code from an approved
+              set, but without revealing the specific signup code you hold. This
               process ensures your privacy, as we can't link your email address
               to your ketl account. Which ensures a safe and anonymous
               experience on the app.
