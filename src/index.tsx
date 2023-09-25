@@ -127,8 +127,8 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
           <meta content="dark" name="color-scheme" />
           <meta content="dark" name="supported-color-schemes" />
         </MjmlRaw>
-        <MjmlTitle>Here's your password!</MjmlTitle>
-        <MjmlPreview>Here's your password!</MjmlPreview>
+        <MjmlTitle>Here's your signup code!</MjmlTitle>
+        <MjmlPreview>Here's your signup code!</MjmlPreview>
         <MjmlAttributes>
           <MjmlClass color={colors.tertiaryDark} name="text-tertiary-dark" />
           <MjmlClass backgroundColor={colors.tertiary} name="bg-tertiary" />
@@ -181,7 +181,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
 
           <MjmlSpacer height={values.px32} />
 
-          {/* Password card */}
+          {/* Signup code card */}
           <MjmlSection
             borderRadius={values.px18}
             cssClass="shadow-sm"
@@ -200,11 +200,11 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 lineHeight={values.px27}
                 mjClass="font-accent text-tertiary-dark"
               >
-                Your secure ketl password:
+                Your secure ketl signup code:
               </MjmlText>
               <MjmlSpacer height={values.px16} />
 
-              {/* Password */}
+              {/* Signup code */}
               <MjmlText
                 fontSize={values.px16}
                 fontWeight={400}
@@ -249,8 +249,8 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 lineHeight={values.px18}
                 mjClass="font-primary"
               >
-                (<strong>DO NOT</strong> Screenshot or share your password with
-                anyone else)
+                (<strong>DO NOT</strong> Screenshot or share your signup code
+                with anyone else)
               </MjmlText>
 
               <MjmlSpacer height={values.px24} />
@@ -286,8 +286,8 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 other founders/VCs we curate an allowlist of founder/vc emails.
                 Ultimately, anyone can ask us to send an email to any address in
                 the allowlist. However, only those who own one of the email
-                addresses in the allowlist possess a valid password. Since we
-                never find out which exact password you know, there is no way
+                addresses in the allowlist possess a valid signup code. Since we
+                never find out which exact signup code you know, there is no way
                 for us to find out the email address/real-world identity
                 associated with any ketl user.
               </p>
@@ -307,7 +307,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               lineHeight={values.px16}
               mjClass="font-primary"
             >
-              Can I trust ketl passwords?
+              Can I trust ketl signup codes?
             </MjmlText>
             <MjmlSpacer height={values.px16} />
             <MjmlText
@@ -317,10 +317,10 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               lineHeight={values.px16}
               mjClass="font-primary"
             >
-              When you enter your password, we don't receive it directly.
+              When you enter your signup code, we don't receive it directly.
               Instead, we get a secure proof called a zero-knowledge proof,
-              which confirms that you have a valid password from an approved
-              set, but without revealing the specific password you know. This
+              which confirms that you have a valid signup code from an approved
+              set, but without revealing the specific signup code you know. This
               process ensures your privacy, as we can't link your email address
               to your ketl account. This ensures a safe and anonymous experience
               on the app.
