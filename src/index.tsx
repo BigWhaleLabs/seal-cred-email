@@ -287,9 +287,9 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 Ultimately, anyone can ask us to send an email to any address in
                 the allowlist. However, only those who own one of the email
                 addresses in the allowlist possess a valid password. Since we
-                never find out which exact password you own, there is no way for
-                us to find out the email address/real-world identity associated
-                with any ketl user.
+                never find out which exact password you know, there is no way
+                for us to find out the email address/real-world identity
+                associated with any ketl user.
               </p>
             </MjmlText>
 
@@ -320,7 +320,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               When you enter your password, we don't receive it directly.
               Instead, we get a secure proof called a zero-knowledge proof,
               which confirms that you have a valid password from an approved
-              set, but without revealing the specific password you hold. This
+              set, but without revealing the specific password you know. This
               process ensures your privacy, as we can't link your email address
               to your ketl account. This ensures a safe and anonymous experience
               on the app.
