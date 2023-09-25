@@ -16,7 +16,13 @@ import {
   MjmlText,
   MjmlTitle,
 } from 'mjml-react'
-import { assetsEndpoint, discordLink, twitterLink, ycLink } from './data'
+import {
+  activateTokenButton,
+  discordButton,
+  ketlLogo,
+  twitterIcon,
+} from './assets'
+import { bwlBlog, discordLink, twitterLink, ycLink } from './data'
 import { render } from 'mjml-react'
 import colors from './styles/colors'
 import env from './env'
@@ -164,11 +170,35 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
             <MjmlText align="center">
               <a href={env.KETL_ADDRESS}>
                 <img
-                  src={`${assetsEndpoint}/ketl_logo.png`}
+                  src={ketlLogo}
                   style={{ verticalAlign: 'middle' }}
                   width={values.px90}
                 />
               </a>
+            </MjmlText>
+
+            <MjmlSpacer height={values.px24} />
+            <MjmlText
+              align="center"
+              color={colors.primaryLight}
+              fontSize={values.px24}
+              fontWeight={700}
+              lineHeight={values.px27}
+              mjClass="font-accent text-tertiary-dark"
+            >
+              Welcome to ketl
+            </MjmlText>
+            <MjmlText
+              align="center"
+              color={colors.primaryLight}
+              fontSize={values.px24}
+              fontWeight={700}
+              lineHeight={values.px27}
+              mjClass="font-accent"
+            >
+              An anonymous app for{' '}
+              <span style={{ color: colors.alternative }}>Founders</span> and{' '}
+              <span style={{ color: colors.alternative }}>VCs</span>
             </MjmlText>
           </MjmlSection>
 
@@ -220,7 +250,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 <a href={linkToKetlEmailVerification} style={gmailLinkStyles}>
                   <img
                     className="hover-img-button img-button"
-                    src={`${assetsEndpoint}/password_button.png`}
+                    src={activateTokenButton}
                     style={{
                       verticalAlign: 'middle',
                       width: values.px180,
@@ -343,7 +373,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               fontSize={values.px16}
               mjClass="font-primary"
             >
-              <a href="https://blog.bigwhalelabs.com/" style={footerLinkStyles}>
+              <a href={bwlBlog} style={footerLinkStyles}>
                 Blog
               </a>
             </MjmlText>
@@ -352,7 +382,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               <a href={discordLink} style={gmailLinkStyles}>
                 <img
                   className="hover-img-button img-button"
-                  src={`${assetsEndpoint}/discord_button.png`}
+                  src={discordButton}
                   style={{
                     verticalAlign: 'middle',
                     width: values.px200,
@@ -366,7 +396,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               <a href={twitterLink} style={footerLinkStyles}>
                 <img
                   className="hover-img-button"
-                  src={`${assetsEndpoint}/twitter.png`}
+                  src={twitterIcon}
                   style={{ verticalAlign: 'middle' }}
                   width={values.px24}
                 />

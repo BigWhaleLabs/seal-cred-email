@@ -9,10 +9,11 @@ const app = express()
 
 const exampleSecret =
   '0000000000000000000000000000000000000000000000000000000000000000000000000000:0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
+const exampleDomain = 'bwl.gg'
 
 app.get('*', (_, res) => {
   const { html } = generateKetlTokenHtml({
-    domain: 'bwl.gg',
+    domain: exampleDomain,
     secret: exampleSecret,
   })
   res.send(html)
