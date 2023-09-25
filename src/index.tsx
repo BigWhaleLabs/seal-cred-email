@@ -170,6 +170,30 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 />
               </a>
             </MjmlText>
+
+            <MjmlSpacer height={values.px24} />
+            <MjmlText
+              align="center"
+              color={colors.primaryLight}
+              fontSize={values.px24}
+              fontWeight={700}
+              lineHeight={values.px27}
+              mjClass="font-accent text-tertiary-dark"
+            >
+              Welcome to ketl
+            </MjmlText>
+            <MjmlText
+              align="center"
+              color={colors.primaryLight}
+              fontSize={values.px24}
+              fontWeight={700}
+              lineHeight={values.px27}
+              mjClass="font-accent"
+            >
+              An anonymous app for{' '}
+              <span style={{ color: colors.alternative }}>Founders</span> and{' '}
+              <span style={{ color: colors.alternative }}>VCs</span>
+            </MjmlText>
           </MjmlSection>
 
           <MjmlSpacer height={values.px32} />
