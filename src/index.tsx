@@ -306,26 +306,44 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               lineHeight={values.px16}
               mjClass="font-primary"
             >
-              <span>
-                For YC founders, we reference the public founder database
-                published by YC on:{' '}
-                {makeLink(ycLink, 'ycombinator.com/companies/founders')} to
-                generate an anonymity set of founders for the YC credential.
-              </span>
-              <p>
-                For other founders/VCs we curate an allowlist of founder/vc
-                emails.
-              </p>
-              <p>
-                Ultimately, anyone can ask us to send an email to any address in
-                the allowlist.
-              </p>
-              <p>
-                However, only those who own one of the email addresses in the
-                allowlist possess a valid token. Since we never find out which
-                exact token you own, there is no way for us to find out the
-                email address/real-world identity associated with any ketl user.
-              </p>
+              For YC founders, we reference the public founder database
+              published by YC on:{' '}
+              {makeLink(ycLink, 'ycombinator.com/companies/founders')} to
+              generate an anonymity set of founders for the YC credential.
+              <p></p>
+            </MjmlText>
+            <MjmlText
+              align="left"
+              color={colors.primaryLight}
+              fontSize={values.px14}
+              lineHeight={values.px16}
+              mjClass="font-primary"
+            >
+              For other founders/VCs we curate an allowlist of founder/vc
+              emails.<p></p>
+            </MjmlText>
+            <MjmlText
+              align="left"
+              color={colors.primaryLight}
+              fontSize={values.px14}
+              lineHeight={values.px16}
+              mjClass="font-primary"
+            >
+              Ultimately, anyone can ask us to send an email to any address in
+              the allowlist.<p></p>
+            </MjmlText>
+
+            <MjmlText
+              align="left"
+              color={colors.primaryLight}
+              fontSize={values.px14}
+              lineHeight={values.px16}
+              mjClass="font-primary"
+            >
+              However, only those who own one of the email addresses in the
+              allowlist possess a valid token. Since we never find out which
+              exact token you own, there is no way for us to find out the email
+              address/real-world identity associated with any ketl user.
             </MjmlText>
 
             <MjmlSpacer height={values.px16} />
