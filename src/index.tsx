@@ -220,7 +220,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 <a href={linkToKetlEmailVerification} style={gmailLinkStyles}>
                   <img
                     className="hover-img-button img-button"
-                    src={`${assetsEndpoint}/token_button.png`}
+                    src={`${assetsEndpoint}/password_button.png`}
                     style={{
                       verticalAlign: 'middle',
                       width: values.px180,
