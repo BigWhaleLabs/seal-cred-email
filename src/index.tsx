@@ -134,8 +134,8 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
           <meta content="dark" name="color-scheme" />
           <meta content="dark" name="supported-color-schemes" />
         </MjmlRaw>
-        <MjmlTitle>Here's your signup code!</MjmlTitle>
-        <MjmlPreview>Here's your signup code!</MjmlPreview>
+        <MjmlTitle>Here's your invite code!</MjmlTitle>
+        <MjmlPreview>Can't wait to chat with you!</MjmlPreview>
         <MjmlAttributes>
           <MjmlClass color={colors.tertiaryDark} name="text-tertiary-dark" />
           <MjmlClass backgroundColor={colors.tertiary} name="bg-tertiary" />
@@ -209,7 +209,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
 
           <MjmlSpacer height={values.px32} />
 
-          {/* Signup code card */}
+          {/* invite code card */}
           <MjmlSection
             borderRadius={values.px18}
             cssClass="shadow-sm"
@@ -228,11 +228,11 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 lineHeight={values.px27}
                 mjClass="font-accent text-tertiary-dark"
               >
-                Your secure ketl signup code:
+                Your secure ketl invite code:
               </MjmlText>
               <MjmlSpacer height={values.px16} />
 
-              {/* Signup code */}
+              {/* invite code */}
               <MjmlText
                 fontSize={values.px16}
                 fontWeight={400}
@@ -277,7 +277,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                 lineHeight={values.px18}
                 mjClass="font-primary"
               >
-                (<strong>DO NOT</strong> Screenshot or share your signup code
+                (<strong>DO NOT</strong> Screenshot or share your invite code
                 with anyone else)
               </MjmlText>
 
@@ -360,7 +360,7 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               lineHeight={values.px16}
               mjClass="font-primary"
             >
-              Can I trust ketl signup codes?
+              Can I trust ketl invite codes?
             </MjmlText>
             <MjmlSpacer height={values.px16} />
             <MjmlText
@@ -370,10 +370,10 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               lineHeight={values.px16}
               mjClass="font-primary"
             >
-              When you enter your signup code, we don't receive it directly.
+              When you enter your invite code, we don't receive it directly.
               Instead, we get a secure proof called a zero-knowledge proof,
-              which confirms that you have a valid signup code from an approved
-              set, but without revealing the specific signup code you hold. This
+              which confirms that you have a valid invite code from an approved
+              set, but without revealing the specific invite code you hold. This
               process ensures your privacy, as we can't link your email address
               to your ketl account. This ensures a safe and anonymous experience
               on the app.
