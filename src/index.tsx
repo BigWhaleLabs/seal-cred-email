@@ -222,7 +222,9 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               padding={values.px16}
             >
               <MjmlSpacer height={values.px16} />
+
               <MjmlText
+                align="center"
                 fontSize={values.px24}
                 fontWeight={700}
                 lineHeight={values.px27}
@@ -230,19 +232,8 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
               >
                 Your secure ketl invite code:
               </MjmlText>
+
               <MjmlSpacer height={values.px16} />
-
-              {/* invite code */}
-              <MjmlText
-                fontSize={values.px16}
-                fontWeight={400}
-                lineHeight={values.px18}
-                mjClass="font-accent text-tertiary-dark"
-              >
-                <span style={{ wordBreak: 'break-all' }}>{secret}</span>
-              </MjmlText>
-
-              <MjmlSpacer height={values.px24} />
 
               <MjmlText align="center">
                 <a href={linkToKetlEmailVerification} style={gmailLinkStyles}>
@@ -256,6 +247,17 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
                     }}
                   />
                 </a>
+              </MjmlText>
+              <MjmlSpacer height={values.px16} />
+
+              {/* invite code */}
+              <MjmlText
+                fontSize={values.px16}
+                fontWeight={400}
+                lineHeight={values.px18}
+                mjClass="font-accent text-tertiary-dark"
+              >
+                <span style={{ wordBreak: 'break-all' }}>{secret}</span>
               </MjmlText>
 
               <MjmlSpacer height={values.px24} />
