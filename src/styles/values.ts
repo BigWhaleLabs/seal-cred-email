@@ -1,4 +1,4 @@
-export default {
+const values = {
   px: '1px',
   px10: '10px',
   px12: '12px',
@@ -26,3 +26,7 @@ export default {
   px8: '8px',
   px90: '90px',
 }
+
+export type AvailableValues = keyof typeof values | string
+
+export default values

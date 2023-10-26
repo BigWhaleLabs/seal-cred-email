@@ -8,17 +8,20 @@ Add `.env` into project root if you need one:
 
 ### Environment variables
 
-| Name             | Description                                            |
-| ---------------- | ------------------------------------------------------ |
-| `ASSETS_ADDRESS` | Address, where the assets (images) will be loaded from |
-| `KETL_ADDRESS`   | Web-site address to create proper email-link in button |
+| Name              | Description                                            |
+| ----------------- | ------------------------------------------------------ |
+| `ASSETS_ADDRESS`  | Address, where the assets (images) will be loaded from |
+| `KETL_ADDRESS`    | Web-site address to create proper email-link in button |
+| `MAILGUN_API_KEY` | Used to send test emails                               |
+| `MAILGUN_DOMAIN`  | Used to send test emails                               |
+| `TEST_EMAIL`      | Used to send test emails                               |
 
 ## How to Use
 
 ```ts
 import { createTransport } from 'nodemailer'
 import { token } from '@big-whale-labs/ketl-email'
-import env from '@/helpers/env'
+import env from '../helpers/env'
 
 const user = env.SMTP_USER
 const pass = env.SMTP_PASS
