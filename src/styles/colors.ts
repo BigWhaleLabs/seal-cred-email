@@ -1,4 +1,4 @@
-export default {
+const colors = {
   accent: 'hsl(298.27, 84.39%, 40.20%)', // '#b810bd',
   accentAlternative: 'hsl(325, 81%, 55%)', // '#E92F9A',
   accentDark: 'hsl(278.23, 100%, 44.31%)', // '#9000e2',
@@ -12,3 +12,7 @@ export default {
   tertiary: 'hsl(256.55, 95.60%, 17.84%)', // '#1a0259',
   tertiaryDark: 'hsl(256.26, 100%, 41.96%)', // '#3a00d6',
 }
+
+export type AvailableColors = keyof typeof colors | string
+
+export default colors
