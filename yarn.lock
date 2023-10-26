@@ -1665,7 +1665,6 @@ __metadata:
     prettier: ^2.8.0
     react: ^18.2.0
     react-dom: ^18.2.0
-    sendmail: ^1.6.1
     source-map-support: ^0.5.21
     tsc-watch: ^5.0.3
     typescript: ^4.9.3
@@ -2318,13 +2317,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"addressparser@npm:1.0.1":
-  version: 1.0.1
-  resolution: "addressparser@npm:1.0.1"
-  checksum: 389051bc6a3a44082a6e7d6256c15e2aba55ae4799f1eed620e34f1c77ddf4dfe9baacc41c6ad25eb5f795195ff8a506dc07ef9e4bc033ee1ab3882edfed396d
-  languageName: node
-  linkType: hard
-
 "agent-base@npm:6, agent-base@npm:^6.0.2":
   version: 6.0.2
   resolution: "agent-base@npm:6.0.2"
@@ -2786,20 +2778,6 @@ __metadata:
   version: 1.1.2
   resolution: "buffer-from@npm:1.1.2"
   checksum: 0448524a562b37d4d7ed9efd91685a5b77a50672c556ea254ac9a6d30e3403a517d8981f10e565db24e8339413b43c97ca2951f10e399c6125a0d8911f5679bb
-  languageName: node
-  linkType: hard
-
-"buildmail@npm:3.10.0":
-  version: 3.10.0
-  resolution: "buildmail@npm:3.10.0"
-  dependencies:
-    addressparser: 1.0.1
-    libbase64: 0.1.0
-    libmime: 2.1.0
-    libqp: 1.1.0
-    nodemailer-fetch: 1.6.0
-    nodemailer-shared: 1.1.0
-  checksum: 95ff27f2517c1a9c45b8bef5e2397d4fb5d63beff25cdc76ef5162fb262787dc4ffdb10149cf0ac1f56ae28e3a08355c5470b6b641c4ef10a92dae3e18fa26b1
   languageName: node
   linkType: hard
 
@@ -3599,15 +3577,6 @@ __metadata:
   dependencies:
     path-type: ^4.0.0
   checksum: fa05e18324510d7283f55862f3161c6759a3f2f8dbce491a2fc14c8324c498286c54282c1f0e933cb930da8419b30679389499b919122952a4f8592362ef4615
-  languageName: node
-  linkType: hard
-
-"dkim-signer@npm:0.2.2":
-  version: 0.2.2
-  resolution: "dkim-signer@npm:0.2.2"
-  dependencies:
-    libmime: ^2.0.3
-  checksum: fd7c65052423fa772f5f868fc633883571ebaf9ad8c469ac7ee8350551c4e7d7275c72ed771430dcca800c66f715e56de531d610b81e8f279e081d19e9df9f8c
   languageName: node
   linkType: hard
 
@@ -5185,20 +5154,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"iconv-lite@npm:0.4.13":
-  version: 0.4.13
-  resolution: "iconv-lite@npm:0.4.13"
-  checksum: 416abe0318438da8ca5b7d369354d83c124b24d43e958e24dec9b5018ae5de2ef101234053421ce11c723df423f7649de288021d8afba46b8236d1eb7135dbee
-  languageName: node
-  linkType: hard
-
-"iconv-lite@npm:0.4.15":
-  version: 0.4.15
-  resolution: "iconv-lite@npm:0.4.15"
-  checksum: 858ed660b795386d1ab85c43962d34519d46511d61432f6a74c1488dce2b6023f7eaec82f35f1e94eb20f2cfb36c6ad07e3814f9551a4b7c6058a162bbab382e
-  languageName: node
-  linkType: hard
-
 "iconv-lite@npm:0.4.24, iconv-lite@npm:^0.4.24":
   version: 0.4.24
   resolution: "iconv-lite@npm:0.4.24"
@@ -6009,42 +5964,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"libbase64@npm:0.1.0":
-  version: 0.1.0
-  resolution: "libbase64@npm:0.1.0"
-  checksum: d214ec9975fdf1e3d4ff0dfbc6bf1a47773ec23a2b75b5684db015de1780c15edc6af576af4a6192ca4b1b2d6e014e4fcc8d5a2a0d8b62a7af1c8e6389ba6015
-  languageName: node
-  linkType: hard
-
-"libmime@npm:2.1.0":
-  version: 2.1.0
-  resolution: "libmime@npm:2.1.0"
-  dependencies:
-    iconv-lite: 0.4.13
-    libbase64: 0.1.0
-    libqp: 1.1.0
-  checksum: d431423c62df49c61e537f30c2bc1c7bb6ef2f4b198d862d58099a2a89927b3c2f06e57667969b3ff2842b2f33ac88060dfaafee37b3d5fd4cc9e54754f4bd0c
-  languageName: node
-  linkType: hard
-
-"libmime@npm:^2.0.3":
-  version: 2.1.3
-  resolution: "libmime@npm:2.1.3"
-  dependencies:
-    iconv-lite: 0.4.15
-    libbase64: 0.1.0
-    libqp: 1.1.0
-  checksum: 8748d18d51e467c19a43fd4725c775bcd05a996b106b947cc8936e1ea60cd583a29e2d35ae64ce76a0b6590f953fa5e329d1eb76bc0a970f88e02a081c06478c
-  languageName: node
-  linkType: hard
-
-"libqp@npm:1.1.0":
-  version: 1.1.0
-  resolution: "libqp@npm:1.1.0"
-  checksum: 7baaec1dba8226bee0cfa48d29f2622a70d45057bdc8a3febb8b07d50ff20cce11c249e12724525f85f144fe964a35f007fc8007a52d714309d4d915ced7196a
-  languageName: node
-  linkType: hard
-
 "lines-and-columns@npm:^1.1.6":
   version: 1.2.4
   resolution: "lines-and-columns@npm:1.2.4"
@@ -6249,16 +6168,6 @@ __metadata:
   dependencies:
     yallist: ^4.0.0
   checksum: f97f499f898f23e4585742138a22f22526254fdba6d75d41a1c2526b3b6cc5747ef59c5612ba7375f42aca4f8461950e925ba08c991ead0651b4918b7c978297
-  languageName: node
-  linkType: hard
-
-"mailcomposer@npm:3.12.0":
-  version: 3.12.0
-  resolution: "mailcomposer@npm:3.12.0"
-  dependencies:
-    buildmail: 3.10.0
-    libmime: 2.1.0
-  checksum: d7b83cb6ebc93e65a4080343826cd98efd5cfde19dcda26d91a2641d5ebacfdccc75c7d3a759416ba426fa9b88729d1b6609d91d1461b9d2a320965c2d527e0c
   languageName: node
   linkType: hard
 
@@ -7187,13 +7096,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nodemailer-fetch@npm:1.6.0":
-  version: 1.6.0
-  resolution: "nodemailer-fetch@npm:1.6.0"
-  checksum: c05c31621bc1206da2ad4b95257b4b84a1fdfc06c723773fa507fc7c6b4af7d34bc1a0782154ca10a311cc9fb5f6cc277e86e07f45df57f21ba014f07dac36f1
-  languageName: node
-  linkType: hard
-
 "nodemailer-mailgun-transport@npm:^2.1.5":
   version: 2.1.5
   resolution: "nodemailer-mailgun-transport@npm:2.1.5"
@@ -7202,15 +7104,6 @@ __metadata:
     form-data: ^4.0.0
     mailgun.js: ^8.0.1
   checksum: b003b00e428e9896f2e1e9892a3a78d3c2220e34c1e8766e2eeed9a8154a9edf41ac0eb95c2e7631a59314db81f90d2e7f72b2a5d82e3450c22caf050685e9c4
-  languageName: node
-  linkType: hard
-
-"nodemailer-shared@npm:1.1.0":
-  version: 1.1.0
-  resolution: "nodemailer-shared@npm:1.1.0"
-  dependencies:
-    nodemailer-fetch: 1.6.0
-  checksum: 2fe270e83ca42ecfc06e2523aa20b32641912e6b5e0e4e4e149bcade05344166e5347c0a2738850cd4f8a17ee9ebbb348118c81baa17e684ac9ee6fc99cca293
   languageName: node
   linkType: hard
 
@@ -8689,16 +8582,6 @@ __metadata:
     range-parser: ~1.2.1
     statuses: 2.0.1
   checksum: 74fc07ebb58566b87b078ec63e5a3e41ecd987e4272ba67b7467e86c6ad51bc6b0b0154133b6d8b08a2ddda360464f71382f7ef864700f34844a76c8027817a8
-  languageName: node
-  linkType: hard
-
-"sendmail@npm:^1.6.1":
-  version: 1.6.1
-  resolution: "sendmail@npm:1.6.1"
-  dependencies:
-    dkim-signer: 0.2.2
-    mailcomposer: 3.12.0
-  checksum: c04377f16df762dee9d65944c40824fa62b6916ff23e3c6773df8a2b0c33d488396812fd843e57f2108640cab1d82a9855f5e7f6b649ddee0a317f58bb9c4057
   languageName: node
   linkType: hard
 
