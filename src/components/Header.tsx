@@ -17,7 +17,7 @@ export default function ({ headerText }: { headerText: JSX.Element }) {
               src={ketlLogoAnimated}
               width={values.px90}
               style={{
-                background: `url(${ketlLogo}) no-repeat;`,
+                background: `url(${ketlLogo}) no-repeat`,
               }}
             />
           </a>
