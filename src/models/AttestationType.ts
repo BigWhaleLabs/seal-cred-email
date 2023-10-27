@@ -8,5 +8,8 @@ enum AttestationType {
 }
 
 export type AttestationTypeWithNull = AttestationType | null
+export type AttestationTypeWithNullProp = {
+  attestationType: AttestationTypeWithNull
+}
 
 export default AttestationType

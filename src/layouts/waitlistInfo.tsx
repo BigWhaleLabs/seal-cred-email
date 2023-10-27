@@ -12,7 +12,7 @@ import TryEmail from '../components/Waitlist/TryEmail'
 import TwitterBlock from '../components/Waitlist/TwitterBlock'
 import VerifyFasterContext from '../components/Waitlist/VerifyFasterContext'
 import WaitlistHeader from '../components/Waitlist/WaitlistHeader'
-import YcNFT from '../components/Waitlist/YcNFT'
+import YcNft from '../components/Waitlist/YcNft'
 import colors from '../styles/colors'
 import values from '../styles/values'
 
@@ -47,15 +47,15 @@ const generateTokenPage = ({ anonCode, attestationType }: WaitlistProps) => {
         <WaitlistHeader />
         <MjmlSpacer height={values.px32} />
 
-        <TwitterBlock />
+        <TwitterBlock attestationType={attestationType} />
         <MjmlSpacer height={values.px16} />
-        <TryEmail isYc={isYc} />
+        <TryEmail attestationType={attestationType} />
         <MjmlSpacer height={values.px16} />
         <JumpWithTweet anonCode={anonCode} />
         <MjmlSpacer height={values.px16} />
-        <VerifyFasterContext />
+        <VerifyFasterContext attestationType={attestationType} />
         <MjmlSpacer height={values.px16} />
-        {isYc && <YcNFT />}
+        {isYc && <YcNft />}
 
         <Footer />
       </BodyCard>

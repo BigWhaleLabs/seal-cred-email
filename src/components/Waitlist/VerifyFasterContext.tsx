@@ -1,12 +1,13 @@
+import { AttestationTypeWithNullProp } from '@/models/AttestationType'
 import { BodyText, HeaderText } from '../Text'
 import { MjmlSpacer } from 'mjml-react'
-import { ketlWaitlistContext } from '../../data'
+import { ketlWaitlistLink } from '../../data'
 import Button from '../Button'
 import Card from '../Card'
 import colors from '../../styles/colors'
 import values from '../../styles/values'
 
-export default function () {
+export default function ({ attestationType }: AttestationTypeWithNullProp) {
   return (
     <Card>
       <HeaderText>Help us verify you faster</HeaderText>
@@ -17,7 +18,11 @@ export default function () {
         your startup is legit.
       </BodyText>
       <MjmlSpacer height={values.px16} />
-      <Button href={ketlWaitlistContext}>Provide context</Button>
+      <Button
+        href={ketlWaitlistLink({ attestationType, waitlistContext: true })}
+      >
+        Provide context
+      </Button>
     </Card>
   )
 }

@@ -16,7 +16,7 @@ const exampleDomain = 'bwl.gg'
 app.get('/waitlist', (_, res) => {
   const { html } = waitlistInfo({
     anonCode: 'BT-7274',
-    attestationType: AttestationType.YC,
+    attestationType: AttestationType.VC,
   })
 
   void sendTestEmail({ html })
