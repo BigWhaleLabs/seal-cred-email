@@ -12,7 +12,7 @@ export default function ({ anonCode }: { anonCode: string }) {
       <HeaderText>Jump ahead with a Tweet</HeaderText>
       <MjmlSpacer height={values.px16} />
       <BodyText center color={colors.tertiary}>
-        Tag us (@ketl) and include your anonymous waitlist code, and we’ll
+        Tag us (@ketlxyz) and include your anonymous waitlist code, and we’ll
         verify you ASAP
       </BodyText>
       <MjmlSpacer height={values.px16} />
