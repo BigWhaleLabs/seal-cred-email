@@ -5,12 +5,12 @@ function tweetWithTextLink({ text }: { text: string }) {
 const getAnonCodeText = (anonCode: string) => {
   const texts = [
     `Hey @ketlxyz 👋 Can you verify me (${anonCode})?\nI’m excited to join your anonymous app for verified VCs and Founders.`,
-    `I’m ready to spill some tea 🫖 @ketl.xyz (${anonCode})`,
-    `🥸 @ketl.xyz, it’s me 🤫 (${anonCode})`,
-    `🫖🥸🫖 I’m bringing the tea @ketl.xyz (${anonCode})`,
-    `🤞Hoping for an invite to @ketl.xyz (${anonCode})`,
-    `🥸🫖🐳🫖🥸 @ketl.xyz (${anonCode})`,
-    `My tea is getting cold @ketl.xyz 🫖⛄️ (${anonCode})`,
+    `I’m ready to spill some tea 🫖 @ketlxyz (${anonCode})`,
+    `🥸 @ketlxyz, it’s me 🤫 (${anonCode})`,
+    `🫖🥸🫖 I’m bringing the tea @ketlxyz (${anonCode})`,
+    `🤞Hoping for an invite to @ketlxyz (${anonCode})`,
+    `🥸🫖🐳🫖🥸 @ketlxyz (${anonCode})`,
+    `My tea is getting cold @ketlxyz 🫖⛄️ (${anonCode})`,
   ]
   return texts[Math.floor(Math.random() * texts.length)]
 }
