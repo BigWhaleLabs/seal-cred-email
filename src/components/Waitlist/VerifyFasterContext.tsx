@@ -7,15 +7,19 @@ import Card from '../Card'
 import colors from '../../styles/colors'
 import values from '../../styles/values'
 
-export default function ({ attestationType }: AttestationTypeWithNullProp) {
+interface VerifyFasterProps extends AttestationTypeWithNullProp {
+  isYc: boolean
+}
+
+export default function ({ attestationType, isYc }: VerifyFasterProps) {
   return (
     <Card>
       <HeaderText>Help us verify you faster</HeaderText>
       <MjmlSpacer height={values.px16} />
       <BodyText center color={colors.tertiary}>
-        Tell us more about what YC batch you were in, your bookface id, or about
-        your startup; our goal is to verify that you’re an actual YC founder and
-        your startup is legit.
+        {isYc
+          ? 'Tell us more about what YC batch you were in, your bookface id, or about your startup; our goal is to verify that you’re an actual YC founder and your startup is legit.'
+          : "Tell us more about your startup or VC fund; our goal is to verify that your startup is legit and that you're you."}
       </BodyText>
       <MjmlSpacer height={values.px16} />
       <Button
