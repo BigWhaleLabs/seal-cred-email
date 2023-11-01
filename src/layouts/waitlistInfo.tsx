@@ -53,7 +53,7 @@ const generateTokenPage = ({ anonCode, attestationType }: WaitlistProps) => {
         <MjmlSpacer height={values.px16} />
         <JumpWithTweet anonCode={anonCode} />
         <MjmlSpacer height={values.px16} />
-        <VerifyFasterContext attestationType={attestationType} />
+        <VerifyFasterContext attestationType={attestationType} isYc={isYc} />
         <MjmlSpacer height={values.px16} />
         {isYc && <YcNft />}
 
