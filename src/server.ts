@@ -4,6 +4,7 @@ import 'source-map-support/register'
 import * as express from 'express'
 import { inviteCode, waitlistInfo } from './index'
 import AttestationType from './models/AttestationType'
+import VerificationType from './models/VerificationType'
 import sendTestEmail from './helpers/sendTestEmail'
 
 const port = 3002
@@ -11,7 +12,7 @@ const app = express()
 
 const exampleSecret =
   '0000000000000000000000000000000000000000000000000000000000000000000000000000:0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-const exampleDomain = 'bwl.gg'
+const exampleEmail = 'testEmail@ketl.cloud'
 
 app.get('/waitlist', (_, res) => {
   const { html } = waitlistInfo({
@@ -25,9 +26,9 @@ app.get('/waitlist', (_, res) => {
 })
 
 app.get('*', (_, res) => {
-  const { html } = inviteCode({
-    domain: exampleDomain,
-    secret: exampleSecret,
+  const { html } = inviteCode<VerificationType.twitter>({
+    attestationType: AttestationType.YC,
+    twitterHandle: 'ketlxyz',
   })
 
   void sendTestEmail({ html })

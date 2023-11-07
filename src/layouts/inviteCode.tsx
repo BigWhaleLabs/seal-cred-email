@@ -10,21 +10,29 @@ import {
 import { render } from 'mjml-react'
 import { ycLink } from '../data'
 import AnonymousHeader from '../components/AnonymousHeader'
+import AttestationType from '@/models/AttestationType'
 import BodyCard from '../components/BodyCard'
-import Button from '../components/Button'
-import Card from '../components/Card'
+import EmailInviteCard from '@/components/InviteCode/EmailInviteCard'
 import Footer from '../components/Footer'
 import Head from '../components/Head'
 import Header from '../components/Header'
+import TwitterInviteCard from '@/components/InviteCode/TwitterInviteCard'
+import VerificationType from '@/models/VerificationType'
 import colors from '../styles/colors'
-import env from '../env'
 import makeLink from '../helpers/makeLink'
 import values from '../styles/values'
 
-interface TokenProps {
-  secret: string
-  domain: string
-}
+type TokenProps<Verification extends VerificationType> =
+  Verification extends VerificationType.email
+    ? {
+        attestationType: AttestationType
+        secret: string
+        email: string
+      }
+    : {
+        attestationType: AttestationType
+        twitterHandle: string
+      }
 
 const headerText = (
   <>
@@ -33,8 +41,10 @@ const headerText = (
   </>
 )
 
-const generateTokenPage = ({ domain, secret }: TokenProps) => {
-  const linkToKetlEmailVerification = `${env.KETL_ADDRESS}/email/${domain}/${secret}`
+function generateTokenPage<Verification extends VerificationType>(
+  props: TokenProps<Verification>
+) {
+  const usedTwitter = 'twitterHandle' in props
 
   return (
     <Mjml>
@@ -45,48 +55,11 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
       <BodyCard>
         <Header headerText={headerText} />
 
-        <Card>
-          <HeaderText>Your secure ketl invite code:</HeaderText>
-
-          <MjmlSpacer height={values.px16} />
-
-          <Button href={linkToKetlEmailVerification}>Activate account</Button>
-
-          <MjmlSpacer height={values.px16} />
-
-          {/* invite code */}
-          <MjmlText
-            fontSize={values.px16}
-            fontWeight={400}
-            lineHeight={values.px18}
-            mjClass="font-accent text-tertiary-dark"
-          >
-            <span style={{ wordBreak: 'break-all' }}>{secret}</span>
-          </MjmlText>
-
-          <MjmlSpacer height={values.px24} />
-
-          <MjmlText
-            align="center"
-            color={colors.tertiary}
-            fontSize={values.px16}
-            lineHeight={values.px18}
-            mjClass="font-primary"
-          >
-            Or copy and paste it into ketl
-          </MjmlText>
-          <MjmlSpacer height={values.px2} />
-          <MjmlText
-            align="center"
-            color={colors.accentAlternative}
-            fontSize={values.px12}
-            lineHeight={values.px18}
-            mjClass="font-primary"
-          >
-            (<strong>DO NOT</strong> Screenshot or share your invite code with
-            anyone else)
-          </MjmlText>
-        </Card>
+        {usedTwitter ? (
+          <TwitterInviteCard {...props} />
+        ) : (
+          <EmailInviteCard {...props} />
+        )}
 
         <MjmlSpacer height={values.px32} />
 
@@ -145,12 +118,12 @@ const generateTokenPage = ({ domain, secret }: TokenProps) => {
   )
 }
 
-export default function (
-  { domain, secret }: TokenProps,
+export default function <Verification extends VerificationType>(
+  props: TokenProps<Verification>,
   options: Mjml2HtmlOptions = {
     minify: false,
     validationLevel: 'soft',
   }
 ) {
-  return render(generateTokenPage({ domain, secret }), options)
+  return render(generateTokenPage(props), options)
 }

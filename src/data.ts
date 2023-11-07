@@ -8,13 +8,21 @@ export const ycLink = 'https://ycombinator.com/companies/founders'
 export const bwlBlog = 'https://blog.bigwhalelabs.com'
 export const ketlWaitlistLink = ({
   attestationType,
+  passed,
+  verificationType = VerificationType.email,
   waitlistContext,
 }: {
   attestationType: AttestationTypeWithNull
+  verificationType?: VerificationType
   waitlistContext?: boolean
+  passed?: boolean
 }) => {
+  const waitlistWithPassed = passed ? 'waitlistPassed' : 'waitlist'
   const type = attestationType?.toString() || 'null'
-  return `${env.KETL_ADDRESS}/waitlist/${VerificationType.email}/${type}/${
+
+  return `${
+    env.KETL_ADDRESS
+  }/${waitlistWithPassed}/${verificationType}/${type}/${
     waitlistContext ? 1 : 0
   }`
 }
