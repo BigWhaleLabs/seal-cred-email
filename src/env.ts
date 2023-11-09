@@ -11,5 +11,6 @@ export default cleanEnv(process.env, {
   KETL_ADDRESS: str({ default: 'https://ketl.xyz/#' }),
   MAILGUN_API_KEY: str({ default: '' }),
   MAILGUN_DOMAIN: str({ default: '' }),
-  TEST_EMAIL: str({ default: 'd@bwl.gg' }),
+  TEST_EMAIL: str(),
+  TEST_TWITTER_HANDLE: str(),
 })

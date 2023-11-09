@@ -2,17 +2,19 @@ import { HeaderText } from '../Text'
 import { MjmlSpacer, MjmlText } from 'mjml-react'
 import Button from '../Button'
 import Card from '../Card'
-import colors from '@/styles/colors'
-import env from '@/env'
-import values from '@/styles/values'
+import colors from '../../styles/colors'
+import env from '../../env'
+import values from '../../styles/values'
+
+interface EmailInviteCardProps {
+  email: string
+  secret: string
+}
 
 export default function EmailInviteCard({
   email,
   secret,
-}: {
-  email: string
-  secret: string
-}) {
+}: EmailInviteCardProps) {
   const domain = email.split('@')[1]
   const linkToKetlEmailVerification = `${env.KETL_ADDRESS}/email/${domain}/${secret}`
 

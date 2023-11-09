@@ -8,13 +8,14 @@ Add `.env` into project root if you need one:
 
 ### Environment variables
 
-| Name              | Description                                            |
-| ----------------- | ------------------------------------------------------ |
-| `ASSETS_ADDRESS`  | Address, where the assets (images) will be loaded from |
-| `KETL_ADDRESS`    | Web-site address to create proper email-link in button |
-| `MAILGUN_API_KEY` | Used to send test emails                               |
-| `MAILGUN_DOMAIN`  | Used to send test emails                               |
-| `TEST_EMAIL`      | Used to send test emails                               |
+| Name                  | Description                                                                      |
+| --------------------- | -------------------------------------------------------------------------------- |
+| `ASSETS_ADDRESS`      | Address, where the assets (images) will be loaded from                           |
+| `KETL_ADDRESS`        | Web-site address to create proper email-link in button                           |
+| `MAILGUN_API_KEY`     | Used to send test emails                                                         |
+| `MAILGUN_DOMAIN`      | Used to send test emails                                                         |
+| `TEST_EMAIL`          | Used to send test emails, use the one you used in the app                        |
+| `TEST_TWITTER_HANDLE` | Used to send test emails, shouldn't include `@`, use the one you used in the app |
 
 ## How to Use
 

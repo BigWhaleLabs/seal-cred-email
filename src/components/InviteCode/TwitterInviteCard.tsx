@@ -1,12 +1,12 @@
 import { HeaderText } from '../Text'
 import { MjmlSpacer, MjmlText } from 'mjml-react'
-import { ketlWaitlistLink } from '@/data'
-import AttestationType from '@/models/AttestationType'
+import AttestationType from '../../models/AttestationType'
 import Button from '../Button'
 import Card from '../Card'
-import VerificationType from '@/models/VerificationType'
-import colors from '@/styles/colors'
-import values from '@/styles/values'
+import VerificationType from '../../models/VerificationType'
+import colors from '../../styles/colors'
+import openKetl from '../../helpers/openKetlWaitlist'
+import values from '../../styles/values'
 
 export default function TwitterInviteCard({
   attestationType,
@@ -15,8 +15,10 @@ export default function TwitterInviteCard({
   attestationType: AttestationType
   twitterHandle: string
 }) {
-  const ketlAppTwitterVerification = ketlWaitlistLink({
+  const ketlAppTwitterVerification = openKetl({
     attestationType,
+    passed: true,
+    value: twitterHandle,
     verificationType: VerificationType.twitter,
   })
 

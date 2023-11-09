@@ -1,22 +1,11 @@
-function tweetWithText({
-  hashTags,
-  text,
-}: {
-  text: string
-  hashTags?: string[]
-}) {
-  const hashTagsString = hashTags?.join(',')
+const mention = '\x40'
 
-  console.log(
-    `https://twitter.com/intent/tweet?text=${text}&hashtags=${hashTagsString}`
-  )
-
-  return `https://twitter.com/intent/tweet?text=${text}&hashtags=${hashTagsString}`
+function tweetWithText({ text }: { text: string }) {
+  return `https://twitter.com/intent/tweet?text=${text}`
 }
 
 export default function tweetAnonCode(anonCode: string) {
   return tweetWithText({
-    hashTags: ['ketl', 'wtfdopeoplethink'],
-    text: `🕯🫖🕯 Summoning a @‌ketlxyz invite for myself (${anonCode})`,
+    text: `🕯🫖🕯 Summoning a ${mention}ketlxyz invite for myself (${anonCode})`,
   })
 }
