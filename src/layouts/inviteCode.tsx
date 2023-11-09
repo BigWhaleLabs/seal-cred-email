@@ -11,27 +11,20 @@ import AnonymousHeader from '../components/AnonymousHeader'
 import AttestationType from '../models/AttestationType'
 import BodyCard from '../components/BodyCard'
 import CanTrustCodes from '../components/InviteCode/CanTrustCodes'
-import EmailInviteCard from '../components/InviteCode/EmailInviteCard'
 import Footer from '../components/Footer'
 import Head from '../components/Head'
 import Header from '../components/Header'
 import HowEmailsVerified from '../components/InviteCode/HowEmailsVerified'
-import TwitterInviteCard from '../components/InviteCode/TwitterInviteCard'
-import VerificationType from '../models/VerificationType'
+import InviteCard from '../components/InviteCode/InviteCard'
 import colors from '../styles/colors'
 import values from '../styles/values'
 
-type TokenProps<Verification extends VerificationType> =
-  Verification extends VerificationType.email
-    ? {
-        attestationType: AttestationType
-        secret: string
-        email: string
-      }
-    : {
-        attestationType: AttestationType
-        twitterHandle: string
-      }
+export interface TokenProps {
+  attestationType: AttestationType
+  secret: string
+  email: string
+  twitterHandle?: string
+}
 
 const headerText = (
   <>
@@ -40,11 +33,7 @@ const headerText = (
   </>
 )
 
-function generateTokenPage<Verification extends VerificationType>(
-  props: TokenProps<Verification>
-) {
-  const usedTwitter = 'twitterHandle' in props
-
+function generateTokenPage(props: TokenProps) {
   return (
     <Mjml>
       <Head
@@ -54,11 +43,7 @@ function generateTokenPage<Verification extends VerificationType>(
       <BodyCard>
         <Header headerText={headerText} />
 
-        {usedTwitter ? (
-          <TwitterInviteCard {...props} />
-        ) : (
-          <EmailInviteCard {...props} />
-        )}
+        <InviteCard {...props} />
 
         <MjmlSpacer height={values.px32} />
 
@@ -83,8 +68,8 @@ function generateTokenPage<Verification extends VerificationType>(
   )
 }
 
-export default function <Verification extends VerificationType>(
-  props: TokenProps<Verification>,
+export default function (
+  props: TokenProps,
   options: Mjml2HtmlOptions = {
     minify: false,
     validationLevel: 'soft',

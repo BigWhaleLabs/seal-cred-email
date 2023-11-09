@@ -1,20 +1,15 @@
 import { HeaderText } from '../Text'
 import { MjmlSpacer, MjmlText } from 'mjml-react'
+import { TokenProps } from '../../layouts/inviteCode'
 import Button from '../Button'
 import Card from '../Card'
+import TwitterBlock from './TwitterBlock'
 import colors from '../../styles/colors'
 import env from '../../env'
 import values from '../../styles/values'
 
-interface EmailInviteCardProps {
-  email: string
-  secret: string
-}
-
-export default function EmailInviteCard({
-  email,
-  secret,
-}: EmailInviteCardProps) {
+export default function InviteCard(props: TokenProps) {
+  const { attestationType, email, secret, twitterHandle } = props
   const domain = email.split('@')[1]
   const linkToKetlEmailVerification = `${env.KETL_ADDRESS}/email/${domain}/${secret}`
 
@@ -60,6 +55,12 @@ export default function EmailInviteCard({
         (<strong>DO NOT</strong> Screenshot or share your invite code with
         anyone else)
       </MjmlText>
+      {!!twitterHandle && (
+        <TwitterBlock
+          attestationType={attestationType}
+          twitterHandle={twitterHandle}
+        />
+      )}
     </Card>
   )
 }

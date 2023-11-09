@@ -30,19 +30,13 @@ app.get('/waitlist', (_, res) => {
 })
 
 app.get('*', (_, res) => {
-  const twitterExample = inviteCode<VerificationType.twitter>({
-    attestationType,
-    twitterHandle: env.TEST_TWITTER_HANDLE,
-  })
-  const emailExample = inviteCode<VerificationType.email>({
+  const emailExample = inviteCode({
     attestationType,
     email: env.TEST_EMAIL,
     secret: exampleSecret,
+    twitterHandle: env.TEST_TWITTER_HANDLE,
   })
-  const { html } =
-    verificationType === VerificationType.twitter
-      ? twitterExample
-      : emailExample
+  const { html } = emailExample
 
   void sendTestEmail({ html })
 
