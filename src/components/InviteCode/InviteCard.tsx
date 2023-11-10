@@ -1,17 +1,29 @@
 import { HeaderText } from '../Text'
+import { InviteCodeProps } from '../../layouts/inviteCode'
 import { MjmlSpacer, MjmlText } from 'mjml-react'
-import { TokenProps } from '../../layouts/inviteCode'
 import Button from '../Button'
 import Card from '../Card'
 import TwitterBlock from './TwitterBlock'
 import colors from '../../styles/colors'
-import env from '../../env'
+import openKetlInviteCode from '../../helpers/openKetlInviteCode'
+import openKetlWaitlist from '../../helpers/openKetlWaitlist'
 import values from '../../styles/values'
 
-export default function InviteCard(props: TokenProps) {
-  const { attestationType, email, secret, twitterHandle } = props
-  const domain = email.split('@')[1]
-  const linkToKetlEmailVerification = `${env.KETL_ADDRESS}/email/${domain}/${secret}`
+export default function InviteCard({
+  attestationType,
+  inviteCode,
+  passedWaitlist,
+  twitterMetadata,
+  value,
+}: InviteCodeProps) {
+  const ketlLinkToVerification = passedWaitlist
+    ? openKetlWaitlist({
+        attestationType,
+        inviteCode,
+        passed: passedWaitlist,
+        value,
+      })
+    : openKetlInviteCode({ email: value, inviteCode })
 
   return (
     <Card>
@@ -19,7 +31,7 @@ export default function InviteCard(props: TokenProps) {
 
       <MjmlSpacer height={values.px16} />
 
-      <Button href={linkToKetlEmailVerification}>Activate account</Button>
+      <Button href={ketlLinkToVerification}>Activate account</Button>
 
       <MjmlSpacer height={values.px16} />
 
@@ -30,7 +42,7 @@ export default function InviteCard(props: TokenProps) {
         lineHeight={values.px18}
         mjClass="font-accent text-tertiary-dark"
       >
-        <span style={{ wordBreak: 'break-all' }}>{secret}</span>
+        <span style={{ wordBreak: 'break-all' }}>{inviteCode}</span>
       </MjmlText>
 
       <MjmlSpacer height={values.px24} />
@@ -55,10 +67,10 @@ export default function InviteCard(props: TokenProps) {
         (<strong>DO NOT</strong> Screenshot or share your invite code with
         anyone else)
       </MjmlText>
-      {!!twitterHandle && (
+      {!!twitterMetadata && passedWaitlist && (
         <TwitterBlock
           attestationType={attestationType}
-          twitterHandle={twitterHandle}
+          value={twitterMetadata.id}
         />
       )}
     </Card>

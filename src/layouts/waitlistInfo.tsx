@@ -1,6 +1,5 @@
 import { HeaderText } from '../components/Text'
 import { Mjml, Mjml2HtmlOptions, MjmlSpacer } from 'mjml-react'
-import { OpenKetlProps } from '../helpers/openKetlWaitlist'
 import { render } from 'mjml-react'
 import AnonymousHeader from '../components/AnonymousHeader'
 import AttestationType from '../models/AttestationType'
@@ -27,10 +26,11 @@ const headerText = (
   </>
 )
 
-interface TokenPageProps extends OpenKetlProps {
+interface TokenPageProps {
   anonCode: string
   value: string
   verificationType: VerificationType
+  attestationType: AttestationType
 }
 
 const generateTokenPage = (props: TokenPageProps) => {

@@ -5,17 +5,19 @@ import colors from '../../styles/colors'
 import openKetlWaitlist from '../../helpers/openKetlWaitlist'
 import values from '../../styles/values'
 
+interface TwitterBlockProps {
+  attestationType: AttestationType
+  value: string
+}
+
 export default function TwitterBlock({
   attestationType,
-  twitterHandle,
-}: {
-  attestationType: AttestationType
-  twitterHandle: string
-}) {
+  value,
+}: TwitterBlockProps) {
   const ketlAppTwitterVerification = openKetlWaitlist({
     attestationType,
     passed: true,
-    value: twitterHandle,
+    value,
     verificationType: VerificationType.twitter,
   })
 
@@ -31,8 +33,8 @@ export default function TwitterBlock({
         lineHeight={values.px16}
         mjClass="font-primary"
       >
-        You may also activate your ketl account using the X (twitter) account @
-        {twitterHandle}
+        You may also activate your ketl account using the X (twitter) account
+        you used to sign up.
       </MjmlText>
       <MjmlSpacer height={values.px16} />
       <MjmlText

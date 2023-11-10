@@ -11,10 +11,11 @@ import sendTestEmail from './helpers/sendTestEmail'
 const port = 3002
 const app = express()
 
-const exampleSecret =
+const exampleInviteCode =
   '0000000000000000000000000000000000000000000000000000000000000000000000000000:0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000'
-const attestationType = AttestationType.YC
-const verificationType = VerificationType.twitter
+const attestationType = AttestationType.Founder
+const verificationType = VerificationType.email
+const ketlXyzTwitter = { id: '1435733105554321409', username: 'ketlxyz' }
 
 app.get('/waitlist', (_, res) => {
   const { html } = waitlistInfo({
@@ -32,9 +33,10 @@ app.get('/waitlist', (_, res) => {
 app.get('*', (_, res) => {
   const emailExample = inviteCode({
     attestationType,
-    email: env.TEST_EMAIL,
-    secret: exampleSecret,
-    twitterHandle: env.TEST_TWITTER_HANDLE,
+    inviteCode: exampleInviteCode,
+    passedWaitlist: true,
+    twitterMetadata: ketlXyzTwitter,
+    value: env.TEST_EMAIL,
   })
   const { html } = emailExample
 

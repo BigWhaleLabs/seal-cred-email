@@ -8,10 +8,12 @@ export interface OpenKetlProps {
   verificationType?: VerificationType
   waitlistContext?: boolean
   passed?: boolean
+  inviteCode?: string
 }
 
 export default function ({
   attestationType,
+  inviteCode = '',
   passed = false,
   value = 'null',
   verificationType = VerificationType.email,
@@ -24,5 +26,5 @@ export default function ({
     env.KETL_ADDRESS
   }/waitlist/${verificationType}/${attestation}/${value}/${jumpToContextPage}/${Number(
     passed
-  )}`
+  )}/${inviteCode}`
 }

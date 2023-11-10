@@ -19,11 +19,12 @@ import InviteCard from '../components/InviteCode/InviteCard'
 import colors from '../styles/colors'
 import values from '../styles/values'
 
-export interface TokenProps {
+export interface InviteCodeProps {
   attestationType: AttestationType
-  secret: string
-  email: string
-  twitterHandle?: string
+  inviteCode: string
+  value: string
+  passedWaitlist: boolean
+  twitterMetadata?: { username: string; id: string }
 }
 
 const headerText = (
@@ -33,7 +34,7 @@ const headerText = (
   </>
 )
 
-function generateTokenPage(props: TokenProps) {
+function generateTokenPage(props: InviteCodeProps) {
   return (
     <Mjml>
       <Head
@@ -69,7 +70,7 @@ function generateTokenPage(props: TokenProps) {
 }
 
 export default function (
-  props: TokenProps,
+  props: InviteCodeProps,
   options: Mjml2HtmlOptions = {
     minify: false,
     validationLevel: 'soft',
