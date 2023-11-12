@@ -4,11 +4,12 @@ import { MjmlSpacer } from 'mjml-react'
 import Button from '../Button'
 import Card from '../Card'
 import colors from '../../styles/colors'
-import openKetl from '../../helpers/openKetlWaitlist'
+import openKetlWaitlist from '../../helpers/openKetlWaitlist'
 import values from '../../styles/values'
 
 interface TryEmailProps extends AttestationTypeWithNullProp {
   isYc: boolean
+  anonCode: string
 }
 
 export default function ({ isYc, ...props }: TryEmailProps) {
@@ -24,7 +25,7 @@ export default function ({ isYc, ...props }: TryEmailProps) {
           : 'Go into the app and try verifying with another email you think might be on our allowlist'}
       </BodyText>
       <MjmlSpacer height={values.px16} />
-      <Button href={openKetl(props)}>Try an email</Button>
+      <Button href={openKetlWaitlist(props)}>Try an email</Button>
     </Card>
   )
 }

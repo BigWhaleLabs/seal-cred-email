@@ -1,25 +1,16 @@
 import { MjmlDivider, MjmlSpacer, MjmlText } from 'mjml-react'
+import { openKetlWaitlistPassed } from '../../helpers/openKetlWaitlist'
 import AttestationType from '../../models/AttestationType'
-import VerificationType from '../../models/VerificationType'
 import colors from '../../styles/colors'
-import openKetlWaitlist from '../../helpers/openKetlWaitlist'
 import values from '../../styles/values'
 
 interface TwitterBlockProps {
   attestationType: AttestationType
-  value: string
+  id: string
 }
 
-export default function TwitterBlock({
-  attestationType,
-  value,
-}: TwitterBlockProps) {
-  const ketlAppTwitterVerification = openKetlWaitlist({
-    attestationType,
-    passed: true,
-    value,
-    verificationType: VerificationType.twitter,
-  })
+export default function TwitterBlock(params: TwitterBlockProps) {
+  const ketlAppTwitterVerification = openKetlWaitlistPassed(params)
 
   return (
     <>

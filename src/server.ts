@@ -16,12 +16,12 @@ const exampleInviteCode =
 const attestationType = AttestationType.Founder
 const verificationType = VerificationType.email
 const ketlXyzTwitter = { id: '1435733105554321409', username: 'ketlxyz' }
+const exampleId = 'Qtqf3G35dpfXtoqCvQ45DphEmEco5sKc'
 
 app.get('/waitlist', (_, res) => {
   const { html } = waitlistInfo({
     anonCode: 'btDa1',
     attestationType,
-    value: env.TEST_EMAIL,
     verificationType,
   })
 
@@ -33,6 +33,7 @@ app.get('/waitlist', (_, res) => {
 app.get('*', (_, res) => {
   const emailExample = inviteCode({
     attestationType,
+    id: exampleId,
     inviteCode: exampleInviteCode,
     passedWaitlist: true,
     twitterMetadata: ketlXyzTwitter,

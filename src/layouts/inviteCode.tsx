@@ -25,6 +25,7 @@ export interface InviteCodeProps {
   value: string
   passedWaitlist: boolean
   twitterMetadata?: { username: string; id: string }
+  id: string
 }
 
 const headerText = (
@@ -51,10 +52,9 @@ function generateTokenPage(props: InviteCodeProps) {
         {/* Info text */}
         <MjmlSection>
           <HowEmailsVerified attestationType={props.attestationType} />
+
           <MjmlSpacer height={values.px16} />
-
           <MjmlDivider borderColor={colors.tertiary} borderWidth={values.px} />
-
           <MjmlSpacer height={values.px16} />
 
           <CanTrustCodes />

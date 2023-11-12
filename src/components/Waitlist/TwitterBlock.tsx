@@ -3,10 +3,10 @@ import { MjmlSpacer } from 'mjml-react'
 import Button from '../Button'
 import Card from '../Card'
 import colors from '../../styles/colors'
-import openKetl, { OpenKetlProps } from '../../helpers/openKetlWaitlist'
+import openKetl, { WaitlistProps } from '../../helpers/openKetlWaitlist'
 import values from '../../styles/values'
 
-export default function (props: OpenKetlProps) {
+export default function (props: WaitlistProps) {
   return (
     <Card>
       <HeaderText>Try Verifying with X (Twitter) if you haven’t</HeaderText>

@@ -2,29 +2,33 @@ import { AttestationTypeWithNull } from '../models/AttestationType'
 import VerificationType from '../models/VerificationType'
 import env from '../env'
 
-export interface OpenKetlProps {
+export interface WaitlistProps {
   attestationType: AttestationTypeWithNull
-  value?: string
   verificationType?: VerificationType
   waitlistContext?: boolean
-  passed?: boolean
+  anonCode: string
+}
+
+export interface WaitlistPassedParams {
+  id: string
   inviteCode?: string
 }
 
-export default function ({
-  attestationType,
+export function openKetlWaitlistPassed({
+  id,
   inviteCode = '',
-  passed = false,
-  value = 'null',
+}: WaitlistPassedParams) {
+  return `${env.KETL_ADDRESS}/waitlistPassed/${id}/${inviteCode}`
+}
+
+export default function ({
+  anonCode = 'null',
+  attestationType,
   verificationType = VerificationType.email,
   waitlistContext,
-}: OpenKetlProps) {
+}: WaitlistProps) {
   const attestation = attestationType?.toString() || 'null'
   const jumpToContextPage = waitlistContext ? 1 : 0
 
-  return `${
-    env.KETL_ADDRESS
-  }/waitlist/${verificationType}/${attestation}/${value}/${jumpToContextPage}/${Number(
-    passed
-  )}/${inviteCode}`
+  return `${env.KETL_ADDRESS}/waitlist/${verificationType}/${attestation}/${anonCode}/${jumpToContextPage}`
 }

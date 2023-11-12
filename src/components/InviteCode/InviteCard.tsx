@@ -1,28 +1,24 @@
 import { HeaderText } from '../Text'
 import { InviteCodeProps } from '../../layouts/inviteCode'
 import { MjmlSpacer, MjmlText } from 'mjml-react'
+import { openKetlWaitlistPassed } from '../../helpers/openKetlWaitlist'
 import Button from '../Button'
 import Card from '../Card'
 import TwitterBlock from './TwitterBlock'
 import colors from '../../styles/colors'
 import openKetlInviteCode from '../../helpers/openKetlInviteCode'
-import openKetlWaitlist from '../../helpers/openKetlWaitlist'
 import values from '../../styles/values'
 
 export default function InviteCard({
   attestationType,
+  id,
   inviteCode,
   passedWaitlist,
   twitterMetadata,
   value,
 }: InviteCodeProps) {
   const ketlLinkToVerification = passedWaitlist
-    ? openKetlWaitlist({
-        attestationType,
-        inviteCode,
-        passed: passedWaitlist,
-        value,
-      })
+    ? openKetlWaitlistPassed({ id, inviteCode })
     : openKetlInviteCode({ email: value, inviteCode })
 
   return (
@@ -68,10 +64,7 @@ export default function InviteCard({
         anyone else)
       </MjmlText>
       {!!twitterMetadata && passedWaitlist && (
-        <TwitterBlock
-          attestationType={attestationType}
-          value={twitterMetadata.id}
-        />
+        <TwitterBlock attestationType={attestationType} id={id} />
       )}
     </Card>
   )

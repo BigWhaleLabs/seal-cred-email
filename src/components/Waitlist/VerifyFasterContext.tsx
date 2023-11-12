@@ -3,10 +3,10 @@ import { MjmlSpacer } from 'mjml-react'
 import Button from '../Button'
 import Card from '../Card'
 import colors from '../../styles/colors'
-import openKetl, { OpenKetlProps } from '../../helpers/openKetlWaitlist'
+import openKetl, { WaitlistProps } from '../../helpers/openKetlWaitlist'
 import values from '../../styles/values'
 
-type VerifyFasterProps = OpenKetlProps & { isYc: boolean }
+type VerifyFasterProps = WaitlistProps & { isYc: boolean }
 
 export default function (props: VerifyFasterProps) {
   return (

@@ -28,7 +28,6 @@ const headerText = (
 
 interface TokenPageProps {
   anonCode: string
-  value: string
   verificationType: VerificationType
   attestationType: AttestationType
 }
