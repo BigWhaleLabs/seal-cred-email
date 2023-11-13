@@ -24,7 +24,7 @@ export interface InviteCodeProps {
   inviteCode: string
   value: string
   twitterMetadata?: { username: string; id: string }
-  id: string
+  id?: string
 }
 
 const headerText = (
