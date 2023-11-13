@@ -28,11 +28,13 @@ export default function HowEmailsVerified({
 }: {
   attestationType?: AttestationType
 }) {
-  const isBoth = attestationType === undefined
-
   const isYc =
     attestationType === AttestationType.YC ||
     attestationType === AttestationType.TopYC
+  const isFounder =
+    attestationType === AttestationType.Founder ||
+    attestationType === AttestationType.TopVC ||
+    attestationType === AttestationType.VC
 
   return (
     <>
@@ -47,8 +49,9 @@ export default function HowEmailsVerified({
       </MjmlText>
       <MjmlSpacer height={values.px16} />
       <BodyText>
-        {isYc ? <YcBlock /> : <FoundersBlock />}
-        {isBoth && (
+        {isYc && <YcBlock />}
+        {isFounder && <FoundersBlock />}
+        {!isYc && !isFounder && (
           <>
             <YcBlock />
             <FoundersBlock />
