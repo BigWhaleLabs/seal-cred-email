@@ -16,11 +16,6 @@ import YcNft from '../components/Waitlist/YcNft'
 import colors from '../styles/colors'
 import values from '../styles/values'
 
-interface WaitlistProps {
-  attestationType: AttestationType
-  anonCode: string
-}
-
 const headerText = (
   <>
     <HeaderText color={colors.primaryLight}>
@@ -30,7 +25,13 @@ const headerText = (
   </>
 )
 
-const generateTokenPage = ({ anonCode, attestationType }: WaitlistProps) => {
+interface TokenPageProps {
+  anonCode: string
+  attestationType: AttestationType
+}
+
+const generateTokenPage = (props: TokenPageProps) => {
+  const { anonCode, attestationType } = props
   const isYc =
     attestationType === AttestationType.YC ||
     attestationType === AttestationType.TopYC
@@ -47,15 +48,15 @@ const generateTokenPage = ({ anonCode, attestationType }: WaitlistProps) => {
         <WaitlistHeader />
         <MjmlSpacer height={values.px32} />
 
-        <TwitterBlock attestationType={attestationType} />
+        <TwitterBlock {...props} />
         <MjmlSpacer height={values.px16} />
-        <TryEmail attestationType={attestationType} />
+        <TryEmail {...props} isYc={isYc} />
         <MjmlSpacer height={values.px16} />
         <JumpWithTweet anonCode={anonCode} />
         <MjmlSpacer height={values.px16} />
-        <VerifyFasterContext attestationType={attestationType} isYc={isYc} />
+        <VerifyFasterContext {...props} waitlistContext isYc={isYc} />
         <MjmlSpacer height={values.px16} />
-        {isYc && <YcNft />}
+        {isYc && <YcNft {...props} />}
 
         <Footer />
       </BodyCard>
@@ -64,7 +65,7 @@ const generateTokenPage = ({ anonCode, attestationType }: WaitlistProps) => {
 }
 
 export default function (
-  props: WaitlistProps,
+  props: TokenPageProps,
   options: Mjml2HtmlOptions = {
     minify: false,
     validationLevel: 'soft',
