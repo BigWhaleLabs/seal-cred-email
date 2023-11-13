@@ -32,7 +32,6 @@ app.get('*', (_, res) => {
     attestationType,
     id: exampleId,
     inviteCode: exampleInviteCode,
-    passedWaitlist: true,
     twitterMetadata: ketlXyzTwitter,
     value: env.TEST_EMAIL,
   })

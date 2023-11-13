@@ -12,11 +12,10 @@ import values from '../../styles/values'
 export default function InviteCard({
   id,
   inviteCode,
-  passedWaitlist,
   twitterMetadata,
   value,
 }: InviteCodeProps) {
-  const ketlLinkToVerification = passedWaitlist
+  const ketlLinkToVerification = id
     ? openKetlWaitlistPassed({ id, inviteCode })
     : openKetlInviteCode({ email: value, inviteCode })
 
@@ -62,7 +61,7 @@ export default function InviteCard({
         (<strong>DO NOT</strong> Screenshot or share your invite code with
         anyone else)
       </MjmlText>
-      {!!twitterMetadata && passedWaitlist && <TwitterBlock id={id} />}
+      {!!twitterMetadata && !!id && <TwitterBlock id={id} />}
     </Card>
   )
 }

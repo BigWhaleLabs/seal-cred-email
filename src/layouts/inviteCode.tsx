@@ -23,7 +23,6 @@ export interface InviteCodeProps {
   attestationType?: AttestationType
   inviteCode: string
   value: string
-  passedWaitlist: boolean
   twitterMetadata?: { username: string; id: string }
   id: string
 }
