@@ -10,7 +10,6 @@ import openKetlInviteCode from '../../helpers/openKetlInviteCode'
 import values from '../../styles/values'
 
 export default function InviteCard({
-  attestationType,
   id,
   inviteCode,
   passedWaitlist,
@@ -63,9 +62,7 @@ export default function InviteCard({
         (<strong>DO NOT</strong> Screenshot or share your invite code with
         anyone else)
       </MjmlText>
-      {!!twitterMetadata && passedWaitlist && (
-        <TwitterBlock attestationType={attestationType} id={id} />
-      )}
+      {!!twitterMetadata && passedWaitlist && <TwitterBlock id={id} />}
     </Card>
   )
 }

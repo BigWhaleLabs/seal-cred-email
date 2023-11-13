@@ -6,15 +6,33 @@ import colors from '../../styles/colors'
 import makeLink from '../../helpers/makeLink'
 import values from '../../styles/values'
 
+const YcBlock = () => (
+  <>
+    <span>
+      For YC founders, we reference the public founder database published by YC
+      on: {makeLink(ycLink, 'ycombinator.com/companies/founders')} to generate
+      an anonymity set of founders for the YC credential.
+    </span>
+    <p></p>
+  </>
+)
+const FoundersBlock = () => (
+  <>
+    <span>For founders/VCs we curate an allowlist of founder/vc emails.</span>
+    <p></p>
+  </>
+)
+
 export default function HowEmailsVerified({
   attestationType,
 }: {
-  attestationType: AttestationType
+  attestationType?: AttestationType
 }) {
+  const isBoth = attestationType === undefined
+
   const isYc =
     attestationType === AttestationType.YC ||
     attestationType === AttestationType.TopYC
-  const inlineYcLink = makeLink(ycLink, 'ycombinator.com/companies/founders')
 
   return (
     <>
@@ -29,20 +47,13 @@ export default function HowEmailsVerified({
       </MjmlText>
       <MjmlSpacer height={values.px16} />
       <BodyText>
-        {isYc ? (
-          <span>
-            For YC founders, we reference the public founder database published
-            by YC on: {inlineYcLink} to generate an anonymity set of founders
-            for the YC credential.
-          </span>
-        ) : null}
-        <p></p>
-        {isYc ? null : (
-          <span>
-            For founders/VCs we curate an allowlist of founder/vc emails.
-          </span>
+        {isYc ? <YcBlock /> : <FoundersBlock />}
+        {isBoth && (
+          <>
+            <YcBlock />
+            <FoundersBlock />
+          </>
         )}
-        <p></p>
         Ultimately, anyone can ask us to send an email to any address in the
         allowlist.<p></p>
         However, only those who own one of the email addresses in the allowlist

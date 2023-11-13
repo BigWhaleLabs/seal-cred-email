@@ -10,7 +10,6 @@ import Header from '../components/Header'
 import JumpWithTweet from '../components/Waitlist/JumpWithTweet'
 import TryEmail from '../components/Waitlist/TryEmail'
 import TwitterBlock from '../components/Waitlist/TwitterBlock'
-import VerificationType from 'models/VerificationType'
 import VerifyFasterContext from '../components/Waitlist/VerifyFasterContext'
 import WaitlistHeader from '../components/Waitlist/WaitlistHeader'
 import YcNft from '../components/Waitlist/YcNft'
@@ -28,7 +27,6 @@ const headerText = (
 
 interface TokenPageProps {
   anonCode: string
-  verificationType: VerificationType
   attestationType: AttestationType
 }
 

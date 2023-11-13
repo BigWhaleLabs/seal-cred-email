@@ -16,7 +16,7 @@ export default function (props: WaitlistProps) {
         instead using Metamask or Rainbow Wallet
       </BodyText>
       <MjmlSpacer height={values.px16} />
-      <Button href={openKetl({ ...props })}>Try YC Alum NFT</Button>
+      <Button href={openKetl(props)}>Try YC Alum NFT</Button>
     </Card>
   )
 }

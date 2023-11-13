@@ -21,10 +21,9 @@ export function openKetlWaitlistPassed({
 
 export default function ({
   anonCode = 'null',
-  verificationType = VerificationType.email,
   waitlistContext,
 }: WaitlistProps) {
   const jumpToContextPage = waitlistContext ? 1 : 0
 
-  return `${env.KETL_ADDRESS}/waitlist/${verificationType}/${anonCode}/${jumpToContextPage}`
+  return `${env.KETL_ADDRESS}/waitlist/${anonCode}/${jumpToContextPage}`
 }

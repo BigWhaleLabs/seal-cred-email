@@ -1,11 +1,9 @@
 import { MjmlDivider, MjmlSpacer, MjmlText } from 'mjml-react'
 import { openKetlWaitlistPassed } from '../../helpers/openKetlWaitlist'
-import AttestationType from '../../models/AttestationType'
 import colors from '../../styles/colors'
 import values from '../../styles/values'
 
 interface TwitterBlockProps {
-  attestationType: AttestationType
   id: string
 }
 

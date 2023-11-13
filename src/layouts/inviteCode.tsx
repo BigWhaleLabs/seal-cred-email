@@ -20,7 +20,7 @@ import colors from '../styles/colors'
 import values from '../styles/values'
 
 export interface InviteCodeProps {
-  attestationType: AttestationType
+  attestationType?: AttestationType
   inviteCode: string
   value: string
   passedWaitlist: boolean
