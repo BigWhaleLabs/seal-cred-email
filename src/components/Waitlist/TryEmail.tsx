@@ -1,4 +1,3 @@
-import { AttestationTypeWithNullProp } from '../../models/AttestationType'
 import { BodyText, HeaderText } from '../Text'
 import { MjmlSpacer } from 'mjml-react'
 import Button from '../Button'
@@ -7,7 +6,7 @@ import colors from '../../styles/colors'
 import openKetlWaitlist from '../../helpers/openKetlWaitlist'
 import values from '../../styles/values'
 
-interface TryEmailProps extends AttestationTypeWithNullProp {
+interface TryEmailProps {
   isYc: boolean
   anonCode: string
 }

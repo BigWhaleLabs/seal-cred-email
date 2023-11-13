@@ -1,6 +1,5 @@
 import { BodyText, HeaderText } from '../Text'
 import { MjmlSpacer } from 'mjml-react'
-import AttestationType from '../../models/AttestationType'
 import Button from '../Button'
 import Card from '../Card'
 import colors from '../../styles/colors'
@@ -17,11 +16,7 @@ export default function (props: WaitlistProps) {
         instead using Metamask or Rainbow Wallet
       </BodyText>
       <MjmlSpacer height={values.px16} />
-      <Button
-        href={openKetl({ ...props, attestationType: AttestationType.YC })}
-      >
-        Try YC Alum NFT
-      </Button>
+      <Button href={openKetl({ ...props })}>Try YC Alum NFT</Button>
     </Card>
   )
 }
