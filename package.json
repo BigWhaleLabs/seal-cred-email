@@ -13,7 +13,7 @@
     "pretty": "prettier --check 'src/**/*.ts'",
     "update": "yarn build && git add . && git commit -m 'update' && git push",
     "lint": "yarn pretty && eslint --max-warnings 0 ./src/",
-    "release": "np",
+    "release": "np && git push",
     "prepublishOnly": "yarn build"
   },
   "eslintConfig": {
