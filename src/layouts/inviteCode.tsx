@@ -23,7 +23,6 @@ export interface InviteCodeProps {
   attestationType?: AttestationType
   inviteCode: string
   value: string
-  twitterMetadata?: { username: string; id: string }
   idEmail: string
   idTwitter?: string
 }

@@ -34,7 +34,6 @@ app.get('*', (_, res) => {
     idEmail: exampleIdEmail,
     idTwitter: exampleIdTwitter,
     inviteCode: exampleInviteCode,
-    twitterMetadata: ketlXyzTwitter,
     value: env.TEST_EMAIL,
   })
   const { html } = emailExample

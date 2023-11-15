@@ -13,7 +13,6 @@ export default function InviteCard({
   idEmail,
   idTwitter,
   inviteCode,
-  twitterMetadata,
   value,
 }: InviteCodeProps) {
   const ketlLinkToVerification = idEmail
@@ -62,7 +61,7 @@ export default function InviteCard({
         (<strong>DO NOT</strong> Screenshot or share your invite code with
         anyone else)
       </MjmlText>
-      {!!twitterMetadata && !!idTwitter && <TwitterBlock id={idTwitter} />}
+      {!!idTwitter && <TwitterBlock id={idTwitter} />}
     </Card>
   )
 }
